@@ -26,7 +26,6 @@ const ContactMeSection = () => {
         initialValues:{firstName:"",email:"",type:"hireMe",comment:"",},//refer to input field :name="firstName"
         onSubmit:(values) =>{
             submit('https://john.com/contactme', values);//useSubmit hooks
-            console.log('Form data',values);
         },
         validationSchema: Yup.object({
             firstName: Yup.string().required("Required"),
