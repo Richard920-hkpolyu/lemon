@@ -1,24 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import About from "./components/About";
+import Card from "./components/Card";
+import Footer from "./components/Footer";
+import FullScreenSection from "./components/FullScreenSection";
+import Header from "./components/Header";
+import Homepage from "./components/Homepage";
+import Introduction from "./components/Introduction";
+import MenuSection from "./components/MenuSection";
+import OrderOnline from "./components/OrderOnline";
+import Payment from "./components/Payment";
+import Reservation from "./components/Reservation";
+import SignIn from "./components/SignIn";
+import {Routes, Route, Link} from 'react-router-dom';
 
+import { Box, HStack, Image } from "@chakra-ui/react";
+import React, { useEffect, useRef } from "react";
+import Menu from "./images/Hamburger_Menu.svg";
+import Logo from "./images/Header_Logo.svg";
+import Basket from "./images/Basket.svg";
+
+import { ChakraProvider } from "@chakra-ui/react";
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+  return(
+    <ChakraProvider>
+      <Header/>
+      <Routes>
+        <Route path="/menu-section" element={<MenuSection />}></Route>
+        <Route path="/" element={<Homepage />}></Route>
+        <Route path="/order-online" element={<OrderOnline />}></Route>
+      </Routes>
+    </ChakraProvider>
   );
 }
 
