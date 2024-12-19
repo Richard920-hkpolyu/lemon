@@ -7,6 +7,7 @@ import { extendTheme, theme as base } from "@chakra-ui/react";
 const para1="We are a family owned Mediterranean restaurant, focused on traditional recipes served with a modern twist.";
 import img1 from "../images/Intro_Restauranfood.jpg";
 import { ChevronRightIcon } from '@chakra-ui/icons'
+import {Link} from 'react-router-dom';
 
 const Introduction = () => {
     return(
@@ -24,11 +25,11 @@ const Introduction = () => {
                     <Text fontSize="xl"  color="#EDEFEE" noOfLines={3}>{para1}</Text>
                     <br/>
                     <Button bg='#F4CE14' color='#333333'>
-                        Reserve a table&nbsp; <ChevronRightIcon/>
+                        <Link to="/reservation">Reserve a table&nbsp; <ChevronRightIcon/></Link>
                     </Button>
                 </VStack>
                 <VStack>
-                    <Image src= {img1} boxSize="300px" width="sm" borderRadius="xl" fit="cover" />
+                    <Image src= {img1} width="40vw" height="40vh" borderRadius="xl" fit="cover" />
                 </VStack>
             </HStack>
         </FullScreenSection>

@@ -19,7 +19,7 @@ const Card = ({ title, description, price, imageSrc }) => {
                 <Heading size="xl" fontWeight="medium" color="#333333">{price}</Heading>
             </VStack>
             <VStack>
-                <Image width="30vw" borderRadius="xl" src={imageSrc} alt={title} boxSize="300px"fit="cover"/>
+                <Image width="40vw" height="40vh" borderRadius="xl" src={imageSrc} alt={title} fit="cover"/>
             </VStack>
         </HStack>
     );

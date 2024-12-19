@@ -57,22 +57,23 @@ const Header = () => {
             transitionDuration=".3s"
             transitionTimingFunction="ease-in-out"
             ref={headerRef}
+            zIndex="modal"
         >
             <Box color="white" maxWidth="1280px" margin="0 auto">
                 <HStack px={4} py={2} justifyContent="space-between" alignItems="center">
-                    <Menu size='md'>
+                    <Menu size='2xl'>
                         <MenuButton borderWidth='0px'>
                             <HamburgerIcon w={10} h={10} color="#333333"/>
                         </MenuButton>
-                        <MenuList color="#333333" minWidth='240px' >
+                        <MenuList color="#333333" minWidth='400px' borderWidth="2px" >
                             <MenuItem>
                                 <Link to="/reservation">Reservation</Link>
                             </MenuItem>
                             <MenuItem>
-                            Order Online
+                                <Link to="/order-online">Order Online</Link>
                             </MenuItem>
                             <MenuItem>
-                            Open Closed Tab
+                                <Link to="/order">Order</Link>
                             </MenuItem>
                             <MenuItem>
                             Open File...

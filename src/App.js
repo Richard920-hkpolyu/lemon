@@ -6,6 +6,7 @@ import Header from "./components/Header";
 import Homepage from "./components/Homepage";
 import Introduction from "./components/Introduction";
 import MenuSection from "./components/MenuSection";
+import Order from "./components/Order";
 import OrderOnline from "./components/OrderOnline";
 import Payment from "./components/Payment";
 import Reservation from "./components/Reservation";
@@ -28,6 +29,7 @@ function App() {
           <Route path="/" element={<Homepage />}></Route>
           <Route path="/reservation" element={<Reservation />}></Route>
           <Route path="/order-online" element={<OrderOnline />}></Route>
+          <Route path="/order" element={<Order />}></Route>
         </Routes>
         <Footer/>
       </AlertProvider>

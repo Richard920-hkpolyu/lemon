@@ -57,12 +57,12 @@ const MenuSection = () => {
         py={12}
         >
             <Heading size="xl" fontWeight="bold" noOfLines={1} color="#333333"id="menu-section">MENU</Heading>
-            <HStack gap="6">
-                <Button size="lg" variant="outline">Lunch</Button>
-                <Button size="lg" variant="outline">Mains</Button>
-                <Button size="lg" variant="outline">Desserts</Button>
-                <Button size="lg" variant="outline">A La Carte</Button>
-                <Button size="lg" variant="outline">Specials</Button>
+            <HStack gap="3">
+                <Button size="md" variant="outline">Lunch</Button>
+                <Button size="md" variant="outline">Mains</Button>
+                <Button size="md" variant="outline">Desserts</Button>
+                <Button size="md" variant="outline">A La Carte</Button>
+                <Button size="md" variant="outline">Specials</Button>
             </HStack>
             <VStack alignItems="start" py={6}>
                 {foods.map((food) => (

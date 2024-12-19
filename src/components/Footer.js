@@ -47,11 +47,11 @@ const Introduction = () => {
                 <VStack alignItems="start" width="10vw">
                     <Image src={Logo} width="5vw"/>
                 </VStack>
-                <VStack alignItems="start" width="40vw">
+                <VStack alignItems="start" width="35vw">
                     <Text fontSize="md"  color="#EDEFEE">© Copyright. All rights reserved.</Text>
                     <Text fontSize="md"  color="#EDEFEE">Designed and developed by Richard NG for the capstone project of the Meta front-end developer professional certificate.</Text>
                 </VStack>
-                <VStack alignItems="start" width="30vw">
+                <VStack alignItems="start" width="auto">
                     <Heading size="lg" fontWeight="bold" color="#F4CE14">Contact</Heading>
                     <Text fontSize="md"  color="#EDEFEE"><PhoneIcon/>&nbsp; + 234 9887654</Text>
                     <Text fontSize="md"  color="#EDEFEE"><PhoneIcon/>&nbsp; + 63 6378 637</Text>
