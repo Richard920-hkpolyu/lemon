@@ -66,7 +66,7 @@ const Header = () => {
                         </MenuButton>
                         <MenuList color="#333333" minWidth='240px' >
                             <MenuItem>
-                            Reservation
+                                <Link to="/reservation">Reservation</Link>
                             </MenuItem>
                             <MenuItem>
                             Order Online

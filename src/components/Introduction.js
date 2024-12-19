@@ -12,12 +12,12 @@ const Introduction = () => {
     return(
         <FullScreenSection
         justifyContent="center"
-        alignItems="center"
+        alignItems="start"
         isDarkBackground
         backgroundColor="#495E57"
         >
             <HStack px={4} py={2} >
-                <VStack alignItems="start">
+                <VStack alignItems="start" width="65vw">
                     <Heading size="3xl" fontWeight="bold" noOfLines={1} color="#F4CE14">Little Lemon</Heading>
                     <Heading size="2xl" fontWeight="semibold" noOfLines={1} color="#EDEFEE">Chicago</Heading>
                     <br/>
@@ -27,7 +27,9 @@ const Introduction = () => {
                         Reserve a table&nbsp; <ChevronRightIcon/>
                     </Button>
                 </VStack>
-                <Image src= {img1} boxSize="300px" borderRadius="full" fit="cover" />
+                <VStack>
+                    <Image src= {img1} boxSize="300px" width="sm" borderRadius="xl" fit="cover" />
+                </VStack>
             </HStack>
         </FullScreenSection>
     );

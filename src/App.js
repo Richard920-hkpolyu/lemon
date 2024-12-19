@@ -17,17 +17,20 @@ import React, { useEffect, useRef } from "react";
 import Menu from "./images/Hamburger_Menu.svg";
 import Logo from "./images/Header_Logo.svg";
 import Basket from "./images/Basket.svg";
-
+import { AlertProvider } from "./context/alertContext";
 import { ChakraProvider } from "@chakra-ui/react";
 function App() {
   return(
     <ChakraProvider>
-      <Header/>
-      <Routes>
-        <Route path="/menu-section" element={<MenuSection />}></Route>
-        <Route path="/" element={<Homepage />}></Route>
-        <Route path="/order-online" element={<OrderOnline />}></Route>
-      </Routes>
+      <AlertProvider>
+        <Header/>
+        <Routes>
+          <Route path="/" element={<Homepage />}></Route>
+          <Route path="/reservation" element={<Reservation />}></Route>
+          <Route path="/order-online" element={<OrderOnline />}></Route>
+        </Routes>
+        <Footer/>
+      </AlertProvider>
     </ChakraProvider>
   );
 }

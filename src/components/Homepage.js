@@ -8,10 +8,13 @@ const para1="We are a family owned Mediterranean restaurant, focused on traditio
 import img1 from "../images/Intro_Restauranfood.jpg";
 import { ChevronRightIcon } from '@chakra-ui/icons'
 import Introduction from "./Introduction";
-
+import MenuSection from "./MenuSection";
 const Homepage = () => {
     return(
-        <Introduction/>
+        <div>
+            <Introduction />
+            <MenuSection />
+        </div>
     );
 };
 
