@@ -14,7 +14,7 @@ import {faInstagram, faGithub, faLinkedin, faTiktok, faWhatsapp} from "@fortawes
 const socials = [
     {
         icon: faInstagram,
-        url: "",
+        url: "https://www.instagram.com/n.t.y_rc/profilecard/?igsh=aHVmbTA3a2dmZnl",
     },
     {
         icon: faWhatsapp,
@@ -22,11 +22,11 @@ const socials = [
     },
     {
         icon: faTiktok,
-        url: "",
+        url: "https://v.douyin.com/CeiJy3jyk/ 1@5.com :1pm",
     },
     {
         icon: faGithub,
-        url: "",
+        url: "https://github.com/Richard920-hkpolyu",
     },
     {
         icon: faLinkedin,

@@ -26,10 +26,10 @@ function App() {
       <AlertProvider>
         <Header/>
         <Routes>
-          <Route path="/" element={<Homepage />}></Route>
+          <Route exact path="/" element={<Homepage />}></Route>
           <Route path="/reservation" element={<Reservation />}></Route>
           <Route path="/order-online" element={<OrderOnline />}></Route>
-          <Route path="/order" element={<Order />}></Route>
+          <Route path="/order-online/order/:dish" element={<Order />}></Route>
         </Routes>
         <Footer/>
       </AlertProvider>

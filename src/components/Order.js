@@ -5,10 +5,31 @@ import { useFormik } from "formik";
 import * as Yup from 'yup';
 //MenuSection
 import MenuSection from "./MenuSection";
-import imageSrc from "../images/Brushetta.jpg";
 import img1 from "../images/Delivery.jpg";
-import { DeleteIcon, AddIcon, MinusIcon, ArrowBackIcon} from '@chakra-ui/icons'
+import {Link, useParams, useLocation } from 'react-router-dom';
+import { DeleteIcon, AddIcon, MinusIcon, ArrowBackIcon} from '@chakra-ui/icons';
+
 const Order = () => {
+    const {dish} = useParams();
+    const [count, setCount] = useState(1);
+    const [itemcount, setItemCount] = useState(3);
+    const location = useLocation();
+    const { state } = location || {};
+    const { title = "Default Title", description = "Default Description", price = 0, imageSrc = "" } = state || {};
+    const [totalprice, setTotalprice] = useState(price);
+    const handleIncrement = () => {
+        setCount(count + 1);
+      };
+    const handleDecrement = () => {
+        if (count > 0) {
+          setCount(count - 1);
+        }
+    };
+    useEffect(() => {
+        setTotalprice(() => (count * parseFloat(price.replace("$", ""))).toFixed(2));
+    }, [count]);
+    console.log("here is dish: ",dish);
+    console.log(price, description,price,imageSrc );
     return (
         <FullScreenSection
             justifyContent="center"
@@ -28,10 +49,10 @@ const Order = () => {
                 <HStack>
                     <Image width="40vw" borderRadius="xl" src={imageSrc} fit="cover"/>
                     <VStack alignItems="start" width="65vw" px={10}>
-                        <ArrowBackIcon  bgColor="#495E57" color="#EDEFEE" w={10} h={10} borderRadius="full"/>
-                        <Heading size="xl" fontWeight="semibold" color="#333333">Brushetta</Heading>
+                        <Link to="/order-online"><ArrowBackIcon  bgColor="#495E57" color="#EDEFEE" w={10} h={10} borderRadius="full"/></Link>
+                        <Heading size="xl" fontWeight="semibold" color="#333333">{title}</Heading>
                         <Text color="#333333" fontSize="lg" noOfLines={3}>
-                            Our Bruschetta is made from grilled bread that has been smeared with garlic and seasoned with salt and olive oil. Toppings of tomato, veggies, beans, cured pork, or cheese are examples of variations. In Italy, a brustolina grill is frequently used to create bruschetta.
+                            {description}
                         </Text>
                         <HStack>
                             <VStack width="30vw" alignItems="start">
@@ -61,12 +82,12 @@ const Order = () => {
                             </HStack>
                         </VStack>
                         <HStack alignSelf="center" gap={10} py={3}>
-                            <MinusIcon color="#333333"/>
-                            <Text color="#333333" fontSize="lg">1</Text>
-                            <AddIcon color="#333333"/>
+                            <Button onClick={handleDecrement}><MinusIcon color="#333333" /></Button>
+                            <Text color="#333333" fontSize="lg">{count}</Text>
+                            <Button onClick={handleIncrement}><AddIcon color="#333333" /></Button>
                         </HStack>
                         <Button bg='#F4CE14' color='#333333' alignSelf="center" width="full">
-                            Add For $7.99
+                            ${totalprice}
                         </Button>
                         <br/>
                     </VStack>

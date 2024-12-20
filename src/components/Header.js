@@ -5,9 +5,9 @@ import { Box, HStack, VStack, Image, Menu,
     MenuItemOption,
     MenuGroup,
     MenuOptionGroup,
-    MenuDivider, CloseButton } from "@chakra-ui/react";
+    MenuDivider, CloseButton, useDisclosure, Button } from "@chakra-ui/react";
 import { HamburgerIcon } from '@chakra-ui/icons'
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, } from "react";
 import Logo from "../images/Header_Logo.svg";
 import Basket from "../images/Basket.svg";
 import {Link} from 'react-router-dom';
@@ -44,7 +44,7 @@ const Header = () => {
             });
         }
     };
-
+    const { isOpen, onOpen, onClose } = useDisclosure();
     return (
         <Box
             position="fixed"
@@ -60,23 +60,28 @@ const Header = () => {
             zIndex="modal"
         >
             <Box color="white" maxWidth="1280px" margin="0 auto">
-                <HStack px={4} py={2} justifyContent="space-between" alignItems="center">
-                    <Menu size='2xl'>
-                        <MenuButton borderWidth='0px'>
-                            <HamburgerIcon w={10} h={10} color="#333333"/>
+                <HStack py={2} justifyContent="space-between" alignItems="center">
+                    <Menu isOpen={isOpen}>
+                        <MenuButton
+                            as={Button}
+                            borderWidth='0px'
+                            onMouseEnter={onOpen}
+                            onMouseLeave={onClose}
+                        >
+                            <HamburgerIcon w={12} h={12} color="#333333"/>
                         </MenuButton>
-                        <MenuList color="#333333" minWidth='400px' borderWidth="2px" >
+                        <MenuList transitionDuration=".3s"transitionTimingFunction="ease-in-out" paddingBottom={5} color="#333333" minWidth='400px' borderWidth="1px" onMouseEnter={onOpen} onMouseLeave={onClose} onClick={onClose}>
                             <MenuItem>
-                                <Link to="/reservation">Reservation</Link>
+                                <Link to="/">Homepage</Link>
                             </MenuItem>
                             <MenuItem>
-                                <Link to="/order-online">Order Online</Link>
+                            <Link to="/reservation">Reserve a Table</Link>
                             </MenuItem>
                             <MenuItem>
-                                <Link to="/order">Order</Link>
+                            <Link to="/order-online">Order Online</Link>
                             </MenuItem>
                             <MenuItem>
-                            Open File...
+                                Sign In
                             </MenuItem>
                         </MenuList>
                     </Menu>
