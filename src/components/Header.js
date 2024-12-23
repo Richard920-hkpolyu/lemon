@@ -1,11 +1,7 @@
-import { Box, HStack, VStack, Image, Menu,
+import { Box, HStack, Image, Menu,
     MenuButton,
     MenuList,
-    MenuItem,
-    MenuItemOption,
-    MenuGroup,
-    MenuOptionGroup,
-    MenuDivider, CloseButton, useDisclosure, Button } from "@chakra-ui/react";
+    MenuItem, useDisclosure, Button } from "@chakra-ui/react";
 import { HamburgerIcon } from '@chakra-ui/icons'
 import React, { useEffect, useRef, } from "react";
 import Logo from "../images/Header_Logo.svg";

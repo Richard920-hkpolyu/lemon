@@ -1,9 +1,6 @@
-import { Box, HStack, Avatar, Heading, VStack, Flex, Button, FormControl, FormErrorMessage, FormLabel, Input, Select, Textarea, Text, Image, AlertDialog, AlertDialogBody, AlertDialogContent, AlertDialogHeader, AlertDialogOverlay } from "@chakra-ui/react";
-import React, { useEffect, useRef, useState } from "react";
+import { HStack, Heading, VStack, Image,  } from "@chakra-ui/react";
+import React from "react";
 import FullScreenSection from "./FullScreenSection";
-import { useFormik } from "formik";
-import * as Yup from 'yup';
-//MenuSection
 import MenuSection from "./MenuSection";
 import img1 from "../images/Delivery.jpg";
 const OrderOnline = () => {

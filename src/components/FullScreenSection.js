@@ -1,7 +1,5 @@
-import { Box, HStack, Avatar, Heading, VStack, Flex, Button, FormControl, FormErrorMessage, FormLabel, Input, Select, Textarea, Text, Image, AlertDialog, AlertDialogBody, AlertDialogContent, AlertDialogHeader, AlertDialogOverlay } from "@chakra-ui/react";
-import React, { useEffect, useRef, useState } from "react";
-import { useFormik } from "formik";
-import * as Yup from 'yup';
+import { VStack } from "@chakra-ui/react";
+import React from "react";
 
 const FullScreenSection = ({ children, isDarkBackground, ...boxProps }) => {
     return (
