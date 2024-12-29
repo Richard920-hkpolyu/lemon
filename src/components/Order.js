@@ -11,7 +11,7 @@ const Order = () => {
     const [itemcount, setItemCount] = useState(3);
     const location = useLocation();
     const { state } = location || {};
-    const { title = "Default Title", description = "Default Description", price = 0, imageSrc = "" } = state || {};
+    const { id=0, title = "Default Title", category="Default Category", type="Default Type", monthly=0 ,description = "Default Description", price = 0, imageSrc = "" } = state || {};
     const [totalprice, setTotalprice] = useState(price);
     const handleIncrement = () => {
         setCount(count + 1);
@@ -24,8 +24,7 @@ const Order = () => {
     useEffect(() => {
         setTotalprice(() => (count * parseFloat(price.replace("$", ""))).toFixed(2));
     }, [count]);
-    console.log("here is dish: ",dish);
-    console.log(price, description,price,imageSrc );
+    console.log(id, title, category, type, monthly, description,price,imageSrc );
     return (
         <FullScreenSection
             justifyContent="center"
@@ -43,7 +42,7 @@ const Order = () => {
             </HStack>
             <VStack borderWidth="1px" alignItems="left" width="auto" backgroundColor="#EDEFEE">
                 <HStack>
-                    <Image width="40vw" borderRadius="xl" src={imageSrc} fit="cover"/>
+                    <Image width="40vw" maxHeight="80vh" borderRadius="xl" src={imageSrc} fit="cover"/>
                     <VStack alignItems="start" width="65vw" px={10}>
                         <Link to="/order-online"><ArrowBackIcon  bgColor="#495E57" color="#EDEFEE" w={10} h={10} borderRadius="full"/></Link>
                         <Heading size="xl" fontWeight="semibold" color="#333333">{title}</Heading>
@@ -54,11 +53,11 @@ const Order = () => {
                             <VStack width="30vw" alignItems="start">
                                 <HStack>
                                     <Image src= {img1} width="50px" height="50px" fit="cover" />
-                                    <Text color="#333333" fontSize="md">Delivery Elasp: <p style={{ fontWeight:'bold', paddingLeft:'30px' }}>20 minutes</p></Text>
+                                    <Text color="#333333" fontSize="md">Delivery Elasp: 20 minutes</Text>
                                 </HStack>
                             </VStack>
                         </HStack>
-                        <p/><p/>
+                        <br/>
                         <Heading size="md" fontWeight="semibold" color="#333333" >Add</Heading>
                         <VStack alignItems="start">
                             <HStack>

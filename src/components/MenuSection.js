@@ -1,47 +1,62 @@
-import { HStack, Heading, VStack, Button } from "@chakra-ui/react";
-import React from "react";
+import { HStack, Heading, VStack, Button, ButtonGroup, SimpleGrid } from "@chakra-ui/react";
+import React, { useEffect, useState,  } from "react";
 import FullScreenSection from "./FullScreenSection";
 import Card from "./Card.js";
-
-const foods = [
-    {
-      title: "Greek Salad",
-      description:
-        "The famous greek salad of crispy lettuce, peppers, olives and our Chicago style feta cheese, garnished with crunchy garlic and rosemary croutons. ",
-      price: "$12.99",
-      getImageSrc: () => require("../images/GreekSalad.jpg"),
-    },
-    {
-      title: "Brushetta",
-      description:
-        "Our Bruschetta is made from grilled bread that has been smeared with garlic and seasoned with salt and olive oil. Toppings of tomato, veggies, beans, cured pork, or cheese are examples of variations. In Italy, a brustolina grill is frequently used to create bruschetta.",
-        price: "$7.99",
-      getImageSrc: () => require("../images/Brushetta.jpg"),
-    },
-    {
-      title: "Grilled Fish",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sed cursus.",
-        price: "$20.00",
-      getImageSrc: () => require("../images/GrilledFish.jpg"),
-    },
-    {
-      title: "Pasta",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquet nec in ornare.",
-        price: "$18.99",
-      getImageSrc: () => require("../images/Pasta.jpg"),
-    },
-    {
-        title: "Lemon Dessert",
-        description:
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla odio enim vitae.",
-          price: "$6.99",
-        getImageSrc: () => require("../images/Lemon_Dessert.jpg"),
-    },
-  ];
+import { fooditems, } from "../utils/data";
 
 const MenuSection = () => {
+
+    //buttonElement.style.backgroundColor = "#495E57" ;
+    //buttonElement.style.color = "#495E57" ;
+    const [foodList, setFoodList] = useState([]);
+    const [bool, setBool] = useState("all");
+    const buttons = [
+        { id: 1, type: "All" },
+        { id: 2, type: "Main" },
+        { id: 3, type: "A La Carte" },
+        { id: 4, type: "Dessert" },
+        { id: 5, type: "Drink" },
+    ];
+    const handleFilter = (type) => {
+        let filterdList;
+        if (type === "All") {
+          setBool("all");
+          filterdList = fooditems
+              .sort((a, b) => a.id - b.id);
+          setFoodList(fooditems);
+        } else if (type === "Main") {
+            setBool("main");
+            filterdList = fooditems
+              .filter((item) => item.category === "main")
+              .sort((a, b) => a.id - b.id);
+            setFoodList(filterdList);
+        } else if (type === "A La Carte") {
+          setBool("a la carte");
+          filterdList = fooditems
+            .filter((item) => item.category === "a la carte")
+            .sort((a, b) => a.id - b.id);
+          setFoodList(filterdList);
+        } else if (type === "Dessert") {
+          setBool("dessert");
+          filterdList = fooditems
+            .filter(
+              (item) => item.category === "dessert"
+            )
+            .sort((a, b) => a.id - b.id);
+          setFoodList(filterdList);
+        }else {
+            setBool("drink");
+            filterdList = fooditems
+              .filter((item) => item.category === "drink")
+              .sort((a, b) => a.id - b.id);
+            setFoodList(filterdList);
+        }
+    };
+
+    useEffect(() => {
+        setFoodList(fooditems);
+    }, []);
+
     return(
         <FullScreenSection
         justifyContent="center"
@@ -51,24 +66,36 @@ const MenuSection = () => {
         py={12}
         >
             <Heading size="xl" fontWeight="bold" noOfLines={1} color="#333333"id="menu-section">MENU</Heading>
-            <HStack gap="3">
-                <Button size="md" variant="outline">Lunch</Button>
-                <Button size="md" variant="outline">Mains</Button>
-                <Button size="md" variant="outline">Desserts</Button>
-                <Button size="md" variant="outline">A La Carte</Button>
-                <Button size="md" variant="outline">Specials</Button>
-            </HStack>
-            <VStack alignItems="start" py={6}>
-                {foods.map((food) => (
+            <ButtonGroup gap="3">
+                {buttons.map((item) => {
+                    return (
+                    <Button
+                      size="md"
+                      variant="outline"
+                      key={item.id}
+                      _hover={{ bg: "#495E57", color:"#EDEFEE"}}
+                      onClick={() => handleFilter(item.type)}
+                    >
+                        {item.type}
+                    </Button>
+                    );
+                })}
+            </ButtonGroup>
+            <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10}>
+                {foodList.map((food) => (
                     <Card
-                        key={food.title}
+                        key={food.id}
+                        id={food.id}
                         title={food.title}
+                        category={food.category}
+                        type={food.type}
+                        monthly={food.monthly}
                         description={food.description}
                         price={food.price}
                         imageSrc={food.getImageSrc()}
                     />
                 ))}
-            </VStack>
+            </SimpleGrid>
         </FullScreenSection>
     );
 };

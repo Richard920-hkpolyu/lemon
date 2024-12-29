@@ -5,8 +5,20 @@ import { useFormik } from "formik";
 import * as Yup from 'yup';
 import useSubmit from "../hooks/useSubmit";
 import {useAlertContext} from "../context/alertContext";
-import img1 from "../images/Intro_Restauranfood.jpg";
+import img1 from "../images/small/Intro_Restaurantfood.jpg";
 //import { Radio, RadioGroup } from "@/components/ui/radio"
+
+const getCurrentDate = () => {
+    const today = new Date();
+    const year = today.getFullYear();
+    let month = today.getMonth() + 1;
+    let day = today.getDate();
+    // Add leading zero if month or day is single digit
+    month = month < 10 ? `0${month}` : month;
+    day = day < 10 ? `0${day}` : day;
+    return `${year}-${month}-${day}`;
+};
+
 const Reservation = () => {
     const {isLoading, response, submit} = useSubmit();
     const { onOpen } = useAlertContext();
@@ -17,7 +29,7 @@ const Reservation = () => {
             submit('https://john.com/contactme', values);//useSubmit hooks
         },
         validationSchema: Yup.object({
-            date: Yup.date().required("Required").min(new Date(), "Date cannot be in the past"),
+            date: Yup.date().required("Required"),
             time: Yup.string().required("Required"),
         }),
 
@@ -51,6 +63,7 @@ const Reservation = () => {
                                     id="date"
                                     name="date"
                                     type="date"
+                                    min={getCurrentDate()}
                                     {...formik.getFieldProps("date")}
                                 />
                                 <FormErrorMessage>{formik.errors.date}</FormErrorMessage>

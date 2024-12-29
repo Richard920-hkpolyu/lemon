@@ -2,7 +2,7 @@ import { HStack, Heading, VStack, Button, Text, Image } from "@chakra-ui/react";
 import React from "react";
 import FullScreenSection from "./FullScreenSection";
 const para1="We are a family owned Mediterranean restaurant, focused on traditional recipes served with a modern twist.";
-import img1 from "../images/Intro_Restauranfood.jpg";
+import img1 from "../images/small/Intro_Restaurantfood.jpg";
 import { ChevronRightIcon } from '@chakra-ui/icons'
 import {Link} from 'react-router-dom';
 

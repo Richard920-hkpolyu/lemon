@@ -4,30 +4,7 @@ import FullScreenSection from "./FullScreenSection";
 import { PhoneIcon, EmailIcon } from '@chakra-ui/icons'
 import Logo from "../images/footer_logo.jpg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {faInstagram, faGithub, faLinkedin, faTiktok, faWhatsapp} from "@fortawesome/free-brands-svg-icons";
-
-const socials = [
-    {
-        icon: faInstagram,
-        url: "https://www.instagram.com/n.t.y_rc/profilecard/?igsh=aHVmbTA3a2dmZnl",
-    },
-    {
-        icon: faWhatsapp,
-        url: "",
-    },
-    {
-        icon: faTiktok,
-        url: "https://v.douyin.com/CeiJy3jyk/ 1@5.com :1pm",
-    },
-    {
-        icon: faGithub,
-        url: "https://github.com/Richard920-hkpolyu",
-    },
-    {
-        icon: faLinkedin,
-        url: "",
-    },
-];
+import { socials, } from "../utils/data";
 
 const Introduction = () => {
     return(
