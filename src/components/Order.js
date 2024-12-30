@@ -4,15 +4,16 @@ import FullScreenSection from "./FullScreenSection";
 import img1 from "../images/Delivery.jpg";
 import {Link, useParams, useLocation } from 'react-router-dom';
 import { DeleteIcon, AddIcon, MinusIcon, ArrowBackIcon} from '@chakra-ui/icons';
-
+import { useScreenSize } from "../context/ScreenSizeContext";
 const Order = () => {
     const {dish} = useParams();
-    const [count, setCount] = useState(1);
+    const [count, setCount] = useState(0);
     const [itemcount, setItemCount] = useState(3);
     const location = useLocation();
     const { state } = location || {};
     const { id=0, title = "Default Title", category="Default Category", type="Default Type", monthly=0 ,description = "Default Description", price = 0, imageSrc = "" } = state || {};
     const [totalprice, setTotalprice] = useState(price);
+    const { modifyItems, items, } = useScreenSize();
     const handleIncrement = () => {
         setCount(count + 1);
       };
@@ -25,6 +26,21 @@ const Order = () => {
         setTotalprice(() => (count * parseFloat(price.replace("$", ""))).toFixed(2));
     }, [count]);
     console.log(id, title, category, type, monthly, description,price,imageSrc );
+
+    const findCountById = (items, id) => {
+        const item = items.find((item) => item.id === id);
+        return item ? item.count : undefined;
+    };
+
+    useEffect(() => {
+            modifyItems(id, count);
+        }, [id,count]);
+
+    useEffect(() => {
+            const foundCount = findCountById(items, id);
+            setCount(foundCount !== undefined ? foundCount : 0);
+    },[]);
+
     return (
         <FullScreenSection
             justifyContent="center"

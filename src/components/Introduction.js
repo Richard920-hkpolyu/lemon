@@ -21,9 +21,7 @@ const Introduction = () => {
                     <br/>
                     <Text fontSize="xl"  color="#EDEFEE" noOfLines={3}>{para1}</Text>
                     <br/>
-                    <Button bg='#F4CE14' color='#333333'>
-                        <Link to="/reservation">Reserve a table&nbsp; <ChevronRightIcon/></Link>
-                    </Button>
+                    <Link to="/reservation"><Button colorScheme="yellow" width="xs"><span style={{ color: '#333333' }}>Reserve a table&nbsp; <ChevronRightIcon/></span></Button></Link>
                 </VStack>
                 <VStack>
                     <Image src= {img1} width="40vw" height="40vh" borderRadius="xl" fit="cover" />

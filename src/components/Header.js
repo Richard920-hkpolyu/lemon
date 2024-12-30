@@ -3,12 +3,15 @@ import { Box, HStack, Image, Menu,
     MenuList,
     MenuItem, useDisclosure, Button } from "@chakra-ui/react";
 import { HamburgerIcon } from '@chakra-ui/icons'
-import React, { useEffect, useRef, } from "react";
+import React, { useEffect, useRef, useState} from "react";
 import Logo from "../images/Header_Logo.svg";
 import Basket from "../images/Basket.svg";
 import {Link} from 'react-router-dom';
+import { useScreenSize } from "../context/ScreenSizeContext";
+
 const Header = () => {
     const headerRef = useRef(null);
+    const [cartCount, setCartCount] = useState(0);
     useEffect(() => {
         let prevScrollPos = window.scrollY;
         const handleScroll = () => {
@@ -41,6 +44,15 @@ const Header = () => {
         }
     };
     const { isOpen, onOpen, onClose } = useDisclosure();
+    const { items, } = useScreenSize();
+    const totalCount = (items) => {
+        return items.reduce((total, item) => total + item.count, 0);
+    };
+    useEffect(() => {
+        setCartCount(totalCount(items))
+        console.log("cartCount",cartCount)
+    },[items]);
+
     return (
         <Box
             position="fixed"
@@ -82,7 +94,14 @@ const Header = () => {
                         </MenuList>
                     </Menu>
                     <Link to="/"><Image src={Logo}/></Link>
-                    <Link to="/order-online"><Image src={Basket}/></Link>
+                    <Link to="/cart">
+                        <HStack>
+                            <Image src={Basket}/>
+                            {cartCount > 0 ? (
+                                <span style={{ color: "#EDEFEE", padding: "0.1rem 0.45rem 0.2rem", top:"-1rem", right:"-0.01rem", backgroundColor: "#FC2063", borderRadius:"9px 8px 8px 0px", fontSize:"1rem", fontWeight:"bold", position:"relative", }}>{cartCount}</span>
+                            ) : null}
+                        </HStack>
+                    </Link>
                 </HStack>
             </Box>
         </Box>

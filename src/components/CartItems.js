@@ -3,7 +3,7 @@ import React, { useEffect, useState,  } from "react";
 import { useNavigate,  } from "react-router-dom";
 import { DeleteIcon, AddIcon, MinusIcon, ArrowBackIcon} from '@chakra-ui/icons';
 import { useScreenSize } from "../context/ScreenSizeContext";
-const Card = ({ id, title, category, type, monthly, description, price, imageSrc }) => {
+const CartItems = ({ id, title, category, type, monthly, description, price, imageSrc }) => {
     const dataToPass = {
         id: id,
         title: title,
@@ -54,38 +54,36 @@ const Card = ({ id, title, category, type, monthly, description, price, imageSrc
             borderWidth="1px"
             borderRadius="md"
             _hover={{borderWidth: "0 4px 8px 2px", borderColor:"#DADEDD"}}
+            justify="space-between"
+            align="center"
+            width="100%"
         >
-            <VStack alignItems="start" width="65vw">
-                <Heading size="xl" fontWeight="semibold" color="#333333" onClick={handleNavigate}>{title}</Heading>
+            <VStack>
+                <Image width="25vw" height="25vh" borderRadius="xl" src={imageSrc} alt={title} fit="cover" onClick={handleNavigate}/>
+            </VStack>
+            <VStack alignItems="start" width="40vw"px={10}>
+                <Heading size="lg" fontWeight="semibold" color="#333333" onClick={handleNavigate}>{title}</Heading>
                 <Text color="#333333" fontSize="lg" noOfLines={3}>
-                    {description}
+                    {type}
                 </Text>
                 <Flex justify="space-between" align="center" width="100%">
-                    <Heading size="lg" fontWeight="medium" color="#333333">{price}</Heading>
                     {count > 0 && true ? (
                         <HStack alignSelf="center" gap={10}>
-                            <Button onClick={handleDecrement}><MinusIcon color="#333333" /></Button>
+                            <Button onClick={handleDecrement}><DeleteIcon color="#333333" /></Button>
                             <Text color="#333333" fontSize="lg">{count}</Text>
                             <Button onClick={handleIncrement}><AddIcon color="#333333" /></Button>
                         </HStack>
                     ) : (
-                        <Button colorScheme="yellow" width="50%" onClick={handleIncrement}><span style={{ color: '#333333' }}>&nbsp;Add +&nbsp;</span></Button>
+                        null
                     )}
                 </Flex>
             </VStack>
-            <VStack>
-                <Image width="40vw" height="40vh" borderRadius="xl" src={imageSrc} alt={title} fit="cover" onClick={handleNavigate}/>
+            <VStack px={10}>
+                <Heading size="lg" fontWeight="semibold" color="#FC2063">{price}</Heading>
             </VStack>
         </HStack>
 
     );
 };
 
-export default Card;
-//<Button colorScheme="yellow" width="50%" ><span style={{ color: '#333333' }}>&nbsp;Add +&nbsp;</span></Button>
-/*
-<br/>
-                            <Button onClick={() => {deleteItems(id, count);}}><MinusIcon color="#333333" /></Button>
-                            <Text color="#333333" fontSize="lg">{itemCount}</Text>
-                            <Button onClick={() => {addItems(id, count);}}><AddIcon color="#333333" /></Button>
-*/
+export default CartItems;
