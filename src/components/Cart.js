@@ -103,13 +103,8 @@ const Cart = () => {
                             <Heading size="md" fontWeight="thin" noOfLines={1} color="#333333">${totalPrice.toFixed(2)}</Heading>
                             <Heading size="md" fontWeight="thin" noOfLines={1} color="#333333">Delivery Charges:</Heading>
                             <Heading size="md" fontWeight="thin" noOfLines={1} color="#333333">${deliveryPrice(totalCount)}</Heading>
-                        </SimpleGrid>
-                        <br/>
-                        <Divider orientation='horizontal' variant="solid" borderRadius="lg" borderColor="#495E57"/>
-                        <br/>
-                        <SimpleGrid columns={{ base: 2, md: 2 }} spacing={20} alignSelf="start">
-                            <Heading size="lg" fontWeight="semibold" noOfLines={1} color="#333333">Order Total:</Heading>
-                            <Heading size="lg" fontWeight="semibold" noOfLines={1} color="#FC2063">${(totalPrice+deliveryPrice(totalCount)).toFixed(2)}</Heading>
+                            <Heading size="md" fontWeight="semibold" noOfLines={1} color="#333333">Order Total:</Heading>
+                            <Heading size="md" fontWeight="semibold" noOfLines={1} color="#FC2063">${(totalPrice+deliveryPrice(totalCount)).toFixed(2)}</Heading>
                         </SimpleGrid>
                     </VStack>
                     <HStack minWidth="41vw">
