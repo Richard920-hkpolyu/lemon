@@ -18,11 +18,17 @@ const CartItems = ({ id, title, category, type, monthly, description, price, ima
     const handleNavigate = () => {
         navigate(`/order-online/order/${title}`, { state: dataToPass });
     };
-    const [count, setCount] = useState(0);
+    const findCountById = (items, id) => {
+        const item = items.find((item) => item.id === id);
+        return item ? item.count : undefined;
+    };
+    const { modifyItems, items } = useScreenSize();
+    const foundCount = findCountById(items, id);
+    const [count, setCount] = useState(foundCount !== undefined ? foundCount : 0);
 
     const handleIncrement = () => {
         setCount(count + 1);
-      };
+    };
     const handleDecrement = () => {
         if (count > 0) {
           setCount(count - 1);
@@ -30,21 +36,18 @@ const CartItems = ({ id, title, category, type, monthly, description, price, ima
     };
 
     //const { screenWidth } = useScreenSize().screenSize;
-    const { modifyItems, items } = useScreenSize();
 
     useEffect(() => {
-        modifyItems(id, count);
-    }, [id,count]);
+        //console.log("count",count);
+        modifyItems(id, count);//rerender *2
+    }, [id, count]);//rerender
 
-    const findCountById = (items, id) => {
-        const item = items.find((item) => item.id === id);
-        return item ? item.count : undefined;
-    };
 
-    useEffect(() => {
-        const foundCount = findCountById(items, id);
-        setCount(foundCount !== undefined ? foundCount : 0);
-    },[]);
+
+    // useEffect(() => {
+    //     //const foundCount = findCountById(items, id);
+    //     //setCount(foundCount !== undefined ? foundCount : 0);
+    // },[]);
 
     return(
         <HStack
@@ -53,7 +56,7 @@ const CartItems = ({ id, title, category, type, monthly, description, price, ima
             cursor="pointer"
             borderWidth="1px"
             borderRadius="md"
-            _hover={{borderWidth: "0 4px 8px 2px", borderColor:"#DADEDD"}}
+            _hover={{borderWidth: "0 0 4px 2px", borderColor:"#DADEDD"}}
             justify="space-between"
             align="center"
             width="100%"
@@ -74,12 +77,12 @@ const CartItems = ({ id, title, category, type, monthly, description, price, ima
                             <Button onClick={handleIncrement}><AddIcon color="#333333" /></Button>
                         </HStack>
                     ) : (
-                        null
+                        console.log(`you remove the item ${title}`)
                     )}
                 </Flex>
             </VStack>
             <VStack px={10}>
-                <Heading size="lg" fontWeight="semibold" color="#FC2063">{price}</Heading>
+                <Heading size="lg" fontWeight="semibold" color="#FC2063">{(parseFloat(price.replace("$", ""))*count).toFixed(2)}</Heading>
             </VStack>
         </HStack>
 

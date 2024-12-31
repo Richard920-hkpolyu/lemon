@@ -7,13 +7,20 @@ import { DeleteIcon, AddIcon, MinusIcon, ArrowBackIcon} from '@chakra-ui/icons';
 import { useScreenSize } from "../context/ScreenSizeContext";
 const Order = () => {
     const {dish} = useParams();
-    const [count, setCount] = useState(0);
-    const [itemcount, setItemCount] = useState(3);
+    const findCountById = (items, id) => {
+        const item = items.find((item) => item.id === id);
+        return item ? item.count : undefined;
+    };
+    const { modifyItems, items, } = useScreenSize();
     const location = useLocation();
     const { state } = location || {};
     const { id=0, title = "Default Title", category="Default Category", type="Default Type", monthly=0 ,description = "Default Description", price = 0, imageSrc = "" } = state || {};
+    const foundCount = findCountById(items, id);
+
+    const [count, setCount] = useState(foundCount !== undefined ? foundCount : 0);
+    const [itemcount, setItemCount] = useState(3);
     const [totalprice, setTotalprice] = useState(price);
-    const { modifyItems, items, } = useScreenSize();
+    
     const handleIncrement = () => {
         setCount(count + 1);
       };
@@ -25,21 +32,18 @@ const Order = () => {
     useEffect(() => {
         setTotalprice(() => (count * parseFloat(price.replace("$", ""))).toFixed(2));
     }, [count]);
-    console.log(id, title, category, type, monthly, description,price,imageSrc );
+    //console.log(id, title, category, type, monthly, description,price,imageSrc );
 
-    const findCountById = (items, id) => {
-        const item = items.find((item) => item.id === id);
-        return item ? item.count : undefined;
-    };
+    
 
     useEffect(() => {
             modifyItems(id, count);
-        }, [id,count]);
+    }, [id,count]);
 
-    useEffect(() => {
-            const foundCount = findCountById(items, id);
-            setCount(foundCount !== undefined ? foundCount : 0);
-    },[]);
+    // useEffect(() => {
+            
+    //         setCount();
+    // },[]);
 
     return (
         <FullScreenSection

@@ -8,7 +8,7 @@ const MenuSection = () => {
 
     //buttonElement.style.backgroundColor = "#495E57" ;
     //buttonElement.style.color = "#495E57" ;
-    const [foodList, setFoodList] = useState([]);
+    const [foodList, setFoodList] = useState(fooditems);
     const [bool, setBool] = useState("all");
     const buttons = [
         { id: 1, type: "All" },
@@ -53,9 +53,9 @@ const MenuSection = () => {
         }
     };
 
-    useEffect(() => {
-        setFoodList(fooditems);
-    }, [fooditems]);
+    // useEffect(() => {
+    //     setFoodList(fooditems);
+    // }, [fooditems]);
 
     return(
         <FullScreenSection

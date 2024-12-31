@@ -4,7 +4,9 @@ import FullScreenSection from "./FullScreenSection";
 import Cart from "./Cart.js";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {faOpencart} from "@fortawesome/free-brands-svg-icons";
-const CartPage = () => {
+import { faBowlFood, faUser } from '@fortawesome/free-solid-svg-icons';
+import Reservation from "./Reservation.js";
+const ReservationPage = () => {
     return (
         <div>
             <FullScreenSection
@@ -17,15 +19,15 @@ const CartPage = () => {
                 <HStack>
                     <VStack alignItems="start" width="65vw">
                         <br/><br/>
-                        <Heading size="2xl" fontWeight="semibold" noOfLines={1} color="#F4CE14">CART FOR DELIVERY!</Heading>
-                        <Heading size="xl" fontWeight="medium" noOfLines={1} color="#EDEFEE">Final Check!</Heading>
+                        <Heading size="2xl" fontWeight="semibold" noOfLines={1} color="#F4CE14">Reservation</Heading>
                     </VStack>
-                    <VStack width="30vw"><br/><br/><FontAwesomeIcon icon={faOpencart} size="6x"/></VStack>
+                    <VStack width="30vw"><br/><br/><FontAwesomeIcon icon={faBowlFood} size="6x"/></VStack>
                 </HStack>
             </FullScreenSection>
-            <Cart />
+            <Reservation />
         </div>
     );
 };
 
-export default CartPage;
+export default ReservationPage;
+//<FontAwesomeIcon icon={faUser} />

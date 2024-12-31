@@ -14,11 +14,18 @@ const Card = ({ id, title, category, type, monthly, description, price, imageSrc
         price: price,
         imageSrc: imageSrc,
     };
+    const { modifyItems, items } = useScreenSize();
+    const findCountById = (items, id) => {
+        const item = items.find((item) => item.id === id);
+        return item ? item.count : undefined;
+    };
+    const foundCount = findCountById(items, id);
+
     const navigate = useNavigate();
     const handleNavigate = () => {
         navigate(`/order-online/order/${title}`, { state: dataToPass });
     };
-    const [count, setCount] = useState(0);
+    const [count, setCount] = useState(foundCount !== undefined ? foundCount : 0);
 
     const handleIncrement = () => {
         setCount(count + 1);
@@ -30,21 +37,19 @@ const Card = ({ id, title, category, type, monthly, description, price, imageSrc
     };
 
     //const { screenWidth } = useScreenSize().screenSize;
-    const { modifyItems, items } = useScreenSize();
+    
 
     useEffect(() => {
+        //console.log("card effect", id, count);
         modifyItems(id, count);
     }, [id,count]);
 
-    const findCountById = (items, id) => {
-        const item = items.find((item) => item.id === id);
-        return item ? item.count : undefined;
-    };
+    
 
-    useEffect(() => {
-        const foundCount = findCountById(items, id);
-        setCount(foundCount !== undefined ? foundCount : 0);
-    },[]);
+    // useEffect(() => {
+        
+    //     setCount();
+    // },[]);
 
     return(
         <HStack
@@ -54,6 +59,7 @@ const Card = ({ id, title, category, type, monthly, description, price, imageSrc
             borderWidth="1px"
             borderRadius="md"
             _hover={{borderWidth: "0 4px 8px 2px", borderColor:"#DADEDD"}}
+            padding="8px"
         >
             <VStack alignItems="start" width="65vw">
                 <Heading size="xl" fontWeight="semibold" color="#333333" onClick={handleNavigate}>{title}</Heading>
