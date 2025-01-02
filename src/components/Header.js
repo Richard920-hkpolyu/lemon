@@ -82,7 +82,7 @@ const Header = () => {
                             <Link to="/"><MenuItem _hover={{color:"#EDEFEE", backgroundColor:"#333333"}}>Homepage</MenuItem></Link>
                             <Link to="/reservation"><MenuItem _hover={{color:"#EDEFEE", backgroundColor:"#333333"}}>Reserve a Table</MenuItem></Link>
                             <Link to="/order-online"><MenuItem _hover={{color:"#EDEFEE", backgroundColor:"#333333"}}>Order Online</MenuItem></Link>
-                            <Link to="/"><MenuItem _hover={{color:"#EDEFEE", backgroundColor:"#333333"}}>Login</MenuItem></Link>
+                            <Link to="/login"><MenuItem _hover={{color:"#EDEFEE", backgroundColor:"#333333"}}>Login</MenuItem></Link>
                         </MenuList>
                     </Menu>
                     <Link to="/"><Image src={Logo}/></Link>

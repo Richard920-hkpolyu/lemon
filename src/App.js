@@ -9,7 +9,7 @@ import { AlertProvider } from "./context/alertContext";
 import { ChakraProvider } from "@chakra-ui/react";
 import Lenis from '@studio-freight/lenis';
 import Loading from "./components/Loading";
-
+import Alert from "./components/Alert";
 
 
 const App=()=> {
@@ -35,6 +35,7 @@ const App=()=> {
             <Header/>
             <AppRoutes />
             <Footer/>
+            <Alert/>
           </AlertProvider>
       </ChakraProvider>
       </Suspense>

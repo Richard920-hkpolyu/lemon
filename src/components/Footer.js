@@ -1,4 +1,4 @@
-import { HStack, Heading, VStack, Text, Image,} from "@chakra-ui/react";
+import { HStack, Heading, VStack, Text, Image, Box, SimpleGrid} from "@chakra-ui/react";
 import React from "react";
 import FullScreenSection from "./FullScreenSection";
 import { PhoneIcon, EmailIcon } from '@chakra-ui/icons'
@@ -15,26 +15,34 @@ const Introduction = () => {
         backgroundColor="#495E57"
         minHeight="10vh"
         >
-            <HStack px={4} py={2} gap="10">
-                <VStack alignItems="start" width="10vw">
-                    <Image src={Logo} width="5vw"/>
+            <SimpleGrid columns={{ base: 1, md: 3 }} spacing={10} py={10} alignItems="center">
+                <VStack alignItems="start">
+                    <Image src={Logo} height="20vh"/>
                 </VStack>
-                <VStack alignItems="start" width="35vw">
+                <VStack alignItems="start">
                     <Text fontSize="md"  color="#EDEFEE">© Copyright. All rights reserved.</Text>
-                    <Text fontSize="md"  color="#EDEFEE">Designed and developed by Richard NG for the capstone project of the Meta front-end developer professional certificate.</Text>
+                    <Text fontSize="md"  color="#EDEFEE" align="left">Designed and developed by Richard NG for the capstone project of the Meta front-end developer professional certificate.</Text>
                 </VStack>
-                <VStack alignItems="start" width="auto">
+                <VStack alignItems="start">
                     <Heading size="lg" fontWeight="bold" color="#F4CE14">Contact</Heading>
-                    <Text fontSize="md"  color="#EDEFEE"><PhoneIcon/>&nbsp; + 234 9887654</Text>
-                    <Text fontSize="md"  color="#EDEFEE"><PhoneIcon/>&nbsp; + 63 6378 637</Text>
-                    <Text fontSize="md"  color="#EDEFEE"><EmailIcon/>&nbsp; eat@little_lemon.com</Text>
+                    <Text fontSize="md"  color="#EDEFEE"><PhoneIcon/>&nbsp; + 86 18818902621</Text>
+                    <Text fontSize="md"  color="#EDEFEE"><PhoneIcon/>&nbsp; + 852 5114 2452</Text>
+                    <Text fontSize="md"  color="#EDEFEE"><EmailIcon/>&nbsp; ngtsangying@gmail.com</Text>
                     <HStack>
                     <nav>
                         <HStack spacing={4}>
                             {
                                 socials.map(({ icon, url}) => (
                                     <a key={url} href={url} target="_blank" rel="noopener noreferrer">
-                                        <FontAwesomeIcon icon={icon} size="xl" key={url}/>
+                                        <Box
+                                            as="button"
+                                            transition="all 0.2s linear"
+                                            _hover={{
+                                                transform: "translateY(-5px)",
+                                            }}
+                                            key={url}>
+                                            <FontAwesomeIcon icon={icon} size="xl" />
+                                        </Box>
                                     </a>
                                 ))
                             }
@@ -43,7 +51,7 @@ const Introduction = () => {
 
                     </HStack>
                 </VStack>
-            </HStack>
+            </SimpleGrid>
         </FullScreenSection>
     );
 };

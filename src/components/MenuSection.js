@@ -53,10 +53,6 @@ const MenuSection = () => {
         }
     };
 
-    // useEffect(() => {
-    //     setFoodList(fooditems);
-    // }, [fooditems]);
-
     return(
         <FullScreenSection
         justifyContent="center"

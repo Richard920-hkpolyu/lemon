@@ -4,18 +4,20 @@ import FullScreenSection from "./FullScreenSection";
 import Cart from "./Cart.js";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {faOpencart} from "@fortawesome/free-brands-svg-icons";
-const CartPage = () => {
+import { faBowlFood, faUser } from '@fortawesome/free-solid-svg-icons';
+import Login from "./Login.js";
+const ReservationPage = () => {
     const handleScrollToTop = () => {
-            window.scrollTo({ top: 0, behavior: "smooth" });
-          };
-        
-          if (document.readyState === "complete") {
-            setTimeout(() => {
-              handleScrollToTop();
-            }, 300);
-        }
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      };
+    
+      if (document.readyState === "complete") {
+        setTimeout(() => {
+          handleScrollToTop();
+        }, 300);
+    }
     return (
-        <>
+        <div>
             <FullScreenSection
                 justifyContent="center"
                 alignItems="start"
@@ -24,17 +26,17 @@ const CartPage = () => {
                 minHeight="25vh"
             >
                 <HStack>
-                    <VStack alignItems="start" width="60vw">
+                    <VStack alignItems="start" width="65vw">
                         <br/><br/>
-                        <Heading size="2xl" fontWeight="semibold" noOfLines={1} color="#F4CE14">CART FOR DELIVERY!</Heading>
-                        <Heading size="xl" fontWeight="medium" noOfLines={1} color="#EDEFEE">Final Check!</Heading>
+                        <Heading size="2xl" fontWeight="semibold" noOfLines={1} color="#F4CE14">Login</Heading>
                     </VStack>
-                    <VStack width="30vw"><br/><br/><FontAwesomeIcon icon={faOpencart} size="6x"/></VStack>
+                    <VStack width="30vw"><br/><br/><FontAwesomeIcon icon={faBowlFood} size="6x"/></VStack>
                 </HStack>
             </FullScreenSection>
-            <Cart />
-        </>
+            <Login />
+        </div>
     );
 };
 
-export default CartPage;
+export default ReservationPage;
+//<FontAwesomeIcon icon={faUser} />

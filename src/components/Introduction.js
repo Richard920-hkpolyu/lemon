@@ -24,7 +24,14 @@ const Introduction = () => {
                     <Link to="/reservation"><Button colorScheme="yellow" width="xs"><span style={{ color: '#333333' }}>Reserve a table&nbsp; <ChevronRightIcon/></span></Button></Link>
                 </VStack>
                 <VStack>
-                    <Image src= {img1} width="40vw" height="40vh" borderRadius="xl" fit="cover" />
+                    <Image src= {img1} width="40vw" height="50vh" borderRadius="xl" fit="cover" 
+                    transition="all 0.4s linear"
+                    _hover={{
+                        transform: "scale(1.04)", bg: "teal.600",
+                    }}
+                    _active={{
+                        transform: "scale(1)",
+                    }}/>
                 </VStack>
             </HStack>
         </FullScreenSection>

@@ -35,11 +35,13 @@ const modifyItems = useCallback((id, count) => {
       screenSize,
       modifyItems,
       items,
+      setItems,
     }),
     [
       screenSize,
       modifyItems,
       items,
+      setItems,
     ]
   );
 

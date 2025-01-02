@@ -7,6 +7,15 @@ import {faOpencart} from "@fortawesome/free-brands-svg-icons";
 import { faBowlFood, faUser } from '@fortawesome/free-solid-svg-icons';
 import Reservation from "./Reservation.js";
 const ReservationPage = () => {
+    const handleScrollToTop = () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      };
+    
+      if (document.readyState === "complete") {
+        setTimeout(() => {
+          handleScrollToTop();
+        }, 300);
+    }
     return (
         <div>
             <FullScreenSection

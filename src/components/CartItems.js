@@ -56,22 +56,30 @@ const CartItems = ({ id, title, category, type, monthly, description, price, ima
             cursor="pointer"
             borderWidth="1px"
             borderRadius="md"
-            _hover={{borderWidth: "0 0 4px 2px", borderColor:"#DADEDD"}}
+            _hover={{ borderColor:"#F9E689"}}
             justify="space-between"
             align="center"
             width="100%"
         >
-            <VStack>
-                <Image width="25vw" height="25vh" borderRadius="xl" src={imageSrc} alt={title} fit="cover" onClick={handleNavigate}/>
+            <VStack alignItems="start" width="40vw">
+                <Image width="25vw" height="25vh" borderRadius="xl" src={imageSrc} alt={title} fit="cover" onClick={handleNavigate} loading="lazy"
+                transition="all 0.4s linear"
+                _hover={{
+                    transform: "scale(1.04)", bg: "teal.600",
+                }}
+                _active={{
+                    transform: "scale(1)",
+                }}
+                />
             </VStack>
-            <VStack alignItems="start" width="40vw"px={10}>
+            <VStack alignItems="start" width="40vw" px="4vw">
                 <Heading size="lg" fontWeight="semibold" color="#333333" onClick={handleNavigate}>{title}</Heading>
                 <Text color="#333333" fontSize="lg" noOfLines={3}>
                     {type}
                 </Text>
                 <Flex justify="space-between" align="center" width="100%">
                     {count > 0 && true ? (
-                        <HStack alignSelf="center" gap={10}>
+                        <HStack alignSelf="center" gap={10} ml="-15px">
                             <Button onClick={handleDecrement}><DeleteIcon color="#333333" /></Button>
                             <Text color="#333333" fontSize="lg">{count}</Text>
                             <Button onClick={handleIncrement}><AddIcon color="#333333" /></Button>
@@ -81,7 +89,7 @@ const CartItems = ({ id, title, category, type, monthly, description, price, ima
                     )}
                 </Flex>
             </VStack>
-            <VStack px={10}>
+            <VStack alignItems="start" width="20vw">
                 <Heading size="lg" fontWeight="semibold" color="#FC2063">{(parseFloat(price.replace("$", ""))*count).toFixed(2)}</Heading>
             </VStack>
         </HStack>

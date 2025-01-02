@@ -23,7 +23,7 @@ const Card = ({ id, title, category, type, monthly, description, price, imageSrc
 
     const navigate = useNavigate();
     const handleNavigate = () => {
-        navigate(`/order-online/order/${title}`, { state: dataToPass });
+        navigate(`/order-online/order/${title.replace(/ /g, "")}`, { state: dataToPass });
     };
     const [count, setCount] = useState(foundCount !== undefined ? foundCount : 0);
 
@@ -36,33 +36,20 @@ const Card = ({ id, title, category, type, monthly, description, price, imageSrc
         }
     };
 
-    //const { screenWidth } = useScreenSize().screenSize;
-    
-
     useEffect(() => {
-        //console.log("card effect", id, count);
         modifyItems(id, count);
     }, [id,count]);
-
-    
-
-    // useEffect(() => {
-        
-    //     setCount();
-    // },[]);
-
     return(
         <HStack
             color="#333333"
             backgroundColor="#EDEFEE"
-            cursor="pointer"
             borderWidth="1px"
             borderRadius="md"
-            _hover={{borderWidth: "0 4px 8px 2px", borderColor:"#DADEDD"}}
             padding="8px"
+            _hover={{ borderColor:"#F9E689"}}
         >
-            <VStack alignItems="start" width="65vw">
-                <Heading size="xl" fontWeight="semibold" color="#333333" onClick={handleNavigate}>{title}</Heading>
+            <VStack alignItems="start" width="60vw">
+                <Heading size="xl" fontWeight="semibold" color="#333333" onClick={handleNavigate} cursor="pointer">{title}</Heading>
                 <Text color="#333333" fontSize="lg" noOfLines={3}>
                     {description}
                 </Text>
@@ -79,8 +66,15 @@ const Card = ({ id, title, category, type, monthly, description, price, imageSrc
                     )}
                 </Flex>
             </VStack>
-            <VStack>
-                <Image width="40vw" height="40vh" borderRadius="xl" src={imageSrc} alt={title} fit="cover" onClick={handleNavigate}/>
+            <VStack alignItems="start" width="40vw">
+                <Image width="40vw" height="40vh" borderRadius="xl" src={imageSrc} alt={title} fit="cover" onClick={handleNavigate} cursor="pointer" loading="lazy" 
+                    transition="all 0.4s linear"
+                    _hover={{
+                        transform: "scale(1.04)", bg: "teal.600",
+                    }}
+                    _active={{
+                        transform: "scale(1)",
+                    }}/>
             </VStack>
         </HStack>
 
@@ -88,10 +82,3 @@ const Card = ({ id, title, category, type, monthly, description, price, imageSrc
 };
 
 export default Card;
-//<Button colorScheme="yellow" width="50%" ><span style={{ color: '#333333' }}>&nbsp;Add +&nbsp;</span></Button>
-/*
-<br/>
-                            <Button onClick={() => {deleteItems(id, count);}}><MinusIcon color="#333333" /></Button>
-                            <Text color="#333333" fontSize="lg">{itemCount}</Text>
-                            <Button onClick={() => {addItems(id, count);}}><AddIcon color="#333333" /></Button>
-*/

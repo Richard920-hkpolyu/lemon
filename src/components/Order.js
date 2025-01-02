@@ -1,12 +1,11 @@
 import { HStack, Heading, VStack, Button, Text, Image, } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
-import FullScreenSection from "./FullScreenSection";
 import img1 from "../images/Delivery.jpg";
-import {Link, useParams, useLocation } from 'react-router-dom';
+import {Link, useLocation } from 'react-router-dom';
 import { DeleteIcon, AddIcon, MinusIcon, ArrowBackIcon} from '@chakra-ui/icons';
 import { useScreenSize } from "../context/ScreenSizeContext";
+import FullScreenSection from "./FullScreenSection";
 const Order = () => {
-    const {dish} = useParams();
     const findCountById = (items, id) => {
         const item = items.find((item) => item.id === id);
         return item ? item.count : undefined;
@@ -17,49 +16,32 @@ const Order = () => {
     const { id=0, title = "Default Title", category="Default Category", type="Default Type", monthly=0 ,description = "Default Description", price = 0, imageSrc = "" } = state || {};
     const foundCount = findCountById(items, id);
 
-    const [count, setCount] = useState(foundCount !== undefined ? foundCount : 0);
-    const [itemcount, setItemCount] = useState(3);
+    const [count, setCount] = useState(1);
     const [totalprice, setTotalprice] = useState(price);
-    
+
     const handleIncrement = () => {
         setCount(count + 1);
       };
     const handleDecrement = () => {
-        if (count > 0) {
+        if (count > 1) {
           setCount(count - 1);
         }
+    };
+    const ButtonEvent = () => {
+        modifyItems(id, foundCount+count);
+        setCount(1);
     };
     useEffect(() => {
         setTotalprice(() => (count * parseFloat(price.replace("$", ""))).toFixed(2));
     }, [count]);
-    //console.log(id, title, category, type, monthly, description,price,imageSrc );
-
-    
-
-    useEffect(() => {
-            modifyItems(id, count);
-    }, [id,count]);
-
-    // useEffect(() => {
-            
-    //         setCount();
-    // },[]);
 
     return (
         <FullScreenSection
-            justifyContent="center"
-            alignItems="start"
-            isDarkBackground
-            backgroundColor="#495E57"
-            minHeight="25vh"
-        >
-            <HStack>
-                <VStack alignItems="start" width="65vw" py={10}>
-                    <br/><br/>
-                    <Heading size="2xl" fontWeight="semibold" noOfLines={1} color="#F4CE14">ORDER FOR DELIVERY!</Heading>
-                </VStack>
-                <VStack width="auto"><br/><br/></VStack>
-            </HStack>
+        justifyContent="center"
+        alignItems="start"
+        isDarkBackground
+        backgroundColor="#EDEFEE"
+        py={12}>
             <VStack borderWidth="1px" alignItems="left" width="auto" backgroundColor="#EDEFEE">
                 <HStack>
                     <Image width="40vw" maxHeight="80vh" borderRadius="xl" src={imageSrc} fit="cover"/>
@@ -96,14 +78,14 @@ const Order = () => {
                                 <DeleteIcon color="#333333"/>
                             </HStack>
                         </VStack>
-                        <HStack alignSelf="center" gap={10} py={3}>
-                            <Button onClick={handleDecrement}><MinusIcon color="#333333" /></Button>
-                            <Text color="#333333" fontSize="lg">{count}</Text>
-                            <Button onClick={handleIncrement}><AddIcon color="#333333" /></Button>
-                        </HStack>
-                        <Button bg='#F4CE14' color='#333333' alignSelf="center" width="full">
-                            ${totalprice}
-                        </Button>
+                            <HStack alignSelf="center" gap={10} py={3}>
+                                <Button onClick={handleDecrement}><MinusIcon color="#333333" /></Button>
+                                <Text color="#333333" fontSize="lg">{count}</Text>
+                                <Button onClick={handleIncrement}><AddIcon color="#333333" /></Button>
+                            </HStack>
+                            <Button colorScheme="yellow" alignSelf="center" width="full" onClick={ButtonEvent}>
+                                Add for ${totalprice}
+                            </Button>
                         <br/>
                     </VStack>
                 </HStack>
@@ -113,4 +95,3 @@ const Order = () => {
 };
 
 export default Order;
-//<span style={{ fontWeight:'bold' }}>20 minutes</span>
