@@ -9,6 +9,7 @@ import CartPage from "../components/CartPage";
 import {Routes, Route, } from 'react-router-dom';
 import NotFound from "../components/NotFound";
 import Login from "../components/Login";
+import Loading from "../components/Loading";
 const AppRoutes = () => {
     return (
         <>
@@ -20,6 +21,7 @@ const AppRoutes = () => {
                 <Route path="/cart" element={<CartPage />}></Route>
                 <Route path="/login" element={<Login />}></Route>
                 <Route path="*" element={<NotFound />}></Route>
+                <Route path="/loading" element={<Loading/>}></Route>
             </Routes>
         </>
     );

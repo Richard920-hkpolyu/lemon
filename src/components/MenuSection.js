@@ -60,23 +60,24 @@ const MenuSection = () => {
         isDarkBackground
         backgroundColor="#EDEFEE"
         py={12}
+        width={{ base: "100vw", md: "100vw" }}
         >
-            <Heading size="xl" fontWeight="bold" noOfLines={1} color="#333333"id="menu-section">MENU</Heading>
-            <ButtonGroup gap="3">
-                {buttons.map((item) => {
-                    return (
-                    <Button
-                      size="md"
-                      variant="outline"
-                      key={item.id}
-                      _hover={{ bg: "#495E57", color:"#EDEFEE"}}
-                      onClick={() => handleFilter(item.type)}
-                    >
-                        {item.type}
-                    </Button>
-                    );
-                })}
-            </ButtonGroup>
+            <Heading size={{ base: "lg", md: "xl" }} fontWeight="bold" noOfLines={1} color="#333333"id="menu-section">MENU</Heading>
+            <div style={{ overflowX: 'auto', whiteSpace: 'nowrap', maxWidth: '100%', }}>
+              <ButtonGroup gap="3">
+                  {buttons.map((item) => (
+                      <Button
+                          size="md"
+                          variant="outline"
+                          key={item.id}
+                          _hover={{ bg: "#495E57", color: "#EDEFEE" }}
+                          onClick={() => handleFilter(item.type)}
+                      >
+                          {item.type}
+                      </Button>
+                  ))}
+              </ButtonGroup>
+            </div>
             <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10}>
                 {foodList.map((food) => (
                     <Card

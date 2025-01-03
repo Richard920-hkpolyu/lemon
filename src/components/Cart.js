@@ -8,6 +8,7 @@ import {
     useToast,
     Text,
     Box,
+    Flex
 } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import FullScreenSection from "./FullScreenSection";
@@ -17,34 +18,7 @@ import { useScreenSize } from "../context/ScreenSizeContext";
 import { Link } from 'react-router-dom';
 import useSubmit from "../hooks/useSubmit";
 
-const PlaceOrderComfirm = () => {
-    return(
-        <Box
-            maxWidth="380px" 
-            padding="4rem" 
-            shadow="rgba(17, 17, 26, 0.1) 0px 4px 16px,
-            rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px"
-            backgroundColor="#EDEFEE"
-            borderRadius="4px"
-            position="relative"
-            display="flex"
-            alignItems="center"
-            justifyContent="space-between"
-            gap="2.5rem"
-            letterSpacing="1px"
-    >
-            <Heading size="md" fontWeight="semibold" lineHeight="1.5" color="#333333">Are You Sure Comfirm Order?.</Heading>
-            <HStack width="100%" justifyContent="space-between">
-                <Button onClick={handleOrderSubmit} size="md" colorScheme="yellow" width="30%">
-                    <span style={{ color: '#333333' }}>OK</span>
-                </Button>
-                <Button type="submit" size="md" colorScheme="yellow" width="30%">
-                    <span style={{ color: '#333333' }}>Cancel</span>
-                </Button>
-            </HStack>
-        </Box>
-    );
-};
+
 
 const CustomToastDescription = ({ success }) => {
     return (
@@ -106,6 +80,7 @@ const Cart = () => {
     const handleOrderSubmit = async () => {
         const orderDetails = { foodList, totalPrice, totalCount };
         try {
+            setConfirm(false);
             await submit('https://john.com/contactme', orderDetails);
             setItems([]);
             toast({
@@ -118,6 +93,7 @@ const Cart = () => {
             fireConfetti();
             setTimeout(() => window.scrollTo({ top: 0, behavior: "smooth" }), 300);
         } catch {
+            setConfirm(false);
             toast({
                 title: <Heading size="md" fontWeight="semibold" lineHeight="1.5">Order Failed.</Heading>,
                 description: <CustomToastDescription />,
@@ -131,7 +107,56 @@ const Cart = () => {
         setConfirm((prev) => !prev);
     };
 
+    const PlaceOrderComfirm = () => {
+        return(
+            <Flex
+            height="100vh"
+            alignItems="center"
+            justifyContent="center"
+            position="fixed" // Fixed positioning to float above other content
+            top="0"
+            left="0"
+            right="0"
+            bottom="0"
+            zIndex="1000" // Ensure it appears above other content
+            backgroundColor="rgba(0, 0, 0, 0.5)" // Semi-transparent backdrop
+        >
+            <Box
+                maxWidth={{ base: '95%', md: '450px' }}
+                padding="4rem"
+                shadow="rgba(17, 17, 26, 0.1) 0px 4px 16px,
+                rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px"
+                backgroundColor="#EDEFEE"
+                borderRadius="4px"
+                position="relative" // Use relative positioning for the box
+                display="flex"
+                flexDirection="column"
+                alignItems="center"
+                justifyContent="space-between"
+                gap="2.5rem"
+                letterSpacing="1px"
+            >
+                <VStack width="100%" justifyContent="space-between">
+                <Heading size="md" fontWeight="semibold" lineHeight="2" color="#333333">Are You Sure Comfirm Order?</Heading>
+                    <HStack width="100%" justifyContent="space-between">
+                        <Button onClick={handleOrderSubmit} size="md" colorScheme="yellow" width="30%">
+                            <span style={{ color: '#333333' }}>OK</span>
+                        </Button>
+                        <Button onClick={toggleComfirmForm} size="md" colorScheme="yellow" width="30%">
+                            <span style={{ color: '#333333' }}>Cancel</span>
+                        </Button>
+                    </HStack>
+                </VStack>
+            </Box>
+        </Flex>
+        );
+    };
+
     return (
+        <>
+        {confirm ? (
+            <PlaceOrderComfirm/>
+        ):(null)}
         <FullScreenSection
             justifyContent="center"
             alignItems="start"
@@ -142,7 +167,7 @@ const Cart = () => {
         >
             {foodList.length > 0 ? (
                 <>
-                    <SimpleGrid columns={{ base: 1, md: 1 }} spacing={10} width="100%">
+                    <SimpleGrid columns={{ base: 1, md: 1 }} spacing={{ base: "0.7rem", md: "2rem" }}width="100%">
                         <HStack width="100%" justifyContent="space-between">
                             <Heading size="lg" fontWeight="semibold" color="#333333">
                                 Total Items ({totalCount})
@@ -190,7 +215,7 @@ const Cart = () => {
                         </VStack>
                         {/* Place Order Button */}
                         <VStack minWidth="41vw" py={5}>
-                            <Button colorScheme="yellow" width="100%" onClick={handleOrderSubmit} isLoading={isLoading}>
+                            <Button colorScheme="yellow" width="100%" onClick={toggleComfirmForm}>
                                 <span style={{ color: '#333333', fontSize: '22px' }}>Place Order</span>
                             </Button>
                         </VStack>
@@ -207,6 +232,7 @@ const Cart = () => {
                 </VStack>
             )}
         </FullScreenSection>
+        </>
     );
 };
 

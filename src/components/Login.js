@@ -69,13 +69,13 @@ const Login = () => {
                 <VStack spacing={2}>
                     <form onSubmit={formik.handleSubmit}>
                         <VStack
-                            width="30rem"
+                            width={{ base: "100vw", md: "35rem" }}
                             borderColor="#49SE57"
                             borderWidth="1px"
                             padding="2rem"
                             gap="2rem"
                         >
-                            <Heading size="xl" fontWeight="semibold" color="#333333">
+                            <Heading size={{ base: "md", md: "xl" }} fontWeight="semibold" color="#333333">
                                 {isSignUp ? "SIGN-UP" : "SIGN-IN"}
                             </Heading>
                             <Text size="md" color="#333333">

@@ -28,18 +28,16 @@ const App=()=> {
   }, []);
 
   return(
-    <>
+    <ChakraProvider>
       <Suspense fallback={<Loading />}>
-        <ChakraProvider>
-          <AlertProvider>
-            <Header/>
-            <AppRoutes />
-            <Footer/>
-            <Alert/>
-          </AlertProvider>
-      </ChakraProvider>
+        <AlertProvider>
+          <Header />
+          <AppRoutes />
+          <Footer />
+          <Alert />
+        </AlertProvider>
       </Suspense>
-    </>
+    </ChakraProvider>
   );
 }
 

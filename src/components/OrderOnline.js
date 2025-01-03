@@ -26,8 +26,8 @@ const OrderOnline = () => {
                 <br/><br/>
                 <SimpleGrid columns={2} alignItems="center" width="100%">
                     <VStack alignItems="start" width="100%">
-                        <Heading size="2xl" fontWeight="semibold" noOfLines={1} color="#F4CE14">ORDER FOR DELIVERY!</Heading>
-                        <Heading size="xl" fontWeight="medium" noOfLines={1} color="#EDEFEE">This Weeks Special!</Heading>
+                        <Heading size={{ base: "xl", md: "2xl" }} fontWeight="semibold" color="#F4CE14">ORDER FOR DELIVERY!</Heading>
+                        <Heading size={{ base: "lg", md: "xl" }} fontWeight="medium" noOfLines={1} color="#EDEFEE">This Weeks Special!</Heading>
                     </VStack>
                     <VStack alignItems="flex-end" width="100%"><Image src= {img1} width="150px" height="150px" fit="cover" /></VStack>
                 </SimpleGrid>

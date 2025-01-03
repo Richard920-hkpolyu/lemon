@@ -35,8 +35,8 @@ const CartItems = ({ id, title, category, type, monthly, description, price, ima
         >
             <VStack alignItems="start" width="40vw">
                 <Image
-                    width="25vw"
-                    height="25vh"
+                    width={{ base: "30vw", md: "25vw" }}
+                    height={{ base: "30vw", md: "25vh" }}
                     borderRadius="xl"
                     alignSelf="start"
                     src={imageSrc}
