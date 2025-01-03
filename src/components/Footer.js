@@ -15,19 +15,19 @@ const Introduction = () => {
         backgroundColor="#495E57"
         minHeight="10vh"
         >
-            <SimpleGrid columns={{ base: 1, md: 3 }} spacing={10} py={10} alignItems="center">
-                <VStack alignItems="start">
+            <SimpleGrid columns={{ base: 1, md: 3 }} spacing={10} py={10} alignItems="center" width="100%">
+                <VStack alignItems="start" width="100%">
                     <Image src={Logo} height="20vh"/>
                 </VStack>
-                <VStack alignItems="start">
+                <VStack alignItems="center" width="100%">
                     <Text fontSize="md"  color="#EDEFEE">© Copyright. All rights reserved.</Text>
-                    <Text fontSize="md"  color="#EDEFEE" align="left">Designed and developed by Richard NG for the capstone project of the Meta front-end developer professional certificate.</Text>
+                    <Text fontSize="md"  color="#EDEFEE" align="center">Designed and developed by Richard NG for the capstone project of the Meta front-end developer professional certificate.</Text>
                 </VStack>
-                <VStack alignItems="start">
+                <VStack alignItems="flex-end" width="100%">
                     <Heading size="lg" fontWeight="bold" color="#F4CE14">Contact</Heading>
-                    <Text fontSize="md"  color="#EDEFEE"><PhoneIcon/>&nbsp; + 86 18818902621</Text>
-                    <Text fontSize="md"  color="#EDEFEE"><PhoneIcon/>&nbsp; + 852 5114 2452</Text>
-                    <Text fontSize="md"  color="#EDEFEE"><EmailIcon/>&nbsp; ngtsangying@gmail.com</Text>
+                    <Text fontSize="md"  color="#EDEFEE">+ 86 18818902621&nbsp;<PhoneIcon/></Text>
+                    <Text fontSize="md"  color="#EDEFEE">+ 852 5114 2452&nbsp;<PhoneIcon/></Text>
+                    <Text fontSize="md"  color="#EDEFEE">ngtsangying@gmail.com&nbsp;<EmailIcon/></Text>
                     <HStack>
                     <nav>
                         <HStack spacing={4}>

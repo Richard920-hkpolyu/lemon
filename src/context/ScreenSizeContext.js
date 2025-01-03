@@ -6,10 +6,11 @@ import React, {
   useState,
   useMemo,
 } from "react";
-
+import useConfetti from "../hooks/Confetti";
 const ScreenSizeContext = createContext();
 
 const ScreenSizeProvider = ({ children }) => {
+  const fireConfetti = useConfetti();
   const [items, setItems] = useState([]);
   const [screenSize, setScreenSize] = useState({
     screenWidth: window.innerWidth,
@@ -36,12 +37,14 @@ const modifyItems = useCallback((id, count) => {
       modifyItems,
       items,
       setItems,
+      fireConfetti,
     }),
     [
       screenSize,
       modifyItems,
       items,
       setItems,
+      fireConfetti,
     ]
   );
 

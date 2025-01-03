@@ -22,7 +22,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { Link } from "react-router-dom";
 import { socials } from "../utils/data";
-
+import LoginPage from "./LoginPage.js";
 const Login = () => {
     const { isLoading, response, submit } = useSubmit();
     const { onOpen } = useAlertContext();
@@ -54,7 +54,9 @@ const Login = () => {
     };
 
     return (
-        <FullScreenSection
+        <>
+            <LoginPage isSignUp={isSignUp} />
+            <FullScreenSection
             justifyContent="center"
             alignItems="center"
             isDarkBackground
@@ -152,6 +154,7 @@ const Login = () => {
                 </VStack>
             </VStack>
         </FullScreenSection>
+        </>
     );
 };
 

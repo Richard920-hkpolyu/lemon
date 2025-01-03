@@ -1,40 +1,39 @@
-import { HStack, Heading, VStack, Image,  } from "@chakra-ui/react";
-import React from "react";
+import { SimpleGrid, Heading, VStack, } from "@chakra-ui/react";
+import React, { useEffect } from "react";
 import FullScreenSection from "./FullScreenSection";
-import Cart from "./Cart.js";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {faOpencart} from "@fortawesome/free-brands-svg-icons";
-import { faBowlFood, faUser } from '@fortawesome/free-solid-svg-icons';
+import { faBowlFood } from '@fortawesome/free-solid-svg-icons';
 import Reservation from "./Reservation.js";
 const ReservationPage = () => {
     const handleScrollToTop = () => {
         window.scrollTo({ top: 0, behavior: "smooth" });
-      };
-    
-      if (document.readyState === "complete") {
-        setTimeout(() => {
-          handleScrollToTop();
-        }, 300);
-    }
+    };
+
+    useEffect(() => {
+        const scrollToTopTimeout = setTimeout(handleScrollToTop, 300);
+        return () => clearTimeout(scrollToTopTimeout); // Cleanup timeout on unmount
+    }, []);
+
     return (
-        <div>
+        <>
             <FullScreenSection
                 justifyContent="center"
                 alignItems="start"
                 isDarkBackground
                 backgroundColor="#495E57"
                 minHeight="25vh"
+                width="100%"
             >
-                <HStack>
-                    <VStack alignItems="start" width="65vw">
-                        <br/><br/>
+                <br/><br/>
+                <SimpleGrid columns={2} alignItems="center" width="100%">
+                    <VStack alignItems="start" width="100%">
                         <Heading size="2xl" fontWeight="semibold" noOfLines={1} color="#F4CE14">Reservation</Heading>
                     </VStack>
-                    <VStack width="30vw"><br/><br/><FontAwesomeIcon icon={faBowlFood} size="6x"/></VStack>
-                </HStack>
+                    <VStack alignItems="flex-end" width="100%"><FontAwesomeIcon icon={faBowlFood} size="6x"/></VStack>
+                </SimpleGrid>
             </FullScreenSection>
             <Reservation />
-        </div>
+        </>
     );
 };
 

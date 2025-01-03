@@ -1,16 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Introduction from "./Introduction";
 import MenuSection from "./MenuSection";
 const Homepage = () => {
     const handleScrollToTop = () => {
-            window.scrollTo({ top: 0, behavior: "smooth" });
-          };
-        
-          if (document.readyState === "complete") {
-            setTimeout(() => {
-              handleScrollToTop();
-            }, 300);
-        }
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    };
+
+    useEffect(() => {
+        const scrollToTopTimeout = setTimeout(handleScrollToTop, 300);
+        return () => clearTimeout(scrollToTopTimeout); // Cleanup timeout on unmount
+    }, []);
+
     return(
         <div>
             <Introduction />
@@ -20,4 +20,3 @@ const Homepage = () => {
 };
 
 export default Homepage;
-//<CloseButton size='sm' />from "@chakra-ui/react"

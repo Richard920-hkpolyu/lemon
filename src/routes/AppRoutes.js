@@ -8,7 +8,7 @@ import CartPage from "../components/CartPage";
 //import SignIn from "./components/SignIn";
 import {Routes, Route, } from 'react-router-dom';
 import NotFound from "../components/NotFound";
-import LoginPage from "../components/LoginPage";
+import Login from "../components/Login";
 const AppRoutes = () => {
     return (
         <>
@@ -18,7 +18,7 @@ const AppRoutes = () => {
                 <Route path="/order-online" element={<OrderOnline />}></Route>
                 <Route path="/order-online/order/:dish" element={<OrderPage />}></Route>
                 <Route path="/cart" element={<CartPage />}></Route>
-                <Route path="/login" element={<LoginPage />}></Route>
+                <Route path="/login" element={<Login />}></Route>
                 <Route path="*" element={<NotFound />}></Route>
             </Routes>
         </>
