@@ -17,20 +17,35 @@ const ScreenSizeProvider = ({ children }) => {
     screenHeight: window.innerHeight,
   });
 
-const modifyItems = useCallback((id, count) => {
-  setItems((prevItems) => {
-    const existingIndex = prevItems.findIndex((item) => item.id === id);
-    if (existingIndex !== -1) {
-      // If the ID exists, update the count
-      const updatedItems = [...prevItems];
-      updatedItems[existingIndex] = { ...updatedItems[existingIndex], count };
-      return updatedItems;
-    } else {
-      return [...prevItems, { id, count }];
-    }
-  });
-}, []);
+  const modifyItems = useCallback((id, count, ingredients) => {
+    setItems((prevItems) => {
+        const existingIndex = prevItems.findIndex((item) =>
+            item.id === id &&
+            item.ingredients.length === ingredients.length &&
+            item.ingredients.every(ingredient =>
+                ingredients.some(addIngredient => addIngredient.name === ingredient.name)
+            )
+        );
 
+        if (existingIndex !== -1) {
+            // If the ID and ingredients match, update the count
+            const updatedItems = [...prevItems];
+            updatedItems[existingIndex] = {
+                ...updatedItems[existingIndex],
+                count
+            };
+            return updatedItems;
+        } else {
+            // Find the largest key in prevItems
+            const maxKey = prevItems.reduce((max, item) => Math.max(max, item.key || 0), 0);
+            const newKey = maxKey + 1;
+            //console.log("newKey",newKey);
+            // If no match, add a new entry
+            return [...prevItems, { id, count, ingredients, key: newKey }];
+        }
+    });
+  }, []);
+  //console.log('items',items)
   const contextValue = useMemo(
     () => ({
       screenSize,
@@ -47,7 +62,7 @@ const modifyItems = useCallback((id, count) => {
       fireConfetti,
     ]
   );
-
+    //console.log("item",items);
   return (
     <ScreenSizeContext.Provider value={contextValue}>
       {children}

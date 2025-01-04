@@ -87,6 +87,7 @@ const MenuSection = () => {
                         category={food.category}
                         type={food.type}
                         monthly={food.monthly}
+                        ingredients={food.ingredients}
                         description={food.description}
                         price={food.price}
                         imageSrc={food.getImageSrc()}

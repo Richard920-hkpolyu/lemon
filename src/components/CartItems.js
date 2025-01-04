@@ -4,23 +4,35 @@ import { useNavigate } from "react-router-dom";
 import { DeleteIcon, AddIcon } from '@chakra-ui/icons';
 import { useScreenSize } from "../context/ScreenSizeContext";
 
-const CartItems = ({ id, title, category, type, monthly, description, price, imageSrc }) => {
+const CartItems = ({ id, title, category, type, monthly,ingredients, description, price, imageSrc }) => {
     const navigate = useNavigate();
     const { modifyItems, items } = useScreenSize();
-    const initialCount = items.find(item => item.id === id)?.count || 0;
+    const ingredientsNames = ingredients.map(item => item.name).join(', ');
+
+    const findCountById = (items, id, addIngredients) => {
+        const item = items.find((item) => item.id === id &&
+            item.ingredients.length === addIngredients.length &&
+            item.ingredients.every(ingredient =>
+                addIngredients.some(addIngredient => addIngredient.name === ingredient.name)
+            )
+        );
+        //console.log("item",item);
+        return item ? item.count : 0;
+    };
+    const initialCount = findCountById(items, id, ingredients);
+
+
+
+    //const initialCount = items.find(item => item.id === id)?.count || 0;
     const [count, setCount] = useState(initialCount);
 
     useEffect(() => {
-        modifyItems(id, count);
+        modifyItems(id, count,ingredients);
     }, [id, count, modifyItems]);
-
-    const handleNavigate = () => {
-        navigate(`/order-online/order/${title}`, { state: { id, title, category, type, monthly, description, price, imageSrc } });
-    };
 
     const handleIncrement = () => setCount(prevCount => prevCount + 1);
     const handleDecrement = () => setCount(prevCount => Math.max(prevCount - 1, 0));
-
+    console.log("ingredients",ingredients);
     return (
         <SimpleGrid
             columns={3}
@@ -46,15 +58,17 @@ const CartItems = ({ id, title, category, type, monthly, description, price, ima
                     transition="all 0.4s linear"
                     _hover={{ transform: "scale(1.04)", bg: "teal.600" }}
                     _active={{ transform: "scale(1)" }}
-                    onClick={handleNavigate}
                 />
             </VStack>
             <VStack alignItems="start" width="100%">
-                <Heading size="lg" fontWeight="semibold" color="#333333" onClick={handleNavigate}>
+                <Heading size="lg" fontWeight="semibold" color="#333333" >
                     {title}
                 </Heading>
                 <Text color="#333333" fontSize="lg" noOfLines={3}>
                     {type}
+                </Text>
+                <Text color="#333333" fontSize="lg" noOfLines={3}>
+                    {ingredientsNames}
                 </Text>
                 <SimpleGrid columns={1} spacing={5} alignSelf="start" py={5} width="100%">
                     {count > 0 ? (

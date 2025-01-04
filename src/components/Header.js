@@ -51,6 +51,7 @@ const Header = () => {
     useEffect(() => {
         //console.log("items222:",items);
         setCartCount(totalCount(items));
+        headerRef.current.style.transform = "translateY(0)";
     },[items]);
 
     return (
@@ -78,7 +79,7 @@ const Header = () => {
                         >
                             <HamburgerIcon w={12} h={12} color="#333333"/>
                         </MenuButton>
-                        <MenuList transitionDuration=".3s"transitionTimingFunction="ease-in-out" paddingBottom={5} color="#333333" minWidth='400px' borderWidth="1px" onMouseEnter={onOpen} onMouseLeave={onClose} onClick={onClose}>
+                        <MenuList transitionDuration=".3s"transitionTimingFunction="ease-in-out" paddingBottom={5} color="#333333" minWidth={{ base: '100vw', md: '400px' }} borderWidth="1px" onMouseEnter={onOpen} onMouseLeave={onClose} onClick={onClose}>
                             <Link to="/"><MenuItem _hover={{color:"#EDEFEE", backgroundColor:"#333333"}}>Homepage</MenuItem></Link>
                             <Link to="/reservation"><MenuItem _hover={{color:"#EDEFEE", backgroundColor:"#333333"}}>Reserve a Table</MenuItem></Link>
                             <Link to="/order-online"><MenuItem _hover={{color:"#EDEFEE", backgroundColor:"#333333"}}>Order Online</MenuItem></Link>

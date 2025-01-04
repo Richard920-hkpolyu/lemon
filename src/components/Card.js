@@ -3,13 +3,14 @@ import React, { useEffect, useState,  } from "react";
 import { useNavigate,  } from "react-router-dom";
 import { DeleteIcon, AddIcon, MinusIcon, ArrowBackIcon} from '@chakra-ui/icons';
 import { useScreenSize } from "../context/ScreenSizeContext";
-const Card = ({ id, title, category, type, monthly, description, price, imageSrc }) => {
+const Card = ({ id, title, category, type, monthly, ingredients, description, price, imageSrc }) => {
     const dataToPass = {
         id: id,
         title: title,
         category: category,
         type: type,
         monthly: monthly,
+        ingredients: ingredients,
         description: description,
         price: price,
         imageSrc: imageSrc,
@@ -37,7 +38,7 @@ const Card = ({ id, title, category, type, monthly, description, price, imageSrc
     };
 
     useEffect(() => {
-        modifyItems(id, count);
+        modifyItems(id, count, ingredients);
     }, [id,count]);
     return(
         <HStack

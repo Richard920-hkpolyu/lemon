@@ -59,16 +59,19 @@ const Cart = () => {
     const calculateTotalCount = (items) => items.reduce((total, item) => total + item.count, 0);
 
     const deliveryPrice = (count) => count * 10 + 12;
-
+    const filteredItems = cartFilter(items);
     useEffect(() => {
         const filteredItems = cartFilter(items);
-        const combinedData = fooditems
-            .filter(food => filteredItems.some(count => count.id === food.id))
-            .map(food => {
-                const countItem = filteredItems.find(count => count.id === food.id);
+        const combinedData = filteredItems
+            .filter(count => fooditems.some(food => food.id === count.id))
+            .map(count => {
+                const food = fooditems.find(food => food.id === count.id);
                 return {
                     ...food,
-                    count: countItem ? countItem.count : 0,
+                    count: count.count,
+                    key: count.key,
+                    ingredients: count.ingredients,
+                    //price: count.price,
                 };
             });
 
@@ -151,7 +154,7 @@ const Cart = () => {
         </Flex>
         );
     };
-
+    //console.log("foodList",foodList)
     return (
         <>
         {confirm ? (
@@ -178,9 +181,10 @@ const Cart = () => {
                         </HStack>
                         {foodList.map(food => (
                             <CartItems
-                                key={food.id}
                                 {...food}
+                                key={food.key}
                                 imageSrc={food.getImageSrc()}
+                                ingredients={food.ingredients}
                             />
                         ))}
                     </SimpleGrid>
