@@ -17,8 +17,8 @@ import { fooditems } from "../utils/data";
 import { useScreenSize } from "../context/ScreenSizeContext";
 import { Link } from 'react-router-dom';
 import useSubmit from "../hooks/useSubmit";
-
-
+import DeliveryAddress from "./DeliveryAddress"
+import Payment from "./Payment";
 
 const CustomToastDescription = ({ success }) => {
     return (
@@ -130,14 +130,14 @@ const Cart = () => {
                 shadow="rgba(17, 17, 26, 0.1) 0px 4px 16px,
                 rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px"
                 backgroundColor="#EDEFEE"
-                borderRadius="4px"
+                borderRadius="2xl"
                 position="relative" // Use relative positioning for the box
                 display="flex"
                 flexDirection="column"
                 alignItems="center"
                 justifyContent="space-between"
                 gap="2.5rem"
-                letterSpacing="1px"
+                letterSpacing="0.8px"
             >
                 <VStack width="100%" justifyContent="space-between">
                 <Heading size="md" fontWeight="semibold" lineHeight="2" color="#333333">Are You Sure Comfirm Order?</Heading>
@@ -165,11 +165,11 @@ const Cart = () => {
             alignItems="start"
             isDarkBackground
             backgroundColor="#EDEFEE"
-            py={12}
             minHeight="50vh"
         >
             {foodList.length > 0 ? (
                 <>
+                    <DeliveryAddress />
                     <SimpleGrid columns={{ base: 1, md: 1 }} spacing={{ base: "0.7rem", md: "2rem" }}width="100%">
                         <HStack width="100%" justifyContent="space-between">
                             <Heading size="lg" fontWeight="semibold" color="#333333">
@@ -208,6 +208,7 @@ const Cart = () => {
                                 <Text size="md" color="#333333"alignSelf="start">View all restaurant coupons</Text>
                             </SimpleGrid>
                         </VStack>
+                        <Payment />
                         {/* Order Total Section */}
                         <VStack minWidth="41vw" py={5}>
                             <SimpleGrid columns={2} spacing={5} alignSelf="start" width="100%">
@@ -217,6 +218,7 @@ const Cart = () => {
                                 </Heading>
                             </SimpleGrid>
                         </VStack>
+                        
                         {/* Place Order Button */}
                         <VStack minWidth="41vw" py={5}>
                             <Button colorScheme="yellow" width="100%" onClick={toggleComfirmForm}>
@@ -224,6 +226,7 @@ const Cart = () => {
                             </Button>
                         </VStack>
                     </SimpleGrid>
+                    
                 </>
             ) : (
                 <VStack color="#333333">

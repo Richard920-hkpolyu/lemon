@@ -47,6 +47,7 @@
     ]
   },
   "devDependencies": {
+    "@chakra-ui/cli": "^3.2.5",
     "ajv": "^7.2.4",
     "prettier": "^2.7.1"
   }
