@@ -1,4 +1,4 @@
-import { HStack, Heading, VStack, Text, Image, Box, SimpleGrid, useBreakpointValue} from "@chakra-ui/react";
+import { HStack, Heading, VStack, Text, Image, Box, SimpleGrid, useBreakpointValue, Badge} from "@chakra-ui/react";
 import React from "react";
 import FullScreenSection from "./FullScreenSection";
 import { PhoneIcon, EmailIcon } from '@chakra-ui/icons'
@@ -31,12 +31,12 @@ const Introduction = () => {
         backgroundColor="#495E57"
         minHeight="10vh"
         >
-            <SimpleGrid columns={{ base: 1, md: 3 }} spacing={10} py={10} alignItems="center" width="100%">
+            <SimpleGrid columns={{ base: 1, md: 3 }} spacing={10} py={10} alignItems="center" width="99%">
                 <VStack alignItems={alignment} width="100%">
                     <Image src={Logo} height="20vh"/>
                 </VStack>
                 <VStack alignItems={alignment2} width="100%">
-                    <Text fontSize="md"  color="#EDEFEE" align={alignment2}>© Copyright. All rights reserved.</Text>
+                    <Text fontSize="md"  color="#EDEFEE" align={alignment2}><Badge variant="solid" colorScheme="green">© Copyright.</Badge></Text>
                     <Text fontSize="md"  color="#EDEFEE" align={alignment2}>Designed and developed by Richard NG for the capstone project of the Meta front-end developer professional certificate.</Text>
                 </VStack>
                 <VStack alignItems={alignment3} width="100%">
@@ -56,7 +56,8 @@ const Introduction = () => {
                                             _hover={{
                                                 transform: "translateY(-5px)",
                                             }}
-                                            key={url}>
+                                            key={url}
+                                            >
                                             <FontAwesomeIcon icon={icon} size="xl" />
                                         </Box>
                                     </a>
@@ -72,11 +73,3 @@ const Introduction = () => {
 };
 
 export default Introduction;
-//<CloseButton size='sm' />from "@chakra-ui/react"
-/*
-  const alignment = useBreakpointValue({
-    base: "start", // Default alignment for mobile
-    md: "start",   // Alignment for medium screens and up
-    lg: "start",   // Alignment for large screens and up
-  });
-*/

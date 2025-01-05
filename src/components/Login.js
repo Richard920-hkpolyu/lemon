@@ -19,7 +19,7 @@ import useSubmit from "../hooks/useSubmit";
 import { useAlertContext } from "../context/alertContext";
 import img1 from "../images/small/Intro_Restaurantfood.jpg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUser, faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import { faUser, faEnvelope,faLock } from '@fortawesome/free-solid-svg-icons';
 import { Link } from "react-router-dom";
 import { socials } from "../utils/data";
 import LoginPage from "./LoginPage.js";
@@ -69,7 +69,7 @@ const Login = () => {
                 <VStack spacing={2}>
                     <form onSubmit={formik.handleSubmit}>
                         <VStack
-                            width={{ base: "100vw", md: "35rem" }}
+                            width={{ base: "96vw", md: "35rem" }}
                             borderColor="#49SE57"
                             borderWidth="1px"
                             padding="2rem"
@@ -86,7 +86,7 @@ const Login = () => {
                                 <FormControl isInvalid={!!formik.errors.firstName && formik.touched.firstName}>
                                     <HStack justify="space-between" align="center" width="95%">
                                         <FormLabel htmlFor="firstName">First Name<span style={{ color: 'red' }}>*</span></FormLabel>
-                                        <FontAwesomeIcon icon={faEnvelope} />
+                                        <FontAwesomeIcon icon={faUser} />
                                     </HStack>
                                     <Input
                                         id="firstName"
@@ -116,7 +116,7 @@ const Login = () => {
                             <FormControl isInvalid={!!formik.errors.password && formik.touched.password}>
                                 <HStack justify="space-between" align="center" width="95%">
                                     <FormLabel htmlFor="password">Password<span style={{ color: 'red' }}>*</span></FormLabel>
-                                    <FontAwesomeIcon icon={faUser} />
+                                    <FontAwesomeIcon icon={faLock} />
                                 </HStack>
                                 <Input
                                     id="password"

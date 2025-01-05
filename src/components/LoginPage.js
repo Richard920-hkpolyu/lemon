@@ -3,13 +3,15 @@ import React, { useEffect } from "react";
 import FullScreenSection from "./FullScreenSection";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBowlFood, faUser } from '@fortawesome/free-solid-svg-icons';
-
+import { useScreenSize } from "../context/ScreenSizeContext";
 const LoginPage = ({ isSignUp }) => {
+    const { setPage } = useScreenSize();
     const handleScrollToTop = () => {
         window.scrollTo({ top: 0, behavior: "smooth" });
     };
 
     useEffect(() => {
+        setPage('login');
         const scrollToTopTimeout = setTimeout(handleScrollToTop, 300);
         return () => clearTimeout(scrollToTopTimeout); // Cleanup timeout on unmount
     }, []);

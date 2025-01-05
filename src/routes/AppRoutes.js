@@ -20,8 +20,8 @@ const AppRoutes = () => {
                 <Route path="/order-online/order/:dish" element={<OrderPage />}></Route>
                 <Route path="/cart" element={<CartPage />}></Route>
                 <Route path="/login" element={<Login />}></Route>
-                <Route path="*" element={<NotFound />}></Route>
                 <Route path="/loading" element={<Loading/>}></Route>
+                <Route path="*" element={<NotFound />}></Route>
             </Routes>
         </>
     );

@@ -4,13 +4,12 @@
 const Header = lazy(() => import("./components/Header"));
 const Footer = lazy(() => import("./components/Footer"));
 const AppRoutes = lazy(() => import("./routes/AppRoutes"));
+const Alert = lazy(() => import("./components/Alert"));
+const Loading = lazy(() => import("./components/Loading"));
 import React, { Suspense, lazy, useEffect } from "react";
 import { AlertProvider } from "./context/alertContext";
 import { ChakraProvider } from "@chakra-ui/react";
 import Lenis from '@studio-freight/lenis';
-import Loading from "./components/Loading";
-import Alert from "./components/Alert";
-
 
 const App=()=> {
   useEffect(() => {

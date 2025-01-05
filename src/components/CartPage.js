@@ -4,13 +4,14 @@ import FullScreenSection from "./FullScreenSection";
 import Cart from "./Cart";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faOpencart } from "@fortawesome/free-brands-svg-icons";
-
+import { useScreenSize } from "../context/ScreenSizeContext";
 const CartPage = () => {
     const handleScrollToTop = () => {
         window.scrollTo({ top: 0, behavior: "smooth" });
     };
-
+    const { setPage } = useScreenSize();
     useEffect(() => {
+        setPage('cart');
         const scrollToTopTimeout = setTimeout(handleScrollToTop, 300);
         return () => clearTimeout(scrollToTopTimeout); // Cleanup timeout on unmount
     }, []);

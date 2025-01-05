@@ -6,6 +6,7 @@ const FullScreenSection = ({ children, isDarkBackground, ...boxProps }) => {
        <VStack
         backgroundColor={boxProps.backgroundColor}
         color={isDarkBackground ? "white" : "black"}
+        padding="10px"
        >
            <VStack maxWidth="1280px" minHeight="80vh" {...boxProps}>
                {children}

@@ -44,7 +44,7 @@ const Header = () => {
         }
     };
     const { isOpen, onOpen, onClose } = useDisclosure();
-    const { items, } = useScreenSize();
+    const { items, page } = useScreenSize();
     const totalCount = (items) => {
         return items.reduce((total, item) => total + item.count, 0);
     };
@@ -60,6 +60,7 @@ const Header = () => {
             top={0}
             left={0}
             right={0}
+            color="#333333"
             background="#EDEFEE"
             translateY={0}
             transitionProperty="transform"
@@ -80,10 +81,11 @@ const Header = () => {
                             <HamburgerIcon w={12} h={12} color="#333333"/>
                         </MenuButton>
                         <MenuList transitionDuration=".3s"transitionTimingFunction="ease-in-out" paddingBottom={5} color="#333333" minWidth={{ base: '100vw', md: '400px' }} borderWidth="1px" onMouseEnter={onOpen} onMouseLeave={onClose} onClick={onClose}>
-                            <Link to="/"><MenuItem _hover={{color:"#EDEFEE", backgroundColor:"#333333"}}>Homepage</MenuItem></Link>
-                            <Link to="/reservation"><MenuItem _hover={{color:"#EDEFEE", backgroundColor:"#333333"}}>Reserve a Table</MenuItem></Link>
-                            <Link to="/order-online"><MenuItem _hover={{color:"#EDEFEE", backgroundColor:"#333333"}}>Order Online</MenuItem></Link>
-                            <Link to="/login"><MenuItem _hover={{color:"#EDEFEE", backgroundColor:"#333333"}}>Login</MenuItem></Link>
+                            <Link to="/"><MenuItem borderRadius="lg" _hover={{color:"#EDEFEE", backgroundColor:"#333333"}} backgroundColor={page === 'homepage' ? "#333333" : null} color={page === 'homepage' ? "#EDEFEE" : null}>Homepage</MenuItem></Link>
+                            <Link to="/reservation"><MenuItem borderRadius="lg" _hover={{color:"#EDEFEE", backgroundColor:"#333333"}} backgroundColor={page === 'reservation' ? "#333333" : null} color={page === 'reservation' ? "#EDEFEE" : null}>Reserve a Table</MenuItem></Link>
+                            <Link to="/order-online"><MenuItem borderRadius="lg" _hover={{color:"#EDEFEE", backgroundColor:"#333333"}} backgroundColor={page === 'orderonline' ? "#333333" : null} color={page === 'orderonline' ? "#EDEFEE" : null}>Order Online</MenuItem></Link>
+                            <Link to="/cart"><MenuItem borderRadius="lg" _hover={{color:"#EDEFEE", backgroundColor:"#333333"}} backgroundColor={page === 'cart' ? "#333333" : null} color={page === 'cart' ? "#EDEFEE" : null}>Cart</MenuItem></Link>
+                            <Link to="/login"><MenuItem borderRadius="lg" _hover={{color:"#EDEFEE", backgroundColor:"#333333"}} backgroundColor={page === 'login' ? "#333333" : null} color={page === 'login' ? "#EDEFEE" : null}>Login</MenuItem></Link>
                         </MenuList>
                     </Menu>
                     <Link to="/"><Image src={Logo}/></Link>

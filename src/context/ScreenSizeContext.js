@@ -16,7 +16,7 @@ const ScreenSizeProvider = ({ children }) => {
     screenWidth: window.innerWidth,
     screenHeight: window.innerHeight,
   });
-
+  const [page, setPage] = useState('');
   const modifyItems = useCallback((id, count, ingredients) => {
     setItems((prevItems) => {
         const existingIndex = prevItems.findIndex((item) =>
@@ -53,6 +53,8 @@ const ScreenSizeProvider = ({ children }) => {
       items,
       setItems,
       fireConfetti,
+      page,
+      setPage,
     }),
     [
       screenSize,
@@ -60,6 +62,8 @@ const ScreenSizeProvider = ({ children }) => {
       items,
       setItems,
       fireConfetti,
+      page,
+      setPage,
     ]
   );
     //console.log("item",items);

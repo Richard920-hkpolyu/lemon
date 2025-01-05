@@ -3,12 +3,14 @@ import React, { useEffect } from "react";
 import FullScreenSection from "./FullScreenSection";
 import MenuSection from "./MenuSection";
 import img1 from "../images/Delivery.jpg";
+import { useScreenSize } from "../context/ScreenSizeContext";
 const OrderOnline = () => {
     const handleScrollToTop = () => {
         window.scrollTo({ top: 0, behavior: "smooth" });
     };
-
+    const { setPage } = useScreenSize();
     useEffect(() => {
+        setPage('orderonline');
         const scrollToTopTimeout = setTimeout(handleScrollToTop, 300);
         return () => clearTimeout(scrollToTopTimeout); // Cleanup timeout on unmount
     }, []);

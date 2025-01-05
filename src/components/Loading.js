@@ -4,10 +4,9 @@ import {
   Spinner,
   Progress,
   Image,
-  Text,
+  Text,CircularProgress, CircularProgressLabel
 } from "@chakra-ui/react";
 import logo from "../images/little_lemon.png"
-
 const Loading = () => {
   const [progress, setProgress] = useState(0);
 
@@ -41,20 +40,7 @@ const Loading = () => {
         boxSize="100px"
         mb={4}
       />
-      <Spinner
-        size="xl"
-        thickness="4px"
-        speed="0.5s"
-        emptyColor="#333333"
-        mb={4}
-      />
-      <Progress
-        hasStripe
-        isAnimated
-        value={progress}
-        width="80%"
-        colorScheme="teal"
-      />
+      <CircularProgress isIndeterminate color='green.300' />
     </Box>
   );
 };

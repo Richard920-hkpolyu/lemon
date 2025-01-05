@@ -1,4 +1,4 @@
-import { HStack, Heading, VStack, Button, ButtonGroup, SimpleGrid } from "@chakra-ui/react";
+import { HStack, Heading, VStack, Button, ButtonGroup, SimpleGrid, Badge } from "@chakra-ui/react";
 import React, { useEffect, useState,  } from "react";
 import FullScreenSection from "./FullScreenSection";
 import Card from "./Card.js";
@@ -60,9 +60,9 @@ const MenuSection = () => {
         isDarkBackground
         backgroundColor="#EDEFEE"
         py={12}
-        width={{ base: "100vw", md: "100vw" }}
+        width={{ base: "96vw", md: "100vw" }}
         >
-            <Heading size={{ base: "lg", md: "xl" }} fontWeight="bold" noOfLines={1} color="#333333"id="menu-section">MENU</Heading>
+            <Heading size={{ base: "lg", md: "xl" }} fontWeight="bold" noOfLines={1} color="#333333">MENU</Heading>
             <div style={{ overflowX: 'auto', whiteSpace: 'nowrap', maxWidth: '100%', }}>
               <ButtonGroup gap="3">
                   {buttons.map((item) => (
@@ -78,7 +78,7 @@ const MenuSection = () => {
                   ))}
               </ButtonGroup>
             </div>
-            <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10}>
+            <SimpleGrid columns={{ base: 1, md: 2 }} spacing={{ base: 5, md: 10 }}>
                 {foodList.map((food) => (
                     <Card
                         key={food.id}

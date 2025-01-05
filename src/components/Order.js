@@ -86,7 +86,7 @@ const Order = () => {
     const renderDescription = () => (
         <>
             <Heading size={{ base: "lg", md: "xl" }} fontWeight="semibold" color="#333333">{title}</Heading>
-            <Text color="#333333" fontSize="lg" noOfLines={3}>{description}</Text>
+            <Text color="#333333" fontSize="lg">{description}</Text>
         </>
     );
 
@@ -96,7 +96,7 @@ const Order = () => {
                 <HStack key={index} width="100%" justifyContent="space-between">
                     <Text color="#333333" fontSize="md" width="20vw">{item.name}</Text>
                     <Text color="#333333" fontSize="md" width="10vw">{item.price}</Text>
-                    <DeleteIcon onClick={() => handleDelete(item.name)} color="#333333" width={{ base: "5rem", md: "2.5rem" }} _hover={{ backgroundColor: '#FCF5CF', cursor: 'pointer', borderRadius: '50%' }}/>
+                    <DeleteIcon onClick={() => handleDelete(item.name)} color="#333333" width={{ base: "5rem", md: "2.5rem" }} _hover={{ backgroundColor: '#FCF5CF', cursor: 'pointer', borderRadius: 'md' }}/>
                 </HStack>
             ))}
         </VStack>

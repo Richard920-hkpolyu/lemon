@@ -16,7 +16,7 @@ const Payment = () => {
                 isDarkBackground
                 backgroundColor="#EDEFEE"
                 minHeight="3rem"
-                width="99vw"
+                width={{base: "95vw" , md: "92vw" }}
                 borderWidth="1px"
                 borderRadius="lg"
                 borderStyle="solid"

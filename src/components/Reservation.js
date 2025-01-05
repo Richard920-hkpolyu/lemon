@@ -85,7 +85,7 @@ const Reservation = () => {
                 <form onSubmit={formik.handleSubmit}>
                     <VStack spacing={2}>
                         {click === 0 ? (
-                            <VStack width={{ base: "100vw", md: "35rem" }} borderColor="#49SE57" borderWidth="1px" padding="2rem" gap="2rem">
+                            <VStack width={{ base: "96vw", md: "35rem" }} borderColor="#49SE57" borderWidth="1px" padding="2rem" gap="2rem">
                                 <Heading size="xl" fontWeight="semibold" color="#333333">Book your table</Heading>
                                 <FormControl isInvalid={formik.touched.date && !!formik.errors.date}>
                                     <FormLabel htmlFor="date">Date<span style={{ color: 'red' }}>*</span></FormLabel>
