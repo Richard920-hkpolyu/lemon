@@ -3,7 +3,7 @@ import { Box, HStack, Image, Menu,
     MenuList,
     MenuItem, useDisclosure, Button } from "@chakra-ui/react";
 import React, { useEffect, useRef, useState} from "react";
-import Logo from "../images/Header_Logo.svg";
+import Logo from "../images/Header_Logo.png";
 import {Link} from 'react-router-dom';
 import { useScreenSize } from "../context/ScreenSizeContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -103,7 +103,7 @@ const Header = () => {
                             <Link to="/login"><MenuItem borderRadius="lg" _hover={{color:"#EDEFEE", backgroundColor:"#333333"}} backgroundColor={page === 'login' ? "#333333" : null} color={page === 'login' ? "#FFFFFF" : null}><FontAwesomeIcon icon={faUser} size="1x"/>&nbsp;Login</MenuItem></Link>
                         </MenuList>
                     </Menu>
-                    <Link to="/"><Image src={Logo}/></Link>
+                    <Link to="/"><Image src={Logo} width="160px" height="42px"fit="cover"/></Link>
                     <Link to="/cart">
                         <HStack px='10px'>
                             <FontAwesomeIcon icon={faBasketShopping} color="#333333" size="2x"/>
