@@ -58,7 +58,7 @@ const Introduction = () => {
                         height={{ base: "30vh", md: "50vh" }} // Adjust height based on screen size
                         borderRadius="xl"
                         fit="cover"
-                        zIndex="modal"
+                        zIndex="100"
                         marginTop={{ base: "-20px", md: "0" }}
                         transition="all 0.4s linear"
                         _hover={{

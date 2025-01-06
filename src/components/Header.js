@@ -1,7 +1,7 @@
 import { Box, HStack, Image, Menu,
     MenuButton,
     MenuList,
-    MenuItem, useDisclosure, Button } from "@chakra-ui/react";
+    MenuItem, useDisclosure, Button, Text } from "@chakra-ui/react";
 import React, { useEffect, useRef, useState} from "react";
 import Logo from "../images/Header_Logo.png";
 import {Link} from 'react-router-dom';
@@ -103,13 +103,23 @@ const Header = () => {
                             <Link to="/login"><MenuItem borderRadius="lg" _hover={{color:"#EDEFEE", backgroundColor:"#333333"}} backgroundColor={page === 'login' ? "#333333" : null} color={page === 'login' ? "#FFFFFF" : null}><FontAwesomeIcon icon={faUser} size="1x"/>&nbsp;Login</MenuItem></Link>
                         </MenuList>
                     </Menu>
-                    <Link to="/"><Image src={Logo} width="160px" height="42px"fit="cover"/></Link>
+                    <Link to="/"><Image src={Logo} width="160px" height="42px"fit="cover" /></Link>
                     <Link to="/cart">
                         <HStack px='10px'>
-                            <FontAwesomeIcon icon={faBasketShopping} color="#333333" size="2x"/>
                             {cartCount > 0 ? (
-                                <span style={{ color: "#EDEFEE", padding: "0.1rem 0.45rem 0.2rem", top:"-0.8rem", right:"0.2rem", backgroundColor: "#FC2063", borderRadius:"9px 8px 8px 0px", fontSize:"1rem", fontWeight:"bold", position:"relative", }}>{cartCount}</span>
+                                <Text 
+                                color="#EDEFEE" 
+                                padding="0.1rem 0.45rem 0.2rem" 
+                                position="relative" 
+                                marginTop="-2rem" 
+                                marginRight="-1rem" 
+                                backgroundColor="#FC2063" 
+                                borderRadius="9px 8px 0px 9px" 
+                                fontSize={{ base: '0.5rem', md: '1rem' }} 
+                                fontWeight="bold"
+                                >{cartCount}</Text>
                             ) : null}
+                            <FontAwesomeIcon icon={faBasketShopping} color="#333333" size="2x"/>
                         </HStack>
                     </Link>
                 </HStack>
