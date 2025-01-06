@@ -195,7 +195,7 @@ const Cart = () => {
                         {/* Order Summary */}
                         <VStack minWidth="41vw" gap={{ base: "0" }}>
                             <Heading size={{base: "md" , md: "lg" }} fontWeight="semibold" color="#333333"alignSelf="start">Order Summary</Heading>
-                            <SimpleGrid columns={2} spacing={5} alignSelf="start" py={5} width="100%">
+                            <SimpleGrid columns={2} spacing={{base: 1 , md: 5 }} alignSelf="start" py={{base: 3 , md: 5 }} width="100%">
                                 <Text size="md" color="#333333">Total Price:</Text>
                                 <Text size="md" color="#333333" textAlign="right">${totalPrice.toFixed(2)}</Text>
                                 <Text size="md" color="#333333">Delivery Charges:</Text>
@@ -205,14 +205,14 @@ const Cart = () => {
                         {/* Discount Section */}
                         <VStack minWidth="41vw" gap={{ base: "0" }}>
                             <Heading size={{base: "md" , md: "lg" }} fontWeight="semibold" color="#333333"alignSelf="start">Discount</Heading>
-                            <SimpleGrid columns={1} spacing={5} alignSelf="start" py={5} width="100%">
+                            <SimpleGrid columns={1} spacing={{base: 1 , md: 5 }} alignSelf="start" py={{base: 3 , md: 5 }} width="100%">
                                 <Text size="md" color="#333333"alignSelf="start">Save @ 50% off With Dinner Deal 20</Text>
                                 <Text size="md" color="#333333"alignSelf="start">View all restaurant coupons</Text>
                             </SimpleGrid>
                         </VStack>
                         <Payment />
                         {/* Order Total Section */}
-                        <VStack minWidth="41vw" py={{ base: '0.5rem', md: 5 }} gap={{ base: "0" }}>
+                        <VStack minWidth="41vw" py={{ base: 3, md: 5 }} gap={{ base: "0" }}>
                             <SimpleGrid columns={2} spacing={5} alignSelf="start" width="100%">
                                 <Heading size="md" fontWeight="semibold" color="#333333" alignSelf="start">Order Total:</Heading>
                                 <Heading size="md" fontWeight="semibold" color="#FC2063" textAlign="right">
@@ -221,7 +221,7 @@ const Cart = () => {
                             </SimpleGrid>
                         </VStack>
                         {/* Place Order Button */}
-                        <VStack minWidth="41vw" py={5}>
+                        <VStack minWidth="41vw" py={{base: 3 , md: 5 }}>
                             <Button colorScheme="yellow" width="100%" onClick={toggleComfirmForm}>
                                 <span style={{ color: '#333333' }}>Place Order</span>
                             </Button>

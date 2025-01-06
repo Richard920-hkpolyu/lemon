@@ -79,7 +79,7 @@ const CartItems = ({ id, title, category, type, monthly, ingredients, descriptio
                 <Text color="#333333" fontSize={{ base: "md", md: "lg" }} noOfLines={3}>
                     {type}
                 </Text>
-                <Text color="#333333" fontSize={{ base: "md", md: "lg" }} noOfLines={3}>
+                <Text color="#333333" fontSize={{ base: "md", md: "lg" }} lineHeight={{ base: "shorter", md: "short" }} noOfLines={3}>
                     {ingredientsNames}
                 </Text>
                 <SimpleGrid columns={1} spacing={5} alignSelf="start" py={{ base: 0, md: 5 }} width="100%">
