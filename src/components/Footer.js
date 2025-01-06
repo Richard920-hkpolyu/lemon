@@ -9,17 +9,17 @@ import { useScreenSize } from "../context/ScreenSizeContext";
 const Introduction = () => {
     const { screenSize } = useScreenSize();
     const alignment = useBreakpointValue({
-        base: "start", // Default alignment for mobile
+        base: "center", // Default alignment for mobile
         md: "start",   // Alignment for medium screens and up
         lg: "start",   // Alignment for large screens and up
     });
     const alignment2 = useBreakpointValue({
-        base: "start", // Default alignment for mobile
+        base: "center", // Default alignment for mobile
         md: "center",   // Alignment for medium screens and up
         lg: "center",   // Alignment for large screens and up
     });
     const alignment3 = useBreakpointValue({
-        base: "start", // Default alignment for mobile
+        base: "center", // Default alignment for mobile
         md: "flex-end",   // Alignment for medium screens and up
         lg: "flex-end",   // Alignment for large screens and up
     });
@@ -31,7 +31,7 @@ const Introduction = () => {
         backgroundColor="#495E57"
         minHeight="10vh"
         >
-            <SimpleGrid columns={{ base: 1, md: 3 }} spacing={10} py={10} alignItems="center" width="99%">
+            <SimpleGrid columns={{ base: 1, md: 3 }} spacing={10} py={10} alignItems="center" width="99%" >
                 <VStack alignItems={alignment} width="100%">
                     <Image src={Logo} height="20vh"/>
                 </VStack>

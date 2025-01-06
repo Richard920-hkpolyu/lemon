@@ -5,6 +5,7 @@ import MenuSection from "./MenuSection";
 import { useScreenSize } from "../context/ScreenSizeContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMotorcycle, } from '@fortawesome/free-solid-svg-icons';
+import Wave from 'react-wavify';
 const OrderOnline = () => {
     const handleScrollToTop = () => {
         window.scrollTo({ top: 0, behavior: "smooth" });
@@ -26,6 +27,7 @@ const OrderOnline = () => {
                 minHeight={{ base: "20vh", md: "25vh" }}
                 width="100%"
                 borderRadius="md"
+                zIndex="100"
             >
                 <br/><br/>
                 <SimpleGrid columns={2} alignItems="center" width="100%">
@@ -36,6 +38,16 @@ const OrderOnline = () => {
                     <VStack alignItems="flex-end" width="100%"><FontAwesomeIcon icon={faMotorcycle} size="5x"/></VStack>
                 </SimpleGrid>
             </FullScreenSection>
+            <Wave fill='#495e57'
+                paused={false}
+                style={{ display: 'flex', transform: 'scaleY(-1)', marginTop: '-100px' }}
+                options={{
+                height: 20,
+                amplitude: 20,
+                speed: 0.15,
+                points: 3
+                }}
+            />
             <MenuSection />
         </>
     );

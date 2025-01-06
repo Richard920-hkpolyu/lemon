@@ -4,7 +4,7 @@ import FullScreenSection from "./FullScreenSection";
 import img1 from "../images/small/Intro_Restaurantfood.jpg";
 import { ChevronRightIcon } from '@chakra-ui/icons';
 import { Link } from 'react-router-dom';
-import Wave from 'react-wavify'
+import Wave from 'react-wavify';
 const para1 = "We are a family owned Mediterranean restaurant, focused on traditional recipes served with a modern twist.";
 
 const Introduction = () => {
