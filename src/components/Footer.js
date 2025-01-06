@@ -6,6 +6,7 @@ import Logo from "../images/footer_logo.jpg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { socials, } from "../utils/data";
 import { useScreenSize } from "../context/ScreenSizeContext";
+import Wave from 'react-wavify';
 const Introduction = () => {
     const { screenSize } = useScreenSize();
     const alignment = useBreakpointValue({
@@ -24,13 +25,25 @@ const Introduction = () => {
         lg: "flex-end",   // Alignment for large screens and up
     });
     return(
-        <FullScreenSection
-        justifyContent="center"
-        alignItems="start"
-        isDarkBackground
-        backgroundColor="#495E57"
-        minHeight="10vh"
-        >
+        <>
+            <Wave fill='#495e57'
+                paused={false}
+                style={{ display: 'flex', marginBottom: '-100px' }}
+                options={{
+                height: 20,
+                amplitude: 20,
+                speed: 0.15,
+                points: 3
+                }}
+            />
+            <FullScreenSection
+            justifyContent="center"
+            alignItems="start"
+            isDarkBackground
+            backgroundColor="#495E57"
+            minHeight="10vh"
+            zIndex="100"
+            >
             <SimpleGrid columns={{ base: 1, md: 3 }} spacing={10} py={10} alignItems="center" width="99%" >
                 <VStack alignItems={alignment} width="100%">
                     <Image src={Logo} height="20vh"/>
@@ -69,6 +82,7 @@ const Introduction = () => {
                 </VStack>
             </SimpleGrid>
         </FullScreenSection>
+        </>
     );
 };
 
