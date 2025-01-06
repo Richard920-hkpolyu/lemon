@@ -93,7 +93,6 @@ const Header = () => {
                             paddingBottom={5}
                             color="#333333"
                             minWidth={{ base: '100vw', md: '400px' }}
-                            borderWidth="1px"
                             onMouseEnter={onOpen}
                             onMouseLeave={onClose}
                             onClick={onClose}>

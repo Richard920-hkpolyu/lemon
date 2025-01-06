@@ -111,7 +111,7 @@ const Order = () => {
             py={{ base: 0, md: 12 }}
             minHeight={{ base: '25vh' }}
         >
-            <VStack borderWidth="1px" alignItems="left" width="auto" backgroundColor="#FFFFFF">
+            <VStack alignItems="left" width="auto" backgroundColor="#FFFFFF">
                 {isMobile ? (
                     <HStack>
                         <VStack alignItems="start" width="100%">
