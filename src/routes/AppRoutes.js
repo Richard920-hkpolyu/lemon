@@ -6,7 +6,7 @@ import OrderOnline from "../components/OrderOnline";
 import ReservationPage from "../components/ReservationPage";
 import CartPage from "../components/CartPage";
 //import SignIn from "./components/SignIn";
-import {Routes, Route, } from 'react-router-dom';
+import { Routes, Route, } from 'react-router-dom';
 import NotFound from "../components/NotFound";
 import Login from "../components/Login";
 import Loading from "../components/Loading";
