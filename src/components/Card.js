@@ -56,14 +56,14 @@ const Card = ({ id, title, category, type, monthly, ingredients, description, pr
                     {description}
                 </Text>
                 <Flex justify="space-between" align="center" width="100%">
-                    <Heading size={{ base: "md", md: "lg" }} fontWeight="medium" color="#333333">{price}</Heading>
+                    <Text size={{ base: "md", md: "lg" }} fontWeight="medium" color="#333333">{price}</Text>
                     {count > 0 && true ? (
                         <HStack alignSelf="center" gap={{ base: '5px', md: '8px' }}>
-                            <Button onClick={handleDecrement}>
+                            <Button onClick={handleDecrement} width={{ base: '4px' }}>
                                 <FontAwesomeIcon icon={faMinus} color="#333333"/>
                             </Button>
-                            <Text color="#333333" fontSize="lg">{count}</Text>
-                            <Button onClick={handleIncrement}>
+                            <Text color="#333333" fontSize={{ base: 'md', md: 'lg' }}>{count}</Text>
+                            <Button onClick={handleIncrement} width={{ base: '4px' }}>
                                 <FontAwesomeIcon icon={faPlus} color="#333333"/>
                             </Button>
                         </HStack>
