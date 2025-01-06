@@ -4,7 +4,7 @@ import FullScreenSection from "./FullScreenSection";
 import img1 from "../images/small/Intro_Restaurantfood.jpg";
 import { ChevronRightIcon } from '@chakra-ui/icons';
 import { Link } from 'react-router-dom';
-
+import Wave from 'react-wavify'
 const para1 = "We are a family owned Mediterranean restaurant, focused on traditional recipes served with a modern twist.";
 
 const Introduction = () => {
@@ -14,6 +14,7 @@ const Introduction = () => {
         lg: "start",   // Alignment for large screens and up
     });
     return (
+        <>
         <FullScreenSection
             justifyContent="center"
             alignItems="start"
@@ -57,6 +58,8 @@ const Introduction = () => {
                         height={{ base: "30vh", md: "50vh" }} // Adjust height based on screen size
                         borderRadius="xl"
                         fit="cover"
+                        zIndex="modal"
+                        marginTop={{ base: "-20px", md: "0" }}
                         transition="all 0.4s linear"
                         _hover={{
                             transform: "scale(1.04)",
@@ -71,7 +74,19 @@ const Introduction = () => {
                 </VStack>
             </HStack>
         </FullScreenSection>
+        <Wave fill='#495e57'
+            paused={false}
+            style={{ display: 'flex', transform: 'scaleY(-1)', marginTop: '-100px' }}
+            options={{
+            height: 20,
+            amplitude: 20,
+            speed: 0.15,
+            points: 3
+            }}
+        />
+        </>
     );
 };
 
 export default Introduction;
+
