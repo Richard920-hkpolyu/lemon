@@ -47,7 +47,6 @@ const CartItems = ({ id, title, category, type, monthly, ingredients, descriptio
 
     const handleIncrement = () => setCount(prevCount => prevCount + 1);
     const handleDecrement = () => setCount(prevCount => Math.max(prevCount - 1, 0));
-    console.log("ingredients",ingredients);
     return (
         <HStack
             color="#333333"

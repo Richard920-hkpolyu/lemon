@@ -223,7 +223,7 @@ const Cart = () => {
                         {/* Place Order Button */}
                         <VStack minWidth="41vw" py={5}>
                             <Button colorScheme="yellow" width="100%" onClick={toggleComfirmForm}>
-                                <span style={{ color: '#333333', fontSize: '22px' }}>Place Order</span>
+                                <span style={{ color: '#333333' }}>Place Order</span>
                             </Button>
                         </VStack>
                     </SimpleGrid>
