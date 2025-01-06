@@ -25,13 +25,13 @@ const DeliveryAddress = () => {
                     <VStack alignItems="start" width="100%">
                         <HStack width="100%">
                             <FontAwesomeIcon icon={faLocationDot} color="#333333"/>
-                            <Text fontSize="lg" fontWeight="medium" color="#333333"align="start">410, 4 MAN FUK BUILDING, YUET WAH STREET 40, HONG KONG</Text>
+                            <Text fontSize={{base: "md" , md: "lg" }} fontWeight="medium" color="#333333"align="start">410, 4 MAN FUK BUILDING, YUET WAH STREET 40, HONG KONG</Text>
                         </HStack>
                         <HStack width="100%">
                             <FontAwesomeIcon icon={faUser} color="#333333"/>
-                            <Text fontSize="lg" color="#333333"align="start"  width={{base:"7rem", md:"10rem"}}>Richard NG</Text>
+                            <Text fontSize={{base: "md" , md: "lg" }} color="#333333"align="start"  width={{base:"7rem", md:"10rem"}}>Richard NG</Text>
                             <FontAwesomeIcon icon={faPhone} color="#333333"/>
-                            <Text fontSize="lg" color="#333333"align="end">+ 188 1890 2621</Text>
+                            <Text fontSize={{base: "md" , md: "lg" }} color="#333333"align="end">+ 188 1890 2621</Text>
                         </HStack>
                     </VStack>
                     <VStack alignItems="flex-end" width="1rem"><ChevronDownIcon w={5} h={5} color="#333333"/></VStack>
