@@ -137,7 +137,7 @@ const Cart = () => {
                 alignItems="center"
                 justifyContent="space-between"
                 gap="2.5rem"
-                letterSpacing="0.8px"
+                letterSpacing="0.5px"
             >
                 <VStack width="100%" justifyContent="space-between">
                 <Heading size="md" fontWeight="semibold" lineHeight="2" color="#333333">Are You Sure Comfirm Order?</Heading>
@@ -193,7 +193,7 @@ const Cart = () => {
                     <Divider orientation='horizontal' variant="solid" borderColor="#495E57" />
                     <SimpleGrid columns={{ base: 1, md: 1 }} width="100%">
                         {/* Order Summary */}
-                        <VStack minWidth="41vw">
+                        <VStack minWidth="41vw" gap={{ base: "0" }}>
                             <Heading size={{base: "md" , md: "lg" }} fontWeight="semibold" color="#333333"alignSelf="start">Order Summary</Heading>
                             <SimpleGrid columns={2} spacing={5} alignSelf="start" py={5} width="100%">
                                 <Text size="md" color="#333333">Total Price:</Text>
@@ -203,7 +203,7 @@ const Cart = () => {
                             </SimpleGrid>
                         </VStack>
                         {/* Discount Section */}
-                        <VStack minWidth="41vw">
+                        <VStack minWidth="41vw" gap={{ base: "0" }}>
                             <Heading size={{base: "md" , md: "lg" }} fontWeight="semibold" color="#333333"alignSelf="start">Discount</Heading>
                             <SimpleGrid columns={1} spacing={5} alignSelf="start" py={5} width="100%">
                                 <Text size="md" color="#333333"alignSelf="start">Save @ 50% off With Dinner Deal 20</Text>
@@ -212,7 +212,7 @@ const Cart = () => {
                         </VStack>
                         <Payment />
                         {/* Order Total Section */}
-                        <VStack minWidth="41vw" py={5}>
+                        <VStack minWidth="41vw" py={{ base: '0.5rem', md: 5 }} gap={{ base: "0" }}>
                             <SimpleGrid columns={2} spacing={5} alignSelf="start" width="100%">
                                 <Heading size="md" fontWeight="semibold" color="#333333" alignSelf="start">Order Total:</Heading>
                                 <Heading size="md" fontWeight="semibold" color="#FC2063" textAlign="right">
@@ -230,7 +230,7 @@ const Cart = () => {
                 </>
             ) : (
                 <VStack color="#333333" alignSelf="center">
-                    <Heading size="2xl" fontWeight="semibold" color="#495E57">Empty Cart!</Heading>
+                    <Heading size={{base: "lg" , md: "2xl" }} fontWeight="semibold" color="#495E57">Empty Cart!</Heading>
                     <Link to="/order-online">
                         <Heading size={{base: "md" , md: "lg" }} fontWeight="semibold" color="#FC2063" _hover={{ textDecoration: 'underline', cursor: 'pointer' }}>
                             Click to Order

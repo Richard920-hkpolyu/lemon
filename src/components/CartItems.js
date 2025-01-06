@@ -72,7 +72,7 @@ const CartItems = ({ id, title, category, type, monthly, ingredients, descriptio
                     onClick={handleNavigate}
                 />
             </VStack>
-            <VStack alignItems="start" width="39vw">
+            <VStack alignItems="start" width="39vw" gap={{ base: "0" }}>
                 <Heading size={{ base: "md", md: "lg" }} fontWeight="semibold" color="#333333" onClick={handleNavigate}>
                     {title}
                 </Heading>
@@ -99,9 +99,9 @@ const CartItems = ({ id, title, category, type, monthly, ingredients, descriptio
                 </SimpleGrid>
             </VStack>
             <VStack alignItems="right" width="20vw">
-                <Heading size={{ base: "md", md: "lg" }} fontWeight="semibold" color="#FC2063" textAlign="right">
+                <Text size={{ base: "md", md: "lg" }} fontWeight="semibold" color="#FC2063" textAlign="right">
                     {(parseFloat(price.replace("$", "")) * count).toFixed(2)}
-                </Heading>
+                </Text>
             </VStack>
         </HStack>
     );

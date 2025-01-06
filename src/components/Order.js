@@ -135,7 +135,7 @@ const Order = () => {
                             {renderIngredients()}
                             <HStack alignSelf="center" gap={10} py={3}>
                                 <Button onClick={handleDecrement}><MinusIcon color="#333333" /></Button>
-                                <Text color="#333333" fontSize="lg">{count}</Text>
+                                <Text color="#333333" fontSize={{ base: "md", md: "lg" }}>{count}</Text>
                                 <Button onClick={handleIncrement}><AddIcon color="#333333" /></Button>
                             </HStack>
                             <Button colorScheme="yellow" alignSelf="center" width="full" onClick={buttonEvent}>
@@ -167,7 +167,7 @@ const Order = () => {
                             {renderIngredients()}
                             <HStack alignSelf="center" gap={10} py={3}>
                                 <Button onClick={handleDecrement}><MinusIcon color="#333333" /></Button>
-                                <Text color="#333333" fontSize="lg">{count}</Text>
+                                <Text color="#333333" fontSize={{ base: "md", md: "lg" }}>{count}</Text>
                                 <Button onClick={handleIncrement}><AddIcon color="#333333" /></Button>
                             </HStack>
                             <Button colorScheme="yellow" alignSelf="center" width="full" onClick={buttonEvent}>

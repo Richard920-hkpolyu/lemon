@@ -29,8 +29,8 @@ const ReservationPage = () => {
             >
                 <br/><br/>
                 <SimpleGrid columns={2} alignItems="center" width="100%">
-                    <VStack alignItems="start" width="100%">
-                        <Heading size={{ base: "lg", md: "2xl" }} fontWeight="semibold" noOfLines={1} color="#F4CE14">Reservation</Heading>
+                    <VStack alignItems="start" width="70vw">
+                        <Heading size={{ base: "md", md: "2xl" }} fontWeight="semibold" noOfLines={1} color="#F4CE14">Reservation</Heading>
                     </VStack>
                     <VStack alignItems="flex-end" width="100%"><FontAwesomeIcon icon={faBowlFood} size="5x"/></VStack>
                 </SimpleGrid>

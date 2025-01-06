@@ -63,7 +63,7 @@ const MenuSection = () => {
         width={{ base: "96vw", md: "96vw" }}
         borderRadius="md"
         >
-            <Heading size={{ base: "lg", md: "xl" }} fontWeight="bold" noOfLines={1} color="#333333">MENU</Heading>
+            <Heading size={{ base: "md", md: "xl" }} fontWeight="bold" noOfLines={1} color="#333333">&nbsp;MENU</Heading>
             <div style={{ overflowX: 'auto', whiteSpace: 'nowrap', maxWidth: '100%', scrollbarWidth: 'none',}}>
               <ButtonGroup gap="3">
                   {buttons.map((item) => (

@@ -26,8 +26,8 @@ const OrderPage = () => {
         >
             <br/><br/>
             <SimpleGrid columns={2} alignItems="center" width="100%">
-                    <VStack alignItems="start" width="100%">
-                        <Heading size={{ base: "lg", md: "2xl" }} fontWeight="semibold" color="#F4CE14">ORDER FOR DELIVERY!</Heading>
+                    <VStack alignItems="start" width="70vw">
+                        <Heading size={{ base: "md", md: "2xl" }} fontWeight="semibold" color="#F4CE14">ORDER FOR DELIVERY!</Heading>
                     </VStack>
                     <VStack alignItems="flex-end" width="100%"><FontAwesomeIcon icon={faMotorcycle} size="5x"/></VStack>
                 </SimpleGrid>

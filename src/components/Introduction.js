@@ -33,13 +33,13 @@ const Introduction = () => {
                     py={{ base: 5, md: 10 }}
                     spacing={{ base: 3, md: 6 }}
                 >
-                    <Heading size={{ base: "xl", md: "3xl" }} fontWeight="bold" noOfLines={1} color="#F4CE14" alignSelf={alignment}>
+                    <Heading size={{ base: "lg", md: "3xl" }} fontWeight="bold" noOfLines={1} color="#F4CE14" alignSelf={alignment}>
                         Little Lemon
                     </Heading>
-                    <Heading size={{ base: "lg", md: "2xl" }} fontWeight="semibold" noOfLines={1} color="#EDEFEE" alignSelf={alignment}>
-                        Chicago
+                    <Heading size={{ base: "md", md: "2xl" }} fontWeight="semibold" noOfLines={1} color="#EDEFEE" alignSelf={alignment}>
+                        Hong Kong
                     </Heading>
-                    <Text fontSize={{ base: "lg", md: "xl" }} color="#EDEFEE" noOfLines={3} align={alignment}>
+                    <Text fontSize={{ base: "md", md: "xl" }} color="#EDEFEE" noOfLines={3} align={alignment}>
                         {para1}
                     </Text>
                     <Link to="/reservation">
@@ -66,7 +66,7 @@ const Introduction = () => {
                             transform: "scale(1)",
                         }}
                         maxHeight="400px"
-                        maxWidth="300px"
+                        maxWidth="270px"
                     />
                 </VStack>
             </HStack>

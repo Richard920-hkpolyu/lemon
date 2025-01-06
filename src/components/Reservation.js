@@ -10,7 +10,8 @@ import {
     Image,
     Radio,
     RadioGroup,
-    useMediaQuery
+    useMediaQuery,
+    Text
 } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import FullScreenSection from "./FullScreenSection";
@@ -86,8 +87,8 @@ const Reservation = () => {
                 <form onSubmit={formik.handleSubmit}>
                     <VStack spacing={2}>
                         {click === 0 ? (
-                            <VStack width={{ base: "96vw", md: "35rem" }} borderColor="#49SE57" borderWidth="1px" padding="2rem" gap="2rem">
-                                <Heading size="xl" fontWeight="semibold" color="#333333">Book your table</Heading>
+                            <VStack width={{ base: "96vw", md: "35rem" }} borderColor="#49SE57" borderWidth="1px" padding="2rem" gap={{ base: "1.4rem", md: "2rem" }}>
+                                <Heading size={{ base: "md", md: "xl" }} fontWeight="semibold" color="#333333">Book your table</Heading>
                                 <FormControl isInvalid={formik.touched.date && !!formik.errors.date}>
                                     <FormLabel htmlFor="date">Date<span style={{ color: 'red' }}>*</span></FormLabel>
                                     <Input
@@ -142,15 +143,15 @@ const Reservation = () => {
                             <VStack width={{ base: "100vw", md: "35rem" }} borderColor="#49SE57" borderWidth="1px" padding="2rem" gap="2rem">
                                 <Heading size={{ base: "md", md: "xl" }} fontWeight="semibold" color="#333333">Book your table</Heading>
                                 <HStack justify="space-between" align="center" width="95%" borderWidth="thin" borderColor="#495E57" padding={5} borderRadius="3xl" backgroundColor="#495E57" color="#EDEFEE">
-                                    <Heading size="md" fontWeight="normal">
+                                    <Text size="md" fontWeight="normal">
                                         <span style={{ color: '#F4CE14' }}>Date: </span>{isMobile ? <br /> : null}{formik.values.date}
-                                    </Heading>
-                                    <Heading size="md" fontWeight="normal">
+                                    </Text>
+                                    <Text size="md" fontWeight="normal">
                                         <span style={{ color: '#F4CE14' }}>Time: </span>{isMobile ? <br /> : null}{formik.values.time}
-                                    </Heading>
-                                    <Heading size="md" fontWeight="normal">
+                                    </Text>
+                                    <Text size="md" fontWeight="normal">
                                         <span style={{ color: '#F4CE14' }}>Persons: </span>{isMobile ? <br /> : null}{formik.values.guests}
-                                    </Heading>
+                                    </Text>
                                 </HStack>
                                 <FormControl isInvalid={formik.touched.firstName && !!formik.errors.firstName}>
                                     <HStack justify="space-between" align="center" width="95%">

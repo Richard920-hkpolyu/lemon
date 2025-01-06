@@ -40,7 +40,7 @@ const Introduction = () => {
                     <Text fontSize="md"  color="#EDEFEE" align={alignment2}>Designed and developed by Richard NG for the capstone project of the Meta front-end developer professional certificate.</Text>
                 </VStack>
                 <VStack alignItems={alignment3} width="100%">
-                    <Heading size="lg" fontWeight="bold" color="#F4CE14">Contact</Heading>
+                    <Heading size="md" fontWeight="bold" color="#F4CE14">Contact</Heading>
                     <Text fontSize="md"  color="#EDEFEE">+ 86 18818902621&nbsp;<PhoneIcon/></Text>
                     <Text fontSize="md"  color="#EDEFEE">+ 852 5114 2452&nbsp;<PhoneIcon/></Text>
                     <Text fontSize="md"  color="#EDEFEE">ngtsangying@gmail.com&nbsp;<EmailIcon/></Text>

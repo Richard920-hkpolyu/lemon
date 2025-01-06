@@ -28,9 +28,9 @@ const CartPage = () => {
             >
                 <br/><br/>
                 <SimpleGrid columns={2} alignItems="center" width="100%">
-                    <VStack alignItems="start" width="100%">
-                        <Heading size={{ base: "lg", md: "2xl" }} fontWeight="semibold" color="#F4CE14">CART FOR DELIVERY!</Heading>
-                        <Heading size={{ base: "lg", md: "xl" }} fontWeight="medium" noOfLines={1} color="#EDEFEE">Final Check!</Heading>
+                    <VStack alignItems="start" width="70vw">
+                        <Heading size={{ base: "md", md: "2xl" }} fontWeight="semibold" color="#F4CE14">CART FOR DELIVERY!</Heading>
+                        <Heading size={{ base: "md", md: "xl" }} fontWeight="medium" noOfLines={1} color="#EDEFEE">Final Check!</Heading>
                     </VStack>
                     <VStack alignItems="flex-end" width="100%"><FontAwesomeIcon icon={faOpencart} size="5x"/></VStack>
                 </SimpleGrid>
