@@ -129,7 +129,7 @@ const Cart = () => {
                 padding="4rem"
                 shadow="rgba(17, 17, 26, 0.1) 0px 4px 16px,
                 rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px"
-                backgroundColor="#EDEFEE"
+                backgroundColor="#FFFFFF"
                 borderRadius="2xl"
                 position="relative" // Use relative positioning for the box
                 display="flex"
@@ -164,8 +164,10 @@ const Cart = () => {
             justifyContent="center"
             alignItems="start"
             isDarkBackground
-            backgroundColor="#EDEFEE"
+            backgroundColor="#FFFFFF"
             minHeight="50vh"
+            borderRadius="md"
+            width={{ base: "96vw", md: "96vw" }}
         >
             {foodList.length > 0 ? (
                 <>
@@ -218,7 +220,6 @@ const Cart = () => {
                                 </Heading>
                             </SimpleGrid>
                         </VStack>
-                        
                         {/* Place Order Button */}
                         <VStack minWidth="41vw" py={5}>
                             <Button colorScheme="yellow" width="100%" onClick={toggleComfirmForm}>
@@ -226,10 +227,9 @@ const Cart = () => {
                             </Button>
                         </VStack>
                     </SimpleGrid>
-                    
                 </>
             ) : (
-                <VStack color="#333333">
+                <VStack color="#333333" alignSelf="center">
                     <Heading size="2xl" fontWeight="semibold" color="#495E57">Empty Cart!</Heading>
                     <Link to="/order-online">
                         <Heading size="lg" fontWeight="semibold" color="#FC2063" _hover={{ textDecoration: 'underline', cursor: 'pointer' }}>

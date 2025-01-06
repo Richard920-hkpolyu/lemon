@@ -3,17 +3,16 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-//import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 import ScreenSizeProvider from "./context/ScreenSizeContext";
-import { HashRouter as Router, } from 'react-router-dom';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Router>
+    <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
       <ScreenSizeProvider>
         <App />
       </ScreenSizeProvider>
-    </Router>
+    </BrowserRouter>
   </React.StrictMode>
 );
 //future={{ v7_startTransition: true }}

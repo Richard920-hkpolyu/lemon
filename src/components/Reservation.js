@@ -76,9 +76,10 @@ const Reservation = () => {
             justifyContent="center"
             alignItems="center"
             isDarkBackground
-            backgroundColor="#EDEFEE"
-            py={10}
+            backgroundColor="#FFFFFF"
+            py={{ base: 0, md: 10 }}
             color="#333333"
+            borderRadius="md"
         >
             <br/>
             <VStack gap="6" alignItems="start">

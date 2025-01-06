@@ -1,4 +1,4 @@
-import { HStack, Heading, VStack, Button, Text, Image, useBreakpointValue,useMediaQuery } from "@chakra-ui/react";
+import { HStack, Heading, VStack, Button, Text, Image, useBreakpointValue } from "@chakra-ui/react";
 import React from "react";
 import FullScreenSection from "./FullScreenSection";
 import img1 from "../images/small/Intro_Restaurantfood.jpg";
@@ -13,13 +13,14 @@ const Introduction = () => {
         md: "center",   // Alignment for medium screens and up
         lg: "start",   // Alignment for large screens and up
     });
-    const [isMobile] = useMediaQuery("(max-width: 48em)");
     return (
         <FullScreenSection
             justifyContent="center"
             alignItems="start"
             isDarkBackground
             backgroundColor="#495E57"
+            borderRadius="md"
+            minHeight={{ base: "50vh", md: "570px" }}
         >
             <HStack
                 spacing={{ base: 4, md: 8 }} // Adjust spacing based on screen size
@@ -29,13 +30,13 @@ const Introduction = () => {
                 <VStack
                     alignItems={alignment}
                     width={{ base: "100%", md: "60vw", lg: "65vw" }} // Responsive width
-                    py={10}
-                    spacing={6}
+                    py={{ base: 5, md: 10 }}
+                    spacing={{ base: 3, md: 6 }}
                 >
-                    <Heading size={{ base: "2xl", md: "3xl" }} fontWeight="bold" noOfLines={1} color="#F4CE14" alignSelf={alignment}>
+                    <Heading size={{ base: "xl", md: "3xl" }} fontWeight="bold" noOfLines={1} color="#F4CE14" alignSelf={alignment}>
                         Little Lemon
                     </Heading>
-                    <Heading size={{ base: "xl", md: "2xl" }} fontWeight="semibold" noOfLines={1} color="#EDEFEE" alignSelf={alignment}>
+                    <Heading size={{ base: "lg", md: "2xl" }} fontWeight="semibold" noOfLines={1} color="#EDEFEE" alignSelf={alignment}>
                         Chicago
                     </Heading>
                     <Text fontSize={{ base: "lg", md: "xl" }} color="#EDEFEE" noOfLines={3} align={alignment}>
@@ -64,8 +65,9 @@ const Introduction = () => {
                         _active={{
                             transform: "scale(1)",
                         }}
+                        maxHeight="400px"
+                        maxWidth="300px"
                     />
-                    {isMobile ? <br /> : null}
                 </VStack>
             </HStack>
         </FullScreenSection>

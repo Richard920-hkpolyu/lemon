@@ -14,7 +14,7 @@ const Payment = () => {
                 justifyContent="center"
                 alignItems="start"
                 isDarkBackground
-                backgroundColor="#EDEFEE"
+                backgroundColor="#FFFFFF"
                 minHeight="3rem"
                 width={{base: "95vw" , md: "92vw" }}
                 borderWidth="1px"

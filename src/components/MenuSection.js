@@ -58,12 +58,13 @@ const MenuSection = () => {
         justifyContent="center"
         alignItems="start"
         isDarkBackground
-        backgroundColor="#EDEFEE"
-        py={12}
-        width={{ base: "96vw", md: "100vw" }}
+        backgroundColor="#FFFFFF"
+        py={{ base: 6, md: 12 }}
+        width={{ base: "96vw", md: "96vw" }}
+        borderRadius="md"
         >
             <Heading size={{ base: "lg", md: "xl" }} fontWeight="bold" noOfLines={1} color="#333333">MENU</Heading>
-            <div style={{ overflowX: 'auto', whiteSpace: 'nowrap', maxWidth: '100%', }}>
+            <div style={{ overflowX: 'auto', whiteSpace: 'nowrap', maxWidth: '100%', scrollbarWidth: 'none',}}>
               <ButtonGroup gap="3">
                   {buttons.map((item) => (
                       <Button

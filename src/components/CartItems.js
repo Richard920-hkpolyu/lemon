@@ -3,9 +3,24 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { DeleteIcon, AddIcon } from '@chakra-ui/icons';
 import { useScreenSize } from "../context/ScreenSizeContext";
-
-const CartItems = ({ id, title, category, type, monthly,ingredients, description, price, imageSrc }) => {
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMinus, faPlus } from '@fortawesome/free-solid-svg-icons';
+const CartItems = ({ id, title, category, type, monthly, ingredients, description, price, imageSrc }) => {
     const navigate = useNavigate();
+    const handleNavigate = () => {
+        navigate(`/order-online/order/${title.replace(/ /g, "")}`, { state: dataToPass });
+    };
+    const dataToPass = {
+        id: id,
+        title: title,
+        category: category,
+        type: type,
+        monthly: monthly,
+        ingredients: ingredients,
+        description: description,
+        price: price,
+        imageSrc: imageSrc,
+    };
     const { modifyItems, items } = useScreenSize();
     const ingredientsNames = ingredients.map(item => item.name).join(', ');
 
@@ -34,21 +49,18 @@ const CartItems = ({ id, title, category, type, monthly,ingredients, description
     const handleDecrement = () => setCount(prevCount => Math.max(prevCount - 1, 0));
     console.log("ingredients",ingredients);
     return (
-        <SimpleGrid
-            columns={3}
+        <HStack
             color="#333333"
-            backgroundColor="#EDEFEE"
-            cursor="pointer"
+            backgroundColor="#FFFFFF"
             borderWidth="1px"
             borderRadius="md"
-            _hover={{ borderColor: "#F9E689" }}
             alignItems="center"
             width="100%"
         >
-            <VStack alignItems="start" width="40vw">
+            <VStack alignItems="start" width="39vw">
                 <Image
-                    width={{ base: "30vw", md: "25vw" }}
-                    height={{ base: "30vw", md: "25vh" }}
+                    width={{ base: "35vw", md: "25vw" }}
+                    height={{ base: "35vw", md: "25vh" }}
                     borderRadius="xl"
                     alignSelf="start"
                     src={imageSrc}
@@ -58,27 +70,28 @@ const CartItems = ({ id, title, category, type, monthly,ingredients, description
                     transition="all 0.4s linear"
                     _hover={{ transform: "scale(1.04)", bg: "teal.600" }}
                     _active={{ transform: "scale(1)" }}
+                    onClick={handleNavigate}
                 />
             </VStack>
-            <VStack alignItems="start" width="100%">
-                <Heading size="lg" fontWeight="semibold" color="#333333" >
+            <VStack alignItems="start" width="39vw">
+                <Heading size={{ base: "md", md: "lg" }} fontWeight="semibold" color="#333333" onClick={handleNavigate}>
                     {title}
                 </Heading>
-                <Text color="#333333" fontSize="lg" noOfLines={3}>
+                <Text color="#333333" fontSize={{ base: "md", md: "lg" }} noOfLines={3}>
                     {type}
                 </Text>
-                <Text color="#333333" fontSize="lg" noOfLines={3}>
+                <Text color="#333333" fontSize={{ base: "md", md: "lg" }} noOfLines={3}>
                     {ingredientsNames}
                 </Text>
-                <SimpleGrid columns={1} spacing={5} alignSelf="start" py={5} width="100%">
+                <SimpleGrid columns={1} spacing={5} alignSelf="start" py={{ base: 0, md: 5 }} width="100%">
                     {count > 0 ? (
-                        <HStack alignSelf="center" gap={10} ml="-15px">
+                        <HStack alignSelf="center" gap={5} ml="-10px">
                             <Button onClick={handleDecrement}>
-                                <DeleteIcon color="#333333" />
+                                <FontAwesomeIcon icon={faMinus} color="#333333"/>
                             </Button>
                             <Text color="#333333" fontSize="lg">{count}</Text>
                             <Button onClick={handleIncrement}>
-                                <AddIcon color="#333333" />
+                                <FontAwesomeIcon icon={faPlus} color="#333333"/>
                             </Button>
                         </HStack>
                     ) : (
@@ -86,12 +99,12 @@ const CartItems = ({ id, title, category, type, monthly,ingredients, description
                     )}
                 </SimpleGrid>
             </VStack>
-            <VStack alignItems="right" width="100%">
-                <Heading size="lg" fontWeight="semibold" color="#FC2063" textAlign="right">
+            <VStack alignItems="right" width="20vw">
+                <Heading size={{ base: "md", md: "lg" }} fontWeight="semibold" color="#FC2063" textAlign="right">
                     {(parseFloat(price.replace("$", "")) * count).toFixed(2)}
                 </Heading>
             </VStack>
-        </SimpleGrid>
+        </HStack>
     );
 };
 

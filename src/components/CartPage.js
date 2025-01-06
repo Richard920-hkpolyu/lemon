@@ -23,16 +23,16 @@ const CartPage = () => {
                 alignItems="start"
                 isDarkBackground
                 backgroundColor="#495E57"
-                minHeight="25vh"
+                minHeight={{ base: "20vh", md: "25vh" }}
                 width="100%"
             >
                 <br/><br/>
                 <SimpleGrid columns={2} alignItems="center" width="100%">
                     <VStack alignItems="start" width="100%">
-                        <Heading size={{ base: "xl", md: "2xl" }} fontWeight="semibold" color="#F4CE14">CART FOR DELIVERY!</Heading>
+                        <Heading size={{ base: "lg", md: "2xl" }} fontWeight="semibold" color="#F4CE14">CART FOR DELIVERY!</Heading>
                         <Heading size={{ base: "lg", md: "xl" }} fontWeight="medium" noOfLines={1} color="#EDEFEE">Final Check!</Heading>
                     </VStack>
-                    <VStack alignItems="flex-end" width="100%"><FontAwesomeIcon icon={faOpencart} size="6x"/></VStack>
+                    <VStack alignItems="flex-end" width="100%"><FontAwesomeIcon icon={faOpencart} size="5x"/></VStack>
                 </SimpleGrid>
             </FullScreenSection>
             <Cart />

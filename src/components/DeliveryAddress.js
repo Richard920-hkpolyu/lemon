@@ -12,13 +12,13 @@ const DeliveryAddress = () => {
                 justifyContent="center"
                 alignItems="start"
                 isDarkBackground
-                backgroundColor="#EDEFEE"
+                backgroundColor="#FFFFFF"
                 minHeight="3rem"
                 borderWidth="1px"
                 borderRadius="lg"
                 borderStyle="solid"
                 padding="0.5rem"
-                width={{base: "91vw" , md: "92vw" }}
+                width={{base: "91vw" , md: "93vw" }}
                 boxShadow="0 4px 8px rgba(0, 0, 0, 0.2)"
             >
                 <HStack width="100%" >

@@ -8,7 +8,7 @@ const Alert = lazy(() => import("./components/Alert"));
 const Loading = lazy(() => import("./components/Loading"));
 import React, { Suspense, lazy, useEffect } from "react";
 import { AlertProvider } from "./context/alertContext";
-import { ChakraProvider } from "@chakra-ui/react";
+import { ChakraProvider, extendTheme } from "@chakra-ui/react";
 import Lenis from '@studio-freight/lenis';
 
 const App=()=> {
@@ -25,9 +25,18 @@ const App=()=> {
       lenis.destroy();
     };
   }, []);
-
+  const theme = extendTheme({
+    styles: {
+      global: {
+        body: {
+          bg: '#ffffff', // Set the background color to white
+          color: '#333333', // Optional: Set the text color to black for contrast
+        },
+      },
+    },
+  });
   return(
-    <ChakraProvider>
+    <ChakraProvider theme={theme}>
       <Suspense fallback={<Loading />}>
         <AlertProvider>
           <Header />

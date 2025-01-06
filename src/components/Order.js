@@ -85,8 +85,8 @@ const Order = () => {
 
     const renderDescription = () => (
         <>
-            <Heading size={{ base: "lg", md: "xl" }} fontWeight="semibold" color="#333333">{title}</Heading>
-            <Text color="#333333" fontSize="lg">{description}</Text>
+            <Heading size={{ base: "md", md: "lg" }} fontWeight="semibold" color="#333333">{title}</Heading>
+            <Text color="#333333" fontSize={{ base: "md", md: "lg" }}>{description}</Text>
         </>
     );
 
@@ -94,9 +94,9 @@ const Order = () => {
         <VStack alignItems="start" width="100%">
             {addIngredients.map((item, index) => (
                 <HStack key={index} width="100%" justifyContent="space-between">
-                    <Text color="#333333" fontSize="md" width="20vw">{item.name}</Text>
-                    <Text color="#333333" fontSize="md" width="10vw">{item.price}</Text>
-                    <DeleteIcon onClick={() => handleDelete(item.name)} color="#333333" width={{ base: "5rem", md: "2.5rem" }} _hover={{ backgroundColor: '#FCF5CF', cursor: 'pointer', borderRadius: 'md' }}/>
+                    <Text color="#333333" fontSize="md" width="10rem">{item.name}</Text>
+                    <Text color="#333333" fontSize="md" width="7rem">{item.price}</Text>
+                    <DeleteIcon onClick={() => handleDelete(item.name)} color="#333333" width={{ base: "5rem", md: "5rem" }} _hover={{ backgroundColor: '#FCF5CF', cursor: 'pointer', borderRadius: 'md' }}/>
                 </HStack>
             ))}
         </VStack>
@@ -107,11 +107,11 @@ const Order = () => {
             justifyContent="center"
             alignItems="start"
             isDarkBackground
-            backgroundColor="#EDEFEE"
+            backgroundColor="#FFFFFF"
             py={{ base: 0, md: 12 }}
             minHeight={{ base: '25vh' }}
         >
-            <VStack borderWidth="1px" alignItems="left" width="auto" backgroundColor="#EDEFEE">
+            <VStack borderWidth="1px" alignItems="left" width="auto" backgroundColor="#FFFFFF">
                 {isMobile ? (
                     <HStack>
                         <VStack alignItems="start" width="100%">

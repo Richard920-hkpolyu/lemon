@@ -23,15 +23,15 @@ const LoginPage = ({ isSignUp }) => {
                 alignItems="start"
                 isDarkBackground
                 backgroundColor="#495E57"
-                minHeight="25vh"
+                minHeight={{ base: "20vh", md: "25vh" }}
                 width="100%"
             >
                 <br/><br/>
                 <SimpleGrid columns={2} alignItems="center" width="100%">
                     <VStack alignItems="start" width="100%">
-                        <Heading size={{ base: "xl", md: "2xl" }} fontWeight="semibold" noOfLines={1} color="#F4CE14">{isSignUp ? "SIGN-UP" : "SIGN-IN"}</Heading>
+                        <Heading size={{ base: "lg", md: "2xl" }} fontWeight="semibold" noOfLines={1} color="#F4CE14">{isSignUp ? "SIGN-UP" : "SIGN-IN"}</Heading>
                     </VStack>
-                    <VStack alignItems="flex-end" width="100%"><FontAwesomeIcon icon={faBowlFood} size="6x"/></VStack>
+                    <VStack alignItems="flex-end" width="100%"><FontAwesomeIcon icon={faBowlFood} size="5x"/></VStack>
                 </SimpleGrid>
             </FullScreenSection>
         </>
