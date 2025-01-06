@@ -11,6 +11,9 @@ import { faBasketShopping, faHouse, faBars, faBowlFood, faTruck,faUser } from '@
 const Header = () => {
     const headerRef = useRef(null);
     const [cartCount, setCartCount] = useState(0);
+    const handleClick = () => {
+        isOpen ? onClose() : onOpen();
+    };
     useEffect(() => {
         let prevScrollPos = window.scrollY;
         const threshold = 120;
@@ -80,6 +83,7 @@ const Header = () => {
                             borderWidth='0px'
                             onMouseEnter={onOpen}
                             onMouseLeave={onClose}
+                            onClick={handleClick}
                         >
                             <FontAwesomeIcon icon={faBars} color="#333333" size="2x"/>
                         </MenuButton>
