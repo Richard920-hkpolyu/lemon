@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAlipay, faWeixin, faCcApplePay } from "@fortawesome/free-brands-svg-icons";
 import { Radio, RadioGroup } from "@chakra-ui/react/radio"
 const Payment = () => {
-    const [value, setValue] = useState("");
+    const [value, setValue] = useState("alipay");
     return (
         <>
             <FullScreenSection
