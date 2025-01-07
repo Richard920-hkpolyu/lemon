@@ -5,10 +5,8 @@ import { PhoneIcon, EmailIcon } from '@chakra-ui/icons'
 import Logo from "../images/footer_logo.jpg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { socials, } from "../utils/data";
-import { useScreenSize } from "../context/ScreenSizeContext";
 import Wave from 'react-wavify';
 const Introduction = () => {
-    const { screenSize } = useScreenSize();
     const alignment = useBreakpointValue({
         base: "center", // Default alignment for mobile
         md: "start",   // Alignment for medium screens and up

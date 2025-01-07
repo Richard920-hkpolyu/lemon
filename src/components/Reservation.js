@@ -11,7 +11,8 @@ import {
     Radio,
     RadioGroup,
     useMediaQuery,
-    Text
+    Text,
+    Box
 } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import FullScreenSection from "./FullScreenSection";
@@ -35,7 +36,6 @@ const Reservation = () => {
     const { isLoading, response, submit } = useSubmit();
     const { onOpen } = useAlertContext();
     const [click, setClick] = useState(0);
-    const [person, setPerson] = useState("");
 
     const formik = useFormik({
         initialValues: {
@@ -70,19 +70,19 @@ const Reservation = () => {
 
     const toggleEvent = () => setClick(1);
     const backEvent = () => setClick(0);
-    //const handleChange = value => setPerson(value);
     const [isMobile] = useMediaQuery("(max-width: 48em)");
     return (
+        <>
+        <Box py = {{ base: '0.5rem', md: '1.5rem' }}></Box>
         <FullScreenSection
             justifyContent="center"
             alignItems="center"
             isDarkBackground
             backgroundColor="#FFFFFF"
-            py={{ base: 0, md: 10 }}
             color="#333333"
             borderRadius="md"
+            boxShadow="0 4px 8px rgba(0, 0, 0, 0.2)"
         >
-            <br/>
             <VStack gap="6" alignItems="start">
                 <form onSubmit={formik.handleSubmit}>
                     <VStack spacing={2}>
@@ -195,6 +195,7 @@ const Reservation = () => {
                 </form>
             </VStack>
         </FullScreenSection>
+        </>
     );
 };
 

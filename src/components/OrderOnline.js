@@ -1,4 +1,4 @@
-import { HStack, Heading, VStack, Image, SimpleGrid } from "@chakra-ui/react";
+import { Heading, VStack, SimpleGrid } from "@chakra-ui/react";
 import React, { useEffect } from "react";
 import FullScreenSection from "./FullScreenSection";
 import MenuSection from "./MenuSection";

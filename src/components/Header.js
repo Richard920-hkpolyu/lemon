@@ -83,7 +83,12 @@ const Header = () => {
                             borderWidth='0px'
                             onMouseEnter={onOpen}
                             onMouseLeave={onClose}
-                            onClick={handleClick}
+                            onClick={(e) => {
+                                // Check if the device is not mobile
+                                if (window.innerWidth <= 768) { // Assuming 768px is the breakpoint for mobile
+                                    handleClick(e);
+                                }
+                            }}
                         >
                             <FontAwesomeIcon icon={faBars} color="#333333" size="2x"/>
                         </MenuButton>
@@ -107,15 +112,15 @@ const Header = () => {
                     <Link to="/cart">
                         <HStack px='10px'>
                             {cartCount > 0 ? (
-                                <Text 
-                                color="#EDEFEE" 
-                                padding="0.1rem 0.45rem 0.2rem" 
-                                position="relative" 
-                                marginTop="-2rem" 
-                                marginRight="-1rem" 
-                                backgroundColor="#FC2063" 
-                                borderRadius="9px 8px 0px 9px" 
-                                fontSize={{ base: '0.5rem', md: '1rem' }} 
+                                <Text
+                                color="#EDEFEE"
+                                padding="0.1rem 0.45rem 0.2rem"
+                                position="relative"
+                                marginTop="-2rem"
+                                marginRight="-1rem"
+                                backgroundColor="#FC2063"
+                                borderRadius="9px 8px 0px 9px"
+                                fontSize={{ base: '0.5rem', md: '1rem' }}
                                 fontWeight="bold"
                                 >{cartCount}</Text>
                             ) : null}

@@ -191,9 +191,9 @@ const Cart = () => {
                         ))}
                     </SimpleGrid>
                     <Divider orientation='horizontal' variant="solid" borderColor="#495E57" />
-                    <SimpleGrid columns={{ base: 1, md: 1 }} width="100%">
+                    <SimpleGrid columns={{ base: 1, md: 1 }} width="100%" >
                         {/* Order Summary */}
-                        <VStack minWidth="41vw" gap={{ base: "0" }}>
+                        <VStack minWidth="41vw" gap={{ base: "0" }} >
                             <Heading size={{base: "md" , md: "lg" }} fontWeight="semibold" color="#333333"alignSelf="start">Order Summary</Heading>
                             <SimpleGrid columns={2} spacing={{base: 1 , md: 5 }} alignSelf="start" py={{base: 3 , md: 5 }} width="100%">
                                 <Text size="md" color="#333333">Total Price:</Text>

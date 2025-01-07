@@ -1,7 +1,6 @@
-import { HStack, Heading, VStack, Text, Image, Button, Flex, SimpleGrid } from "@chakra-ui/react";
+import { HStack, Heading, VStack, Text, Image, Button, SimpleGrid } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { DeleteIcon, AddIcon } from '@chakra-ui/icons';
 import { useScreenSize } from "../context/ScreenSizeContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMinus, faPlus } from '@fortawesome/free-solid-svg-icons';
@@ -55,6 +54,7 @@ const CartItems = ({ id, title, category, type, monthly, ingredients, descriptio
             borderRadius="md"
             alignItems="center"
             width="100%"
+            boxShadow="0 4px 8px rgba(0, 0, 0, 0.2)"
         >
             <VStack alignItems="start" width="39vw">
                 <Image
@@ -84,12 +84,12 @@ const CartItems = ({ id, title, category, type, monthly, ingredients, descriptio
                 </Text>
                 <SimpleGrid columns={1} spacing={5} alignSelf="start" py={{ base: 0, md: 5 }} width="100%">
                     {count > 0 ? (
-                        <HStack alignSelf="center" gap={5} ml="-10px">
-                            <Button onClick={handleDecrement}>
+                        <HStack alignSelf="center" gap={{ base: '5px', md: '8px' }} ml="-10px">
+                            <Button onClick={handleDecrement} width={{ base: '4px' }}>
                                 <FontAwesomeIcon icon={faMinus} color="#333333"/>
                             </Button>
-                            <Text color="#333333" fontSize="lg">{count}</Text>
-                            <Button onClick={handleIncrement}>
+                            <Text color="#333333" fontSize={{ base: 'md', md: 'lg' }}>{count}</Text>
+                            <Button onClick={handleIncrement} width={{ base: '4px' }}>
                                 <FontAwesomeIcon icon={faPlus} color="#333333"/>
                             </Button>
                         </HStack>

@@ -1,10 +1,8 @@
-import { SimpleGrid, Heading, VStack, HStack, Text, Spacer } from "@chakra-ui/react";
+import { VStack, HStack, Text, Spacer } from "@chakra-ui/react";
 import React, { useState } from "react";
 import FullScreenSection from "./FullScreenSection";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAlipay, faWeixin, faCcApplePay } from "@fortawesome/free-brands-svg-icons";
-import { ChevronDownIcon } from '@chakra-ui/icons'
-import { faLocationDot, faUser, faPhone } from '@fortawesome/free-solid-svg-icons';
 import { Radio, RadioGroup } from "@chakra-ui/react/radio"
 const Payment = () => {
     const [value, setValue] = useState("");

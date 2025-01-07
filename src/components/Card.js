@@ -1,7 +1,6 @@
-import { HStack, Heading, VStack, Text, Image, Button, Flex } from "@chakra-ui/react";
+import { HStack, Heading, VStack, Text, Image, Button, Flex, Badge } from "@chakra-ui/react";
 import React, { useEffect, useState,  } from "react";
 import { useNavigate,  } from "react-router-dom";
-import { DeleteIcon, AddIcon, MinusIcon, ArrowBackIcon} from '@chakra-ui/icons';
 import { useScreenSize } from "../context/ScreenSizeContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMinus, faPlus } from '@fortawesome/free-solid-svg-icons';
@@ -49,9 +48,10 @@ const Card = ({ id, title, category, type, monthly, ingredients, description, pr
             borderWidth="1px"
             borderRadius="md"
             padding="8px"
+            boxShadow="0 4px 8px rgba(0, 0, 0, 0.2)"
         >
             <VStack alignItems="start" width={{ base: "50vw", md: "50vw" }}>
-                <Heading size={{ base: "md", md: "lg" }} fontWeight="semibold" color="#333333" onClick={handleNavigate} cursor="pointer">{title}</Heading>
+                <Heading size={{ base: "md", md: "lg" }} fontWeight="semibold" color="#333333" onClick={handleNavigate} cursor="pointer">{title} {category === 'main' && <Badge variant="solid" colorScheme="yellow">main</Badge>}</Heading>
                 <Text color="#333333" fontSize={{ base: "md", md: "lg" }} lineHeight={{ base: "shorter", md: "short" }}noOfLines={3}>
                     {description}
                 </Text>

@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from "react";
 import {
   Box,
-  Spinner,
-  Progress,
   Image,
-  Text,CircularProgress, CircularProgressLabel
+  CircularProgress
 } from "@chakra-ui/react";
 import logo from "../images/little_lemon.png"
 const Loading = () => {

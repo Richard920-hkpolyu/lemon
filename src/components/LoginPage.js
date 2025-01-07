@@ -1,8 +1,8 @@
-import { HStack, Heading, VStack, SimpleGrid,  } from "@chakra-ui/react";
+import { Heading, VStack, SimpleGrid,  } from "@chakra-ui/react";
 import React, { useEffect } from "react";
 import FullScreenSection from "./FullScreenSection";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBowlFood, faUser } from '@fortawesome/free-solid-svg-icons';
+import { faBowlFood } from '@fortawesome/free-solid-svg-icons';
 import { useScreenSize } from "../context/ScreenSizeContext";
 import Wave from 'react-wavify';
 

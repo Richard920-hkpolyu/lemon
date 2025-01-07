@@ -20,7 +20,6 @@ import { useAlertContext } from "../context/alertContext";
 import img1 from "../images/small/Intro_Restaurantfood.jpg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser, faEnvelope,faLock } from '@fortawesome/free-solid-svg-icons';
-import { Link } from "react-router-dom";
 import { socials } from "../utils/data";
 import LoginPage from "./LoginPage.js";
 const Login = () => {
@@ -56,16 +55,16 @@ const Login = () => {
     return (
         <>
             <LoginPage isSignUp={isSignUp} />
+            <Box py = {{ base: '0.5rem', md: '1.5rem' }}></Box>
             <FullScreenSection
             justifyContent="center"
             alignItems="center"
             isDarkBackground
             backgroundColor="#FFFFFF"
-            py={{ base: 0, md: 10 }}
             color="#333333"
             borderRadius="md"
+            boxShadow="0 4px 8px rgba(0, 0, 0, 0.2)"
         >
-            <br/>
             <VStack gap="6" alignItems="start">
                 <VStack spacing={2}>
                     <form onSubmit={formik.handleSubmit}>

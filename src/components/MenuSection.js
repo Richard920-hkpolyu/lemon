@@ -1,5 +1,5 @@
-import { HStack, Heading, VStack, Button, ButtonGroup, SimpleGrid, Badge } from "@chakra-ui/react";
-import React, { useEffect, useState,  } from "react";
+import { Heading, Button, ButtonGroup, SimpleGrid } from "@chakra-ui/react";
+import React, { useState,  } from "react";
 import FullScreenSection from "./FullScreenSection";
 import Card from "./Card.js";
 import { fooditems, } from "../utils/data";
@@ -73,6 +73,7 @@ const MenuSection = () => {
                           key={item.id}
                           _hover={{ bg: "#495E57", color: "#EDEFEE" }}
                           onClick={() => handleFilter(item.type)}
+                          boxShadow="0 4px 8px rgba(0, 0, 0, 0.2)"
                       >
                           {item.type}
                       </Button>

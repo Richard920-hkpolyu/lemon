@@ -34,10 +34,10 @@ const Order = () => {
     };
 
     const findCountById = (items, id, addIngredients) => {
-        const item = items.find(item => 
-            item.id === id && 
-            item.ingredients.length === addIngredients.length && 
-            item.ingredients.every(ingredient => 
+        const item = items.find(item =>
+            item.id === id &&
+            item.ingredients.length === addIngredients.length &&
+            item.ingredients.every(ingredient =>
                 addIngredients.some(addIngredient => addIngredient.name === ingredient.name)
             )
         );
@@ -61,7 +61,7 @@ const Order = () => {
     const handleIncrement = () => setCount(prevCount => prevCount + 1);
     const handleDecrement = () => setCount(prevCount => Math.max(prevCount - 1, 1));
     const handleDelete = (ingredientName) => {
-        setAddIngredients(prevIngredients => 
+        setAddIngredients(prevIngredients =>
             prevIngredients.filter(ingredient => ingredient.name !== ingredientName)
         );
     };
