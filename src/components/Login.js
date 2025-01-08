@@ -75,7 +75,7 @@ const Login = () => {
                             padding="2rem"
                             gap={{ base: "1.4rem", md: "2rem" }}
                         >
-                            <Heading size={{ base: "md", md: "xl" }} fontWeight="semibold" color="#333333">
+                            <Heading size={{ base: "md", md: "lg" }} fontWeight="semibold" color="#333333">
                                 {isSignUp ? "SIGN-UP" : "SIGN-IN"}
                             </Heading>
                             <Text size="md" color="#333333">

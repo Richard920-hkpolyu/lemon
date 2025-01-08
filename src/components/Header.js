@@ -120,7 +120,7 @@ const Header = () => {
                                 marginRight="-1rem"
                                 backgroundColor="#FC2063"
                                 borderRadius="9px 8px 0px 9px"
-                                fontSize={{ base: '0.5rem', md: '1rem' }}
+                                fontSize={{ base: '0.6rem', md: '1rem' }}
                                 fontWeight="bold"
                                 >{cartCount}</Text>
                             ) : null}

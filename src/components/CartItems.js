@@ -1,4 +1,4 @@
-import { HStack, Heading, VStack, Text, Image, Button, SimpleGrid } from "@chakra-ui/react";
+import { HStack, Heading, VStack, Text, Image, Button, SimpleGrid, Box } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useScreenSize } from "../context/ScreenSizeContext";
@@ -46,6 +46,7 @@ const CartItems = ({ id, title, category, type, monthly, ingredients, descriptio
     const handleIncrement = () => setCount(prevCount => prevCount + 1);
     const handleDecrement = () => setCount(prevCount => Math.max(prevCount - 1, 0));
     return (
+        <>
         <HStack
             color="#333333"
             backgroundColor="#FFFFFF"
@@ -54,6 +55,7 @@ const CartItems = ({ id, title, category, type, monthly, ingredients, descriptio
             alignItems="center"
             width="100%"
             boxShadow="0 4px 8px rgba(0, 0, 0, 0.2)"
+            gap="1rem"
         >
             <VStack alignItems="start" width="39vw">
                 <Image
@@ -105,6 +107,8 @@ const CartItems = ({ id, title, category, type, monthly, ingredients, descriptio
                 </Text>
             </VStack>
         </HStack>
+        <Box py={{ base: "0.2rem", md: "0.3rem" }}/>
+        </>
     );
 };
 

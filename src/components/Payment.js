@@ -4,6 +4,7 @@ import FullScreenSection from "./FullScreenSection";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAlipay, faWeixin, faCcApplePay } from "@fortawesome/free-brands-svg-icons";
 import { Radio, RadioGroup } from "@chakra-ui/react/radio"
+import { payments, } from "../utils/data";
 const Payment = () => {
     const [value, setValue] = useState("alipay");
     return (
@@ -18,37 +19,21 @@ const Payment = () => {
                 borderWidth="1px"
                 borderRadius="lg"
                 borderStyle="solid"
-                padding="0.5rem"
                 boxShadow="0 4px 8px rgba(0, 0, 0, 0.2)"
             >
                     <VStack alignItems="start" width="100%">
                     <RadioGroup color="#333333" borderColor="#333333" value={value} onChange={(e) => setValue(e)} width="100%">
-                        <HStack width="100%">
-                            <FontAwesomeIcon icon={faAlipay} color="#333333" />
-                            <label htmlFor="alipay">
-                                <Text fontSize={{base: "md" , md: "lg" }} fontWeight="medium" color="#333333" align="start"width="70vw"> +852 5114 2452</Text>
-                            </label>
-                            <Spacer />
-                            <Radio id="alipay" value="alipay" colorScheme="gray" borderColor="#333333" />
-                        </HStack>
-                        <HStack width="100%">
-                            <FontAwesomeIcon icon={faWeixin} color="#333333" />
-                            <label htmlFor="wechatpay">
-                                <Text fontSize={{base: "md" , md: "lg" }} fontWeight="medium" color="#333333" align="start" width="70vw"> +86 188 1890 2621</Text>
-                            </label>
-                            <Spacer />
-                            <Radio id="wechatpay" value="wechatpay" colorScheme="gray" borderColor="#333333" />
-                        </HStack>
-                        <HStack width="100%">
-                            <FontAwesomeIcon icon={faCcApplePay} color="#333333" />
-                            <label htmlFor="applepay">
-                                <Text fontSize={{base: "md" , md: "lg" }} fontWeight="medium" color="#333333" align="start" width="70vw"> wuzhengying666@gmail.com</Text>
-                            </label>
-                            <Spacer />
-                            <Radio id="applepay" value="applepay" colorScheme="gray" borderColor="#333333" />
-                        </HStack>
+                        {payments.map(pay => (
+                            <HStack width="100%" key={pay.id}>
+                                <FontAwesomeIcon icon={pay.icon} color="#333333" />
+                                <label htmlFor={pay.id}>
+                                    <Text fontSize={{base: "md" , md: "lg" }} color="#333333" align="start"width="70vw" lineHeight={{ base: "shorter", md: "short" }}>{pay.account}</Text>
+                                </label>
+                                <Spacer />
+                                <Radio id={pay.id} value={pay.id} colorScheme="gray" borderColor="#333333" />
+                            </HStack>
+                        ))}
                     </RadioGroup>
-
                     </VStack>
             </FullScreenSection>
         </>

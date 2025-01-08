@@ -32,7 +32,7 @@ const OrderOnline = () => {
                 <br/><br/>
                 <SimpleGrid columns={2} alignItems="center" width="100%">
                     <VStack alignItems="start" width="70vw">
-                        <Heading size={{ base: "md", md: "2xl" }} fontWeight="semibold" color="#F4CE14">ORDER FOR DELIVERY!</Heading>
+                        <Heading size={{ base: "md", md: "xl" }} fontWeight="semibold" color="#F4CE14">ORDER FOR DELIVERY!</Heading>
                         <Heading size={{ base: "md", md: "xl" }} fontWeight="medium" noOfLines={1} color="#EDEFEE">This Weeks Special!</Heading>
                     </VStack>
                     <VStack alignItems="flex-end" width="100%"><FontAwesomeIcon icon={faMotorcycle} size="5x"/></VStack>

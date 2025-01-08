@@ -226,8 +226,9 @@ const Cart = () => {
         >
             {foodList.length > 0 ? (
                 <>
-                    <SimpleGrid columns={{ base: 1, md: 1 }} spacing={{ base: "0.7rem", md: "2rem" }}width="100%">
-                    <DeliveryAddress />
+                    <SimpleGrid columns={{ base: 1, md: 1 }} width="100%">
+                        <DeliveryAddress />
+                        <Box py={{ base: "0.5rem", md: "0.5rem" }}/>
                         <HStack width="100%" justifyContent="space-between">
                             <Heading size={{base: "md" , md: "lg" }} fontWeight="semibold" color="#333333">
                                 Total Items ({totalCount})
@@ -248,12 +249,13 @@ const Cart = () => {
                     <Divider orientation='horizontal' variant="solid" borderColor="#495E57" />
                     <SimpleGrid columns={{ base: 1, md: 1 }} width="100%" >
                         {/* Discount Section */}
-                        <VStack minWidth="41vw" gap={{ base: "0" }} lineHeight={{ base: "shorter", md: "short" }}>
+                        <Box py={{ base: "0.5rem", md: "0.5rem" }}/>
+                        <VStack minWidth="41vw">
                             <Heading size={{base: "md" , md: "lg" }} fontWeight="semibold" color="#333333"alignSelf="start">Discount</Heading>
-                            <RadioGroup color="#333333" borderColor="#333333" onChange={(e) => setDiscount(e)} value={selectedCoupon.toString()} width="100%" py={{base: 3 , md: 5 }}>
+                            <RadioGroup color="#333333" borderColor="#333333" onChange={(e) => setDiscount(e)} value={selectedCoupon.toString()} width="100%" >
                                 <HStack key={0} width="100%">
                                     <label htmlFor={`coupon-0`}>
-                                        <Text fontSize={{ base: "md", md: "lg" }} color="#333333" align="start" width="70vw">
+                                        <Text fontSize={{ base: "md", md: "lg" }} color="#333333" align="start" width="70vw" lineHeight={{ base: "shorter", md: "short" }}>
                                             Without coupons.
                                         </Text>
                                     </label>
@@ -261,9 +263,9 @@ const Cart = () => {
                                     <Radio id={`coupon-0`} value="0" colorScheme="gray" borderColor="#333333" />
                                 </HStack>
                                 {sortedCoupons.slice(0, visibleCoupons).map((coupon) => (
-                                    <HStack key={coupon.id} width="100%" lineHeight={{ base: "shorter", md: "short" }}>
+                                    <HStack key={coupon.id} width="100%">
                                         <label htmlFor={`coupon-${coupon.id}`}>
-                                            <Text fontSize={{ base: "md", md: "lg" }} color="#333333" align="start" width="70vw">
+                                            <Text fontSize={{ base: "md", md: "lg" }} color="#333333" align="start" width="70vw" lineHeight={{ base: "shorter", md: "short" }}>
                                                 {coupon.description} - {coupon.type === "exemption" ? `$${Math.abs(coupon.price)}` : `${coupon.percentage * 100}%`}
                                             </Text>
                                         </label>
@@ -273,40 +275,44 @@ const Cart = () => {
                                 ))}
                             </RadioGroup>
                             {visibleCoupons < coupons.length && (
-                                <Button onClick={showMoreCoupons} color="#333333" width="100%" mt='0.5rem'>
+                                <Button onClick={showMoreCoupons} color="#333333" width="100%" mt={{ base: "0.5rem", md: "0" }}>
                                     Show more coupons<FontAwesomeIcon icon={faChevronDown} color="#333333"/>
                                 </Button>
                             )}
                             {visibleCoupons > coupons.length && (
-                                <Button onClick={showLessCoupons} color="#333333" width="100%" mt='0.5rem'>
+                                <Button onClick={showLessCoupons} color="#333333" width="100%" mt={{ base: "0.5rem", md: "0" }}>
                                     Show less coupons<FontAwesomeIcon icon={faChevronUp} color="#333333"/>
                                 </Button>
                             )}
                         </VStack>
+                        <Box py={{ base: "0.5rem", md: "0.5rem" }}/>
                         {/* Order Summary */}
-                        <VStack minWidth="41vw" gap={{ base: "0" }} lineHeight={{ base: "shorter", md: "short" }}>
+                        <VStack minWidth="41vw">
                             <Heading size={{base: "md" , md: "lg" }} fontWeight="semibold" color="#333333"alignSelf="start">Order Summary</Heading>
-                            <SimpleGrid columns={2} spacing={{base: 1 , md: 5 }} alignSelf="start" py={{base: 3 , md: 5 }} width="100%">
-                                <Text size="md" color="#333333">Total Price:</Text>
-                                <Text size="md" color="#333333" textAlign="right">${totalPrice.toFixed(2)}</Text>
-                                <Text size="md" color="#333333">Delivery Charges:</Text>
-                                <Text size="md" color="#333333" textAlign="right">${deliveryPrice(totalCount)}</Text>
-                                <Text size="md" color="#333333">Discount:</Text>
-                                <Text size="md" color="#333333" textAlign="right">${((totalPrice + deliveryPrice(totalCount) + discountPrice)*(1-discountPercentage)-totalPrice - deliveryPrice(totalCount)).toFixed(2)}</Text>
+                            <SimpleGrid columns={2} alignSelf="start" width="100%">
+                                <Text fontSize={{ base: "md", md: "lg" }} color="#333333" lineHeight={{ base: "shorter", md: "short" }}>Total Price:</Text>
+                                <Text fontSize={{ base: "md", md: "lg" }} color="#333333" textAlign="right"lineHeight={{ base: "shorter", md: "short" }}>${totalPrice.toFixed(2)}</Text>
+                                <Text fontSize={{ base: "md", md: "lg" }} color="#333333"lineHeight={{ base: "shorter", md: "short" }}>Delivery Charges:</Text>
+                                <Text fontSize={{ base: "md", md: "lg" }} color="#333333" textAlign="right"lineHeight={{ base: "shorter", md: "short" }}>${deliveryPrice(totalCount)}</Text>
+                                <Text fontSize={{ base: "md", md: "lg" }} color="#333333"lineHeight={{ base: "shorter", md: "short" }}>Discount:</Text>
+                                <Text fontSize={{ base: "md", md: "lg" }} color="#333333" textAlign="right"lineHeight={{ base: "shorter", md: "short" }}>${((totalPrice + deliveryPrice(totalCount) + discountPrice)*(1-discountPercentage)-totalPrice - deliveryPrice(totalCount)).toFixed(2)}</Text>
                             </SimpleGrid>
                         </VStack>
                         {/* Order Total Section */}
-                        <VStack minWidth="41vw" py={{ base: 3, md: 5 }} gap={{ base: "0" }}>
-                            <SimpleGrid columns={2} spacing={5} alignSelf="start" width="100%">
+                        <Box py={{ base: "0.5rem", md: "0.5rem" }}/>
+                        <VStack minWidth="41vw">
+                            <SimpleGrid columns={2} alignSelf="start" width="100%">
                                 <Heading size="md" fontWeight="semibold" color="#333333" alignSelf="start">Order Total:</Heading>
                                 <Heading size="md" fontWeight="semibold" color="#FC2063" textAlign="right">
                                     ${((totalPrice + deliveryPrice(totalCount) + discountPrice)*(1-discountPercentage)).toFixed(2)}
                                 </Heading>
                             </SimpleGrid>
                         </VStack>
+                        <Box py={{ base: "0.5rem", md: "0.5rem" }}/>
                         <Payment />
                         {/* Place Order Button */}
-                        <VStack minWidth="41vw" py={{base: 3 , md: 5 }}>
+                        <Box py={{ base: "0.5rem", md: "0.5rem" }}/>
+                        <VStack minWidth="41vw">
                             <Button colorScheme="yellow" width="100%" onClick={toggleComfirmForm}>
                                 <span style={{ color: '#333333' }}>Place Order</span>
                             </Button>

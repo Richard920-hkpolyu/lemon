@@ -1,5 +1,4 @@
-import {faInstagram, faGithub, faLinkedin, faTiktok, faWhatsapp} from "@fortawesome/free-brands-svg-icons";
-
+import {faInstagram, faGithub, faLinkedin, faTiktok, faWhatsapp, faAlipay, faWeixin, faCcApplePay} from "@fortawesome/free-brands-svg-icons";
 export const socials = [
     {
         icon: faInstagram,
@@ -23,6 +22,23 @@ export const socials = [
     },
 ];
 
+export const payments = [
+    {
+        id: "alipay",
+        icon: faAlipay,
+        account: "+852 5114 2452",
+    },
+    {
+        id: "wechatpay",
+        icon: faWeixin,
+        account: "+86 188 1890 2621",
+    },
+    {
+        id: "applepay",
+        icon: faCcApplePay,
+        account: "wuzhengying666@gmail.com",
+    },
+];
 
 export const fooditems = [
     {
