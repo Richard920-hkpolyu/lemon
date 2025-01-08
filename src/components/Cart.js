@@ -237,6 +237,7 @@ const Cart = () => {
                                 Price
                             </Heading>
                         </HStack>
+                        <Box py={{ base: "0.5rem", md: "0.5rem" }}/>
                         {foodList.map(food => (
                             <CartItems
                                 {...food}
@@ -302,8 +303,8 @@ const Cart = () => {
                         <Box py={{ base: "0.5rem", md: "0.5rem" }}/>
                         <VStack minWidth="41vw">
                             <SimpleGrid columns={2} alignSelf="start" width="100%">
-                                <Heading size="md" fontWeight="semibold" color="#333333" alignSelf="start">Order Total:</Heading>
-                                <Heading size="md" fontWeight="semibold" color="#FC2063" textAlign="right">
+                                <Heading size={{base: "md" , md: "lg" }} fontWeight="semibold" color="#333333" alignSelf="start">Order Total:</Heading>
+                                <Heading size={{base: "md" , md: "lg" }} fontWeight="semibold" color="#FC2063" textAlign="right">
                                     ${((totalPrice + deliveryPrice(totalCount) + discountPrice)*(1-discountPercentage)).toFixed(2)}
                                 </Heading>
                             </SimpleGrid>

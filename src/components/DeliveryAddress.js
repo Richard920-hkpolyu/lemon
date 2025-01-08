@@ -29,8 +29,8 @@ const DeliveryAddress = () => {
                 boxShadow="0 4px 8px rgba(0, 0, 0, 0.2)"
             >
                 <Menu>
-                    <MenuButton as={Button} rightIcon={<FontAwesomeIcon icon={faChevronDown} />} color="#333333" backgroundColor="#FFFFFF" width="100%" minHeight="3rem">
-                        <VStack alignItems="start" width="100%">
+                    <MenuButton as={Button} rightIcon={<FontAwesomeIcon icon={faChevronDown} />} color="#333333" backgroundColor="#FFFFFF" width="100%" minHeight={{ base: "4rem", md: "3.7rem" }}>
+                        <VStack width="100%">
                             <HStack width="100%">
                                 <FontAwesomeIcon icon={faLocationDot} color="#333333"/>
                                 <Text fontSize={{ base: "md", md: "lg" }} color="#333333" align="start" noOfLines={1} lineHeight={{ base: "shorter", md: "short" }}>
@@ -51,8 +51,8 @@ const DeliveryAddress = () => {
                     </MenuButton>
                     <MenuList>
                         {deliveryInfo.map(info => (
-                            <MenuItem key={info.id} id={info.id.toString()} onClick={() => handleSelectChange(info)} width="100%" minHeight="3rem">
-                                <VStack alignItems="start" width="100%" _hover={{ bg: "#5B6E67", color: "#EDEFEE" }} borderRadius="lg" cursor="pointer" bg={addSelect === info.id ? "#5B6E67" : "#FFFFFF"} color={addSelect === info.id ? "#EDEFEE" : "#333333"} >
+                            <MenuItem key={info.id} id={info.id.toString()} onClick={() => handleSelectChange(info)} width="100%">
+                                <VStack alignItems="start" width="100%" _hover={{ bg: "#5B6E67", color: "#EDEFEE" }} borderRadius="lg" cursor="pointer" bg={addSelect === info.id ? "#5B6E67" : "#FFFFFF"} color={addSelect === info.id ? "#EDEFEE" : "#333333"} minHeight={{ base: "4rem", md: "3.5rem" }}>
                                     <HStack width="100%">
                                         <FontAwesomeIcon icon={faLocationDot} />
                                         <Text fontSize={{ base: "sm", md: "md" }} align="start" noOfLines={2} width={{ base: "82vw" }} lineHeight={{ base: "shorter", md: "short" }}>

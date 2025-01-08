@@ -40,7 +40,7 @@ const Introduction = () => {
                     <Heading size={{ base: "md", md: "xl" }} fontWeight="semibold" noOfLines={1} color="#EDEFEE" alignSelf={alignment}>
                         Hong Kong
                     </Heading>
-                    <Text fontSize={{ base: "md", md: "lg" }} color="#EDEFEE" noOfLines={3} align={alignment}>
+                    <Text fontSize={{ base: "md", md: "lg" }} color="#EDEFEE" noOfLines={3} align={alignment} width={{ md: "70%" }}>
                         {para1}
                     </Text>
                     <Link to="/reservation">
