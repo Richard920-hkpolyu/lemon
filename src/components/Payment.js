@@ -26,7 +26,7 @@ const Payment = () => {
                         <HStack width="100%">
                             <FontAwesomeIcon icon={faAlipay} color="#333333" />
                             <label htmlFor="alipay">
-                                <Text fontSize={{base: "md" , md: "lg" }} fontWeight="medium" color="#333333" align="start"> +852 5114 2452</Text>
+                                <Text fontSize={{base: "md" , md: "lg" }} fontWeight="medium" color="#333333" align="start"width="70vw"> +852 5114 2452</Text>
                             </label>
                             <Spacer />
                             <Radio id="alipay" value="alipay" colorScheme="gray" borderColor="#333333" />
@@ -34,7 +34,7 @@ const Payment = () => {
                         <HStack width="100%">
                             <FontAwesomeIcon icon={faWeixin} color="#333333" />
                             <label htmlFor="wechatpay">
-                                <Text fontSize={{base: "md" , md: "lg" }} fontWeight="medium" color="#333333" align="start"> +86 188 1890 2621</Text>
+                                <Text fontSize={{base: "md" , md: "lg" }} fontWeight="medium" color="#333333" align="start" width="70vw"> +86 188 1890 2621</Text>
                             </label>
                             <Spacer />
                             <Radio id="wechatpay" value="wechatpay" colorScheme="gray" borderColor="#333333" />
@@ -42,7 +42,7 @@ const Payment = () => {
                         <HStack width="100%">
                             <FontAwesomeIcon icon={faCcApplePay} color="#333333" />
                             <label htmlFor="applepay">
-                                <Text fontSize={{base: "md" , md: "lg" }} fontWeight="medium" color="#333333" align="start"> wuzhengying666@gmail.com</Text>
+                                <Text fontSize={{base: "md" , md: "lg" }} fontWeight="medium" color="#333333" align="start" width="70vw"> wuzhengying666@gmail.com</Text>
                             </label>
                             <Spacer />
                             <Radio id="applepay" value="applepay" colorScheme="gray" borderColor="#333333" />

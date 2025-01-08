@@ -44,7 +44,7 @@ const Introduction = () => {
             >
             <SimpleGrid columns={{ base: 1, md: 3 }} spacing={10} py={10} alignItems="center" width="99%" >
                 <VStack alignItems={alignment} width="100%">
-                    <Image src={Logo} height="20vh"/>
+                    <Image src={Logo} height="20vh" draggable="false"/>
                 </VStack>
                 <VStack alignItems={alignment2} width="100%">
                     <Text fontSize="md"  color="#EDEFEE" align={alignment2}><Badge variant="solid" colorScheme="green">© Copyright.</Badge></Text>

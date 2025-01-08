@@ -70,6 +70,7 @@ const Introduction = () => {
                         }}
                         maxHeight="400px"
                         maxWidth="270px"
+                        draggable="false"
                     />
                 </VStack>
             </HStack>

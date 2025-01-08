@@ -190,7 +190,7 @@ const Reservation = () => {
                                 </HStack>
                             </VStack>
                         )}
-                        <Image src={img1} width="full" height="40vh" borderRadius="md" fit="cover" />
+                        <Image src={img1} width="full" height="40vh" borderRadius="md" fit="cover" draggable="false"/>
                     </VStack>
                 </form>
             </VStack>

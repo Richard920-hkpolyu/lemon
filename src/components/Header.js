@@ -101,14 +101,14 @@ const Header = () => {
                             onMouseEnter={onOpen}
                             onMouseLeave={onClose}
                             onClick={onClose}>
-                            <Link to="/"><MenuItem borderRadius="lg" _hover={{color:"#EDEFEE", backgroundColor:"#333333"}} backgroundColor={page === 'homepage' ? "#333333" : null} color={page === 'homepage' ? "#FFFFFF" : null}><FontAwesomeIcon icon={faHouse} size="1x"/>&nbsp;Homepage</MenuItem></Link>
-                            <Link to="/reservation"><MenuItem borderRadius="lg" _hover={{color:"#EDEFEE", backgroundColor:"#333333"}} backgroundColor={page === 'reservation' ? "#333333" : null} color={page === 'reservation' ? "#FFFFFF" : null}><FontAwesomeIcon icon={faBowlFood} size="1x"/>&nbsp;Reserve a Table</MenuItem></Link>
-                            <Link to="/order-online"><MenuItem borderRadius="lg" _hover={{color:"#EDEFEE", backgroundColor:"#333333"}} backgroundColor={page === 'orderonline' ? "#333333" : null} color={page === 'orderonline' ? "#FFFFFF" : null}><FontAwesomeIcon icon={faTruck} size="1x"/>&nbsp;Order Online</MenuItem></Link>
-                            <Link to="/cart"><MenuItem borderRadius="lg" _hover={{color:"#EDEFEE", backgroundColor:"#333333"}} backgroundColor={page === 'cart' ? "#333333" : null} color={page === 'cart' ? "#FFFFFF" : null}><FontAwesomeIcon icon={faBasketShopping} size="1x"/>&nbsp;Cart</MenuItem></Link>
-                            <Link to="/login"><MenuItem borderRadius="lg" _hover={{color:"#EDEFEE", backgroundColor:"#333333"}} backgroundColor={page === 'login' ? "#333333" : null} color={page === 'login' ? "#FFFFFF" : null}><FontAwesomeIcon icon={faUser} size="1x"/>&nbsp;Login</MenuItem></Link>
+                            <Link to="/"><MenuItem borderRadius="lg" _hover={{color:"#EDEFEE", backgroundColor:"#495E57"}} backgroundColor={page === 'homepage' ? "#495E57" : null} color={page === 'homepage' ? "#FFFFFF" : null}><FontAwesomeIcon icon={faHouse} size="1x"/>&nbsp;Homepage</MenuItem></Link>
+                            <Link to="/reservation"><MenuItem borderRadius="lg" _hover={{color:"#EDEFEE", backgroundColor:"#495E57"}} backgroundColor={page === 'reservation' ? "#495E57" : null} color={page === 'reservation' ? "#FFFFFF" : null}><FontAwesomeIcon icon={faBowlFood} size="1x"/>&nbsp;Reserve a Table</MenuItem></Link>
+                            <Link to="/order-online"><MenuItem borderRadius="lg" _hover={{color:"#EDEFEE", backgroundColor:"#495E57"}} backgroundColor={page === 'orderonline' ? "#495E57" : null} color={page === 'orderonline' ? "#FFFFFF" : null}><FontAwesomeIcon icon={faTruck} size="1x"/>&nbsp;Order Online</MenuItem></Link>
+                            <Link to="/cart"><MenuItem borderRadius="lg" _hover={{color:"#EDEFEE", backgroundColor:"#495E57"}} backgroundColor={page === 'cart' ? "#495E57" : null} color={page === 'cart' ? "#FFFFFF" : null}><FontAwesomeIcon icon={faBasketShopping} size="1x"/>&nbsp;Cart</MenuItem></Link>
+                            <Link to="/login"><MenuItem borderRadius="lg" _hover={{color:"#EDEFEE", backgroundColor:"#495E57"}} backgroundColor={page === 'login' ? "#495E57" : null} color={page === 'login' ? "#FFFFFF" : null}><FontAwesomeIcon icon={faUser} size="1x"/>&nbsp;Login</MenuItem></Link>
                         </MenuList>
                     </Menu>
-                    <Link to="/"><Image src={Logo} width="160px" height="42px"fit="cover" /></Link>
+                    <Link to="/"><Image src={Logo} width="160px" height="42px"fit="cover" draggable="false"/></Link>
                     <Link to="/cart">
                         <HStack px='10px'>
                             {cartCount > 0 ? (

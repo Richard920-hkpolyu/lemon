@@ -52,10 +52,16 @@ const Order = () => {
     }, [id, items, ingredients]);
 
     useEffect(() => {
+        // Calculate the total price of the ingredients
         const ingredientsPrice = addIngredients.reduce((total, item) => {
             return total + parseFloat(item.price.replace('$', ''));
         }, 0);
-        setTotalPrice((count * parseFloat(price.replace("$", "")) + ingredientsPrice - 3).toFixed(2));
+        const rowIngredientsPrice = ingredients.reduce((total, item) => {
+            return total + parseFloat(item.price.replace('$', ''));
+        }, 0);
+        // Calculate the total price based on the price of the item and the number of items, minus the ingredients price
+        const basePrice = parseFloat(price.replace("$", ""));
+        setTotalPrice(((count * basePrice) + ingredientsPrice - rowIngredientsPrice).toFixed(2));
     }, [count, addIngredients, price]);
 
     const handleIncrement = () => setCount(prevCount => prevCount + 1);
@@ -79,6 +85,7 @@ const Order = () => {
                 borderRadius="xl"
                 src={imageSrc}
                 objectFit="cover"
+                draggable="false"
             />
         </Box>
     );
@@ -125,7 +132,7 @@ const Order = () => {
                             <HStack width="100%">
                                 <VStack width="100%" alignItems="start">
                                     <HStack>
-                                        <Image src={img1} width='4rem' height='4rem' fit="cover" />
+                                        <Image src={img1} width='4rem' height='4rem' fit="cover" draggable="false"/>
                                         <Text color="#333333" fontSize="md">Delivery Elasp: 20 minutes</Text>
                                     </HStack>
                                 </VStack>

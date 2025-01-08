@@ -73,14 +73,16 @@ const Card = ({ id, title, category, type, monthly, ingredients, description, pr
                 </Flex>
             </VStack>
             <VStack alignItems="start" width={{ base: "45vw", md: "100%" }}>
-                <Image width={{ base: "45vw", md: "100%" }} maxWidth="300px" maxHeight="300px" height={{ base: "45vw", md: "" }} borderRadius="xl" src={imageSrc} alt={title} fit="cover" onClick={handleNavigate} loading="lazy" 
+                <Image width={{ base: "45vw", md: "100%" }} maxWidth="300px" maxHeight="300px" height={{ base: "45vw", md: "" }} borderRadius="xl" src={imageSrc} alt={title} fit="cover" onClick={handleNavigate} loading="lazy" cursor="pointer"
                     transition="all 0.4s linear"
                     _hover={{
                         transform: "scale(1.04)", bg: "teal.600",
                     }}
                     _active={{
                         transform: "scale(1)",
-                    }}/>
+                    }}
+                    draggable="false"
+                    />
             </VStack>
         </HStack>
 

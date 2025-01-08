@@ -22,7 +22,6 @@ const CartItems = ({ id, title, category, type, monthly, ingredients, descriptio
     };
     const { modifyItems, items } = useScreenSize();
     const ingredientsNames = ingredients.map(item => item.name).join(', ');
-
     const findCountById = (items, id, addIngredients) => {
         const item = items.find((item) => item.id === id &&
             item.ingredients.length === addIngredients.length &&
@@ -70,10 +69,12 @@ const CartItems = ({ id, title, category, type, monthly, ingredients, descriptio
                     _hover={{ transform: "scale(1.04)", bg: "teal.600" }}
                     _active={{ transform: "scale(1)" }}
                     onClick={handleNavigate}
+                    draggable="false"
+                    cursor="pointer"
                 />
             </VStack>
             <VStack alignItems="start" width="39vw" gap={{ base: "0" }}>
-                <Heading size={{ base: "md", md: "lg" }} fontWeight="semibold" color="#333333" onClick={handleNavigate}>
+                <Heading size={{ base: "md", md: "lg" }} fontWeight="semibold" color="#333333" onClick={handleNavigate} cursor="pointer">
                     {title}
                 </Heading>
                 <Text color="#333333" fontSize={{ base: "md", md: "lg" }} noOfLines={3}>

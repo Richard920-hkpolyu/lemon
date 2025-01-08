@@ -9,7 +9,7 @@ const MenuSection = () => {
     //buttonElement.style.backgroundColor = "#495E57" ;
     //buttonElement.style.color = "#495E57" ;
     const [foodList, setFoodList] = useState(fooditems);
-    const [bool, setBool] = useState("all");
+    const [buttonSelect, setButtonSelect] = useState("All");
     const buttons = [
         { id: 1, type: "All" },
         { id: 2, type: "Main" },
@@ -20,24 +20,24 @@ const MenuSection = () => {
     const handleFilter = (type) => {
         let filterdList;
         if (type === "All") {
-          setBool("all");
+          setButtonSelect("All");
           filterdList = fooditems
               .sort((a, b) => a.id - b.id);
           setFoodList(fooditems);
         } else if (type === "Main") {
-            setBool("main");
+          setButtonSelect("Main");
             filterdList = fooditems
               .filter((item) => item.category === "main")
               .sort((a, b) => a.id - b.id);
             setFoodList(filterdList);
         } else if (type === "A La Carte") {
-          setBool("a la carte");
+          setButtonSelect("A La Carte");
           filterdList = fooditems
             .filter((item) => item.category === "a la carte")
             .sort((a, b) => a.id - b.id);
           setFoodList(filterdList);
         } else if (type === "Dessert") {
-          setBool("dessert");
+          setButtonSelect("Dessert");
           filterdList = fooditems
             .filter(
               (item) => item.category === "dessert"
@@ -45,7 +45,7 @@ const MenuSection = () => {
             .sort((a, b) => a.id - b.id);
           setFoodList(filterdList);
         }else {
-            setBool("drink");
+          setButtonSelect("Drink");
             filterdList = fooditems
               .filter((item) => item.category === "drink")
               .sort((a, b) => a.id - b.id);
@@ -74,6 +74,8 @@ const MenuSection = () => {
                           _hover={{ bg: "#495E57", color: "#EDEFEE" }}
                           onClick={() => handleFilter(item.type)}
                           boxShadow="0 4px 8px rgba(0, 0, 0, 0.2)"
+                          bg={buttonSelect === item.type ? "#495E57" : "#FFFFFF"}
+                          color={buttonSelect === item.type ? "#EDEFEE" : "#333333"}
                       >
                           {item.type}
                       </Button>
