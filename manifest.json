@@ -1,0 +1,23 @@
+{
+  "short_name": "Little Lemon",
+  "name": "Little Lemon Restaurant",
+  "description": "We are a family-owned Mediterranean restaurant, focused on traditional recipes served with a modern twist.",
+  "icons": [
+    {
+      "src": "images/little_lemon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "images/little_lemon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "lang": "en-US",
+  "author": "Richard NG",
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#333333",
+  "background_color": "#EDEFEE"
+}
