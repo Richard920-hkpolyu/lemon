@@ -52,7 +52,7 @@ const DeliveryAddress = () => {
                     <MenuList>
                         {deliveryInfo.map(info => (
                             <MenuItem key={info.id} id={info.id.toString()} onClick={() => handleSelectChange(info)} width="100%">
-                                <VStack alignItems="start" width="100%" _hover={{ bg: "#5B6E67", color: "#EDEFEE" }} borderRadius="lg" cursor="pointer" bg={addSelect === info.id ? "#5B6E67" : "#FFFFFF"} color={addSelect === info.id ? "#EDEFEE" : "#333333"} minHeight={{ base: "4rem", md: "3.5rem" }}>
+                                <VStack alignItems="start" width="100%" color="#333333" _hover={{ fontWeight:"semibold"  }} borderRadius="lg" cursor="pointer" fontWeight={addSelect === info.id ? "semibold" : ""} backgroundColor={addSelect === info.id ? "#EDEFEE" : "#FFFFFF"} minHeight={{ base: "4rem", md: "3.5rem" }}>
                                     <HStack width="100%">
                                         <FontAwesomeIcon icon={faLocationDot} />
                                         <Text fontSize={{ base: "sm", md: "md" }} align="start" noOfLines={2} width={{ base: "82vw" }} lineHeight={{ base: "shorter", md: "short" }}>

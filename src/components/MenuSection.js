@@ -59,7 +59,7 @@ const MenuSection = () => {
         alignItems="start"
         isDarkBackground
         backgroundColor="#FFFFFF"
-        py={{ base: 6, md: 12 }}
+        py={{ base: "0", md: "0" }}
         width={{ base: "96vw", md: "96vw" }}
         borderRadius="md"
         >

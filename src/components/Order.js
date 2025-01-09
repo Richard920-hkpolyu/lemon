@@ -93,7 +93,7 @@ const Order = () => {
     const renderDescription = () => (
         <>
             <Heading size={{ base: "md", md: "lg" }} fontWeight="semibold" color="#333333">{title}</Heading>
-            <Text color="#333333" fontSize={{ base: "md", md: "lg" }}>{description}</Text>
+            <Text color="#333333" fontSize={{ base: "md", md: "lg" }} fontStyle="italic">{description}</Text>
         </>
     );
 

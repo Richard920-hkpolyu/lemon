@@ -52,7 +52,7 @@ const Card = ({ id, title, category, type, monthly, ingredients, description, pr
         >
             <VStack alignItems="start" width={{ base: "50vw", md: "50vw" }}>
                 <Heading size={{ base: "md", md: "lg" }} fontWeight="semibold" color="#333333" onClick={handleNavigate} cursor="pointer">{title} {category === 'main' && <Badge variant="solid" colorScheme="yellow">main</Badge>}</Heading>
-                <Text color="#333333" fontSize={{ base: "md", md: "lg" }} lineHeight={{ base: "shorter", md: "short" }}noOfLines={3}>
+                <Text color="#333333" fontSize={{ base: "md", md: "lg" }} lineHeight={{ base: "shorter", md: "short" }}noOfLines={3} fontStyle="italic">
                     {description}
                 </Text>
                 <Flex justify="space-between" align="center" width="100%">
